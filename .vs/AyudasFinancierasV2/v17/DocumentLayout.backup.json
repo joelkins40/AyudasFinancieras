@@ -1,0 +1,271 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|c:\\users\\joel\\source\\repos\\ayudasfinancierasgit\\ayudasfinancierasv2\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\views\\becas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\views\\becas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\models\\services\\informacionservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\models\\services\\informacionservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\models\\entity\\renovacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\models\\entity\\renovacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\controllers\\formcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\controllers\\formcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\controllers\\becascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\controllers\\becascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\views\\form\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\views\\form\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\models\\services\\preguntasservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\models\\services\\preguntasservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\views\\home\\index4.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\views\\home\\index4.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\views\\form\\indexbk.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\views\\form\\indexbk.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\models\\services\\becasservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\models\\services\\becasservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\ayudasfinancierasv2\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{F9AD0B67-F908-40DB-8B75-38BFCCC56811}|AyudasFinancierasV2\\AyudasFinancierasV2.csproj|solutionrelative:ayudasfinancierasv2\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "AyudasFinancierasV2\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAIwCQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T17:49:20.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Becas\\Index.cshtml",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Views\\Becas\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Becas\\Index.cshtml",
+              "RelativeToolTip": "AyudasFinancierasV2\\Views\\Becas\\Index.cshtml",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAawBcDAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-05T15:56:33.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InformacionServices.cs",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Models\\Services\\InformacionServices.cs",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Models\\Services\\InformacionServices.cs",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Models\\Services\\InformacionServices.cs",
+              "RelativeToolTip": "AyudasFinancierasV2\\Models\\Services\\InformacionServices.cs",
+              "ViewState": "AgIAAEwCAAAAAAAAAAAYwGYCAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T21:53:08.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Renovacion.cs",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Models\\Entity\\Renovacion.cs",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Models\\Entity\\Renovacion.cs",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Models\\Entity\\Renovacion.cs",
+              "RelativeToolTip": "AyudasFinancierasV2\\Models\\Entity\\Renovacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T22:26:35.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "AyudasFinancierasV2\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABcBAAAAAAAAAAAgwBwBAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T18:40:56.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BecasController.cs",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Controllers\\BecasController.cs",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Controllers\\BecasController.cs",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Controllers\\BecasController.cs",
+              "RelativeToolTip": "AyudasFinancierasV2\\Controllers\\BecasController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAMwBsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T17:49:30.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormController.cs",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Controllers\\FormController.cs",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Controllers\\FormController.cs",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Controllers\\FormController.cs",
+              "RelativeToolTip": "AyudasFinancierasV2\\Controllers\\FormController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T17:34:45.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Form\\Index.cshtml",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Views\\Form\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Form\\Index.cshtml",
+              "RelativeToolTip": "AyudasFinancierasV2\\Views\\Form\\Index.cshtml",
+              "ViewState": "AgIAAD4FAAAAAAAAAAAawE4FAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-02T22:50:48.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PreguntasServices.cs",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Models\\Services\\PreguntasServices.cs",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Models\\Services\\PreguntasServices.cs",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Models\\Services\\PreguntasServices.cs",
+              "RelativeToolTip": "AyudasFinancierasV2\\Models\\Services\\PreguntasServices.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAuwFQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T16:07:12.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index4.cshtml",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Home\\Index4.cshtml",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Views\\Home\\Index4.cshtml",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Home\\Index4.cshtml",
+              "RelativeToolTip": "AyudasFinancierasV2\\Views\\Home\\Index4.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-16T22:31:51.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Indexbk.cshtml",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Form\\Indexbk.cshtml",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Views\\Form\\Indexbk.cshtml",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Form\\Indexbk.cshtml",
+              "RelativeToolTip": "AyudasFinancierasV2\\Views\\Form\\Indexbk.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T17:35:02.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "AyudasFinancierasV2\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAcwJEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-09T16:12:23.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BecasServices.cs",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Models\\Services\\BecasServices.cs",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Models\\Services\\BecasServices.cs",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Models\\Services\\BecasServices.cs",
+              "RelativeToolTip": "AyudasFinancierasV2\\Models\\Services\\BecasServices.cs",
+              "ViewState": "AgIAAAABAAAAAAAAAAArwAsBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T19:38:55.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Web.config",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Web.config",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Web.config",
+              "RelativeToolTip": "AyudasFinancierasV2\\Web.config",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAAABQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-04T17:21:40.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Web.config",
+              "RelativeDocumentMoniker": "AyudasFinancierasV2\\Views\\Web.config",
+              "ToolTip": "C:\\Users\\Joel\\source\\repos\\AyudasFinancierasGit\\AyudasFinancierasV2\\Views\\Web.config",
+              "RelativeToolTip": "AyudasFinancierasV2\\Views\\Web.config",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-10T17:27:56.029Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

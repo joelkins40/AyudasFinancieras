@@ -1,0 +1,1098 @@
+﻿@using AyudasFinancierasV2.Models.Entity
+@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    body {
+        font-family: "Montserrat", sans-serif !important;
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+
+    .final {
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    .solicitudes {
+        margin: 15px
+    }
+
+    .btn-yellow {
+        background-color: #fff500;
+        color: #333
+    }
+
+    .circle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 2px solid;
+        border-color: #8d7f70;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff200
+    }
+
+        .circle img {
+            width: 100%
+        }
+
+    .tableLessMargin {
+        margin: 40px
+    }
+
+    .accordion-item2 {
+        padding: 5px;
+        margin: 20px;
+    }
+
+    .accordion {
+        padding: 10px
+    }
+
+    .accordion-header {
+        background-color: #ebebeb;
+        width: 100%;
+        height: 35px;
+        border: none;
+        padding: 0.2rem 1rem;
+    }
+
+    .accordion-header-text {
+        color: white;
+        font-size: 20px;
+        font: bold;
+        padding: 10px;
+    }
+
+    .accordion-body-text {
+        background-color: white;
+    }
+
+    .tableItem {
+        margin: 10px;
+        color: #333
+    }
+
+    .table thead th {
+        border-color: lightgrey
+    }
+
+    .table thead th, td {
+        text-transform: none;
+    }
+
+    .table thead th {
+        font-size: 16px
+    }
+
+    .text-end {
+        margin-right: 25px;
+    }
+
+        .text-end a {
+            color: white
+        }
+
+    .iconos-black {
+        color: grey;
+        text-align: right;
+    }
+
+    .border-bottom-yellow {
+        border-bottom: solid 4px #fff500;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .iconos {
+        color: #fff500;
+        text-align: right
+    }
+
+    .item2 {
+        background-color: #333333;
+        border-radius: 25px;
+        color: #333
+    }
+
+    .col-md-12 h5, h6 {
+        font-family: "Montserrat", sans-serif !important;
+        font-optical-sizing: auto;
+        font-style: normal;
+        color: #333;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+    }
+
+    .col-md-12 p {
+        font-family: "Montserrat", sans-serif !important;
+        font-optical-sizing: auto;
+        font-style: normal;
+        color: #333
+    }
+
+    .success {
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        background-color: #fff500 !important
+    }
+
+    .col-sm-3 h6 {
+        font-size: 12px;
+        text-align: center
+    }
+
+    .col-sm-3 {
+        text-align: center
+    }
+
+    table.dataTable thead th, table.dataTable thead td {
+        border-bottom-width: 1px;
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+        letter-spacing: 0.5px;
+        border-color: #f3f3f3;
+    }
+
+    table.dataTable thead th, table.dataTable thead th {
+        border-bottom-width: 1px;
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+        letter-spacing: 0.5px;
+        border-color: #f3f3f3;
+    }
+
+    table.dataTable.no-footer {
+        border: none
+    }
+
+    .name {
+        color: #333;
+        padding-left: 30px
+    }
+
+    /* Estilos para los botones "Más" y detalles expandibles */
+    .btn-expandir {
+        background-color: #fff500 !important;
+        color: #333 !important;
+        border: none !important;
+        border-radius: 15px !important;
+        padding: 5px 15px !important;
+        font-size: 12px !important;
+        transition: all 0.3s ease;
+    }
+
+        .btn-expandir:hover {
+            background-color: #e6db00 !important;
+            color: #333 !important;
+            transform: translateY(-1px);
+        }
+
+    .detalle-renovacion {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+        .detalle-renovacion .row div {
+            margin-bottom: 10px;
+        }
+
+        .detalle-renovacion strong {
+            color: #495057;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+    .detalle-renovacion span {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* Estilos para el header del estudiante - versión simple */
+    .student-header {
+        margin: 20px 0;
+        padding: 0 20px;
+    }
+
+    .student-info-card {
+        background-color: #f8f9fa;
+        border-left: 4px solid #fff500;
+        padding: 15px 20px;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .student-icon-simple {
+        background-color: #fff500;
+        color: #333;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+
+    .student-icon-simple i {
+        font-size: 20px;
+    }
+
+    .student-content {
+        flex: 1;
+    }
+
+    .student-name {
+        color: #333;
+        font-family: "Montserrat", sans-serif !important;
+        font-weight: 600;
+        font-size: 24px;
+        margin: 0 0 5px 0;
+        letter-spacing: 0.3px;
+    }
+
+    .student-id {
+        color: #444;
+        font-family: "Montserrat", sans-serif !important;
+        font-weight: 500;
+        font-size: 16px;
+        margin: 0;
+        letter-spacing: 0.2px;
+    }
+</style>
+
+
+
+
+<div class="student-header">
+    <div class="student-info-card">
+        <div class="student-icon-simple">
+            <i class="fa fa-user"></i>
+        </div>
+        <div class="student-content">
+            <h2 class="student-name">@ViewBag.periodo.NOMBRE</h2>
+            <p class="student-id">@ViewBag.periodo.Alumno</p>
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item2">
+    <div class="accordion-header item2" style=" background-color: #333333; border-radius: 25px;" id="headingOne" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne" role="button">
+
+        <span class="accordion-header-icon"><i class="fa fa-check-circle iconos"></i></span>
+        <span class="accordion-header-text">Ayudas financieras activas - @ViewBag.periodo.NOMBRE</span>
+        <span class="accordion-header-indicator"></span>
+    </div>
+    <div id="collapseOne" class="collapse multi-collapse show">
+        <div class="accordion-body-text">
+            <div class="row">
+                <div class="col-mg-10">
+                    <div class="table-responsive">
+                        <table class="table table-borderless tableItem">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Ayudas financieras</th>
+                                    <th scope="col">Porcentaje</th>
+
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                                @if (ViewBag.activas == null || ViewBag.activas.Count == 0)
+                                {
+                                    <tr>
+                                        <td colspan="4" align="center">Sin Información</td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    foreach (var item in ViewBag.activas)
+                                    {
+                                        <tr>
+                                            <td>@item.descripcion</td>
+
+
+                                            <td>@item.porcentaje</td>
+
+
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-borderless tableItem">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Programa de talento becario</th>
+                                    <th scope="col"></th>
+                                    <th scope="col" class="text-center">Más información</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                                @if (ViewBag.Talento.Equals("Y"))
+                                {
+                                    <tr>
+
+                                        <td colspan="2">
+                                            Requerido
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a href="https://programatalentobecario.udem.edu.mx/" target="_blank" class="border-bottom-yellow">
+                                                <i class="fa fa-eye iconos-black" aria-hidden="true"></i>
+                                                Plataforma de talento becario
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+
+                                        <td colspan="2">
+                                            No requerido
+                                        </td>
+
+                                        <td class="text-center">
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@if (ViewBag.renovacion == null || ViewBag.renovacion.Count == 0)
+{
+   
+}
+else
+{
+    <div class="accordion-item2">
+        <div class="accordion-header item2" style=" background-color: #333333; border-radius: 25px;" id="headingTwo" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo" role="button">
+            <span class="accordion-header-icon"><i class="fa fa-refresh iconos" aria-hidden="true"></i></span>
+            <span class="accordion-header-text">Estatus de renovación</span>
+            <span class="accordion-header-indicator"></span>
+        </div>
+        <div id="collapseTwo" class="collapse multi-collapse show">
+            <div class="accordion-body-text">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="responsive-header">Renovaciones para @ViewBag.periodo.NOMBRE</h6>
+
+                        <br />
+                        <br />
+
+                        @{
+                            var renovacionList = ViewBag.renovacion as List<Renovacion>;
+                            var totalRenovaciones = renovacionList?.Count ?? 0;
+                            var currentIndex = 0;
+                        }
+                        @foreach (var renovacion in ViewBag.renovacion)
+                        {
+                            currentIndex++;
+                            <h6><i class="fa fa-graduation-cap iconos-black" aria-hidden="true"></i> @renovacion.DESCRIPCION</h6>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5><i class="fa fa-info-circle iconos-black" aria-hidden="true"></i> Estatus de renovación</h5>
+
+
+                                    <p>@renovacion.ESTATUS</p>
+
+
+
+
+                                </div>
+                                @if (ViewBag.Talento.Equals("Y"))
+                                {
+                                    if (renovacion.TALENTO != null)
+                                    {
+                                        if (renovacion.TALENTO.Equals("Y"))
+                                        {
+                                            <div class="col-md-4">
+                                                <h5> Talento becario</h5>
+                                                <p><i class="fa fa-check-circle iconos-black" aria-hidden="true"></i> Cumplió</p>
+                                            </div>
+                                        }
+                                        else if (renovacion.TALENTO.Equals("N"))
+                                        {
+
+
+                                            <div class="col-md-4">
+                                                <h5> Talento becario</h5>
+                                                <p><i class="fa fa-close iconos-black" aria-hidden="true"></i> No cumplió</p>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="col-md-4">
+                                            <h5> Talento becario</h5>
+                                            <p><i class="fa fa-hourglass iconos-black" aria-hidden="true"></i> Pendiente</p>
+                                        </div>
+                                    }
+
+                                }
+                                @if (renovacion.CONDICION_ANT.Equals("Y"))
+                                {
+                                    <div class="col-md-4">
+                                        <h5> Beca condicionada anteriormente</h5>
+                                        <p> Sí</p>
+                                    </div>
+
+                                }
+                            </div>
+                            <div class="row">
+                                @if (renovacion.PROMEDIO > 0)
+                                {
+                                    <div class="col-md-4">
+                                        <h5>Promedio del periodo</h5>
+                                        <p @(renovacion.PROMEDIO < renovacion.PROM_REQUERIDO ? "style=color:red" : "")>@renovacion.PROMEDIO.ToString("F2")</p>
+
+                                    </div>
+                                }
+                                @if (renovacion.PROMEDIO > 0)
+                                {
+
+
+                                    <div class="col-md-4">
+                                        <h5>Materias cursadas en el periodo</h5>
+                                        @if (renovacion.REPROBADAS > 0)
+                                        {
+
+                                            <p><i class="fa fa-warning warning" aria-hidden="true"></i> No aprobó todas las materias <br /> @renovacion.REPROBADAS materia(s) reprobada(s)</p>
+
+
+
+                                        }
+                                        else
+                                        {
+                                            <p><i class="fa fa-check-circle iconos-black success" aria-hidden="true"></i> Aprobó todas las materias</p>
+
+
+                                        }
+
+                                    </div>
+                                }
+                                <div class="col-md-4">
+                                    <h5>Periodos con beca</h5>
+                                    <p>@renovacion.PERIODOS_BECA </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Promedio requerido</h5>
+                                    <p>@renovacion.PROM_REQUERIDO.ToString("F2")</p>
+
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h5>Última actualización</h5>
+                                    <p>@renovacion.FECHA</p>
+
+                                </div>
+                            </div>
+
+                            if (currentIndex < totalRenovaciones)
+                            {
+                                <hr style="margin: 25px 0; border: none; height: 2px; background: linear-gradient(to right, transparent, #333333, transparent); border-radius: 50px;" />
+                            }
+
+                        }
+
+                    </div>
+                </div>
+              
+            </div>
+
+        </div>
+    </div>
+                            }
+
+
+    <div class="accordion-item2">
+        <div class="accordion-header item2" style=" background-color: #333333; border-radius: 25px;" id="headingSix" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-controls="collapseSix" role="button">
+            <span class="accordion-header-icon"><i class="fa fa-file-contract iconos" aria-hidden="true"></i></span>
+            <span class="accordion-header-text">
+                Documentos de ayudas financieras
+            </span>
+            <span class="accordion-header-indicator"></span>
+        </div>
+        <div id="collapseSix" class="collapse multi-collapse show">
+            <div class="accordion-body-text">
+                <div class="row">
+                    <div class="col-mg-10">
+                        <div class="table-responsive">
+                            <table class="table table-borderless tableItem">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Documento</th>
+
+                                        <th scope="col">Más información</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td class="justify-content">
+                                            Formato de Aceptación de Ayudas Financieras.
+                                        </td>
+                                        <td>
+                                            <a onclick="getFile('CARTA DE ACEPTACIÓN DE AF')" class="border-bottom-yellow">
+                                                <i class="fa fa-eye iconos-black" aria-hidden="true"></i>
+                                                Ver documento
+                                            </a>
+                                        </td>
+
+
+
+
+                                    </tr>
+                                    @if (ViewBag.condicionado)
+                                    {
+                                        <tr>
+                                            <td class="justify-content">
+                                                Formato de Condicionamiento de Ayudas Financieras
+                                            </td>
+                                            <td>
+                                                <a onclick="getFile('CARTA DE CONDICIONAMIENTO DE AYUDA FINANCIERA')" class="border-bottom-yellow">
+                                                    <i class="fa fa-eye iconos-black" aria-hidden="true"></i>
+                                                    Ver documento
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item2">
+        <div class="accordion-header item2" style=" background-color: #333333; border-radius: 25px;" id="headingHistorialRenovacion" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#collapseHistorialRenovacion" aria-controls="collapseHistorialRenovacion" role="button">
+            <span class="accordion-header-icon"><i class="fa fa-list iconos" aria-hidden="true"></i></span>
+            <span class="accordion-header-text">Historial de renovaciones</span>
+            <span class="accordion-header-indicator"></span>
+        </div>
+        <div id="collapseHistorialRenovacion" class="collapse multi-collapse">
+            <div class="accordion-body-text">
+                @if (ViewBag.historialrenovacion == null || ViewBag.historialrenovacion.Count == 0)
+                {
+                    <div class="text-center" style="padding: 40px 20px;">
+                        <i class="fa fa-info-circle iconos-black" style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true"></i>
+                        <h6>Sin historial de renovaciones disponible</h6>
+                        <p style="color: #666;">No hay información histórica de renovaciones para mostrar en este momento.</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table id="historialRenovaciones" class="table table-borderless tableItem">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Periodo</th>
+                                            <th scope="col">Tipo de Beca</th>
+                                            <th scope="col">Estatus</th>
+                                            <th scope="col">Promedio</th>
+                                            <th scope="col" class="text-center">Más información</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            var renovacionIndex = 0;
+                                        }
+                                        @foreach (var renovacion in ViewBag.historialrenovacion)
+                                        {
+                                            renovacionIndex++;
+                                            <tr style="font-size:14px">
+                                                <td>@renovacion.PERIODO</td>
+
+                                                <td>@renovacion.DESCRIPCION</td>
+                                                <td>
+                                                    @if (renovacion.ESTATUS != null)
+                                                    {
+                                                        if (renovacion.ESTATUS.ToLower().Contains("renovada") || renovacion.ESTATUS.ToLower().Contains("aprobada"))
+                                                        {
+                                                            <i style="color:lawngreen;" class="fa fa-check-circle" aria-hidden="true"></i>
+                                                        }
+                                                        else if (renovacion.ESTATUS.ToLower().Contains("denegada") || renovacion.ESTATUS.ToLower().Contains("cancelada"))
+                                                        {
+                                                            <i style="color:#d9534f;" class="fa fa-times-circle" aria-hidden="true"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="fa fa-clock iconos" aria-hidden="true"></i>
+                                                        }
+                                                        @renovacion.ESTATUS
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (renovacion.PROMEDIO > 0)
+                                                    {
+                                                        <span @(renovacion.PROMEDIO < renovacion.PROM_REQUERIDO ? "style=color:red" : "")>@renovacion.PROMEDIO.ToString("F2")</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>-</span>
+                                                    }
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" class="btn btn-sm" style="background-color: #fff500; color: #333; border: none; border-radius: 15px; padding: 8px 12px; font-size: 14px;"
+                                                            data-bs-toggle="collapse" data-bs-target="#detalleRenovacion@(renovacionIndex)" aria-expanded="false">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="p-0">
+                                                    <div class="collapse" id="detalleRenovacion@(renovacionIndex)">
+                                                        <div class="card card-body" style="background-color: #f8f9fa; border: none; margin: 10px;">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <strong>Promedio Requerido:</strong><br>
+                                                                    <span class="text-primary">@renovacion.PROM_REQUERIDO.ToString("F2")</span>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <strong>Materias Reprobadas:</strong><br>
+                                                                    @if (renovacion.REPROBADAS > 0)
+                                                                    {
+                                                                        <span style="color:red; font-weight: bold;">@renovacion.REPROBADAS</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span style="color:green; font-weight: bold;">0</span>
+                                                                    }
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <strong>Periodos con Beca:</strong><br>
+                                                                    <span>@renovacion.PERIODOS_BECA</span>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <strong>Fecha:</strong><br>
+                                                                    <span>@renovacion.FECHA</span>
+                                                                </div>
+                                                            </div>
+
+                                                            @if (ViewBag.Talento.Equals("Y"))
+                                                            {
+                                                                <div class="row mt-3">
+                                                                    <div class="col-md-12">
+                                                                        <strong>Talento Becario:</strong><br>
+                                                                        @if (renovacion.TALENTO != null)
+                                                                        {
+                                                                            if (renovacion.TALENTO.Equals("Y"))
+                                                                            {
+                                                                                <span style="color:green;"><i class="fa fa-check-circle" aria-hidden="true"></i> Cumplió</span>
+                                                                            }
+                                                                            else if (renovacion.TALENTO.Equals("N"))
+                                                                            {
+                                                                                <span style="color:red;"><i class="fa fa-times-circle" aria-hidden="true"></i> No cumplió</span>
+                                                                            }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <span style="color:#fff500;"><i class="fa fa-hourglass" aria-hidden="true"></i> Pendiente</span>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item2">
+        <div class="accordion-header item2" style=" background-color: #333333; border-radius: 25px;" id="headingFive" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-controls="collapseFive" role="button">
+            <span class="accordion-header-icon"><i class="fa fa-history iconos" aria-hidden="true"></i></span>
+            <span class="accordion-header-text">Historial de ayudas financieras otorgadas</span>
+            <span class="accordion-header-indicator"></span>
+        </div>
+        <div id="collapseFive" class="collapse multi-collapse">
+            <div class="accordion-body-text">
+                <div class="row">
+                    <div class="col-mg-10">
+                        <div class="table-responsive">
+                            <table id="lista2" class="table table-borderless tableItem">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Ayuda financiera</th>
+                                        <th scope="col"> Porcentaje</th>
+
+                                        <th scope="col">Periodo</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @if (ViewBag.historial == null || ViewBag.historial.Count == 0)
+                                    {
+                                        <tr>
+                                            <td colspan="3" align="center">Sin Información</td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        foreach (var historial in ViewBag.historial)
+                                        {
+                                            <tr>
+                                                <td class="justify-content">
+                                                    @historial.descripcion
+                                                </td>
+                                                <td>@historial.porcentaje</td>
+
+                                                <td>@historial.periodo</td>
+
+
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item2">
+        <div class="accordion-header item2" style=" background-color: #333333; border-radius: 25px;" id="headingThree" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree" role="button">
+            <span class="accordion-header-icon"><i class="fa fa-hourglass-1 iconos" aria-hidden="true"></i></span>
+            <span class="accordion-header-text">Estatus de solicitud</span>
+            <span class="accordion-header-indicator"></span>
+        </div>
+        <div id="collapseThree" class="collapse multi-collapse">
+            <div class="accordion-body-text">
+
+                <div class="row">
+                    <div class="table-responsive">
+
+                        <table class="table table-borderless tableItem">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tipo de solicitud</th>
+                                    <th scope="col">Periodo</th>
+                                    <th scope="col">Estatus</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Más información</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                                @if (ViewBag.solicitud == null || ViewBag.solicitud.Count == 0)
+                                {
+                                    <tr>
+                                        <td colspan="5" align="center">Sin Información</td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    foreach (var historial in ViewBag.solicitud)
+                                    {
+                                        <tr style="font-size:14px">
+                                            <td class="justify-content">
+                                                @historial.descripcion
+                                            </td>
+                                            <td>@historial.periodo</td>
+                                            <td>
+                                                <i style="color:@(historial.estatus.Equals("Completa")?"lawngreen":"#fff500") ; text-align: right" class="fa fa-circle" aria-hidden="true"></i>   @historial.estatus
+                                            </td>
+                                            <td>
+                                                @historial.fecha
+
+                                            </td>
+                                            <td class="text-center">
+                                                <a onclick="modalEstatus('@historial.descripcion','@historial.codigo','@historial.estatus')" class="border-bottom-yellow">
+                                                    <i class="fa fa-eye iconos-black" aria-hidden="true"></i>
+                                                    Estatus de documentos
+                                                </a>
+
+                                            </td>
+
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item2">
+        <div class="accordion-header item2" style=" background-color: #333333; border-radius: 25px;" id="headingFour" aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-controls="collapseFour" role="button">
+            <span class="accordion-header-icon"><i class="fa fa-history iconos" aria-hidden="true"></i></span>
+            <span class="accordion-header-text">Historial de solicitudes</span>
+            <span class="accordion-header-indicator"></span>
+        </div>
+        <div id="collapseFour" class="collapse accordion__body">
+            <div class="accordion-body-text">
+                <div class="row">
+                    <div class="col-mg-10">
+                        <div class="table-responsive">
+                            <table id="lista" class="table table-borderless tableItem">
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Tipo de solicitud</th>
+                                        <th scope="col">Periodo</th>
+                                        <th scope="col">Estatus</th>
+                                        <th scope="col">Fecha</th>
+
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+                                    @if (ViewBag.noactivas == null || ViewBag.noactivas.Count == 0)
+                                    {
+                                        <tr>
+                                            <td colspan="5" align="center">Sin Información</td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        foreach (var historial in ViewBag.noactivas)
+                                        {
+                                            <tr style="font-size:13px">
+                                                <td class="justify-content">
+                                                    @historial.descripcion
+                                                </td>
+                                                <td>@historial.periodo</td>
+                                                <td>
+                                                    <i style="color:@(historial.estatus.Equals("Completa")?"lawngreen":"#fff500") ; text-align: right" class="fa fa-circle" aria-hidden="true"></i>   @historial.estatus
+                                                </td>
+                                                <td>
+
+
+                                                    @historial.fecha
+
+                                                </td>
+
+
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="modal fade" id="ok" style="display: none;">
+        <div class="modal-dialog modal-xl">
+            <!-- Cambié modal-custom por modal-xl -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Estatus de documentos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <h5 id="beca">Beca impulso</h5>
+                        <table id="documentos" class="table table-borderless tableItem">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Documento</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Estatus</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Aquí se llenarán las filas dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="fake" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <!-- Cambié modal-custom por modal-xl -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Estatus de documentos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <h5 id="beca2">Beca impulso</h5>
+                        <br />
+                        <h6 id="beca4" class="center text-black">La documentación de la solicitud se envía al Grupo Veritas, cualquier duda favor de enviar un correo a info@veritas.com</h6>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+    function modalEstatus(name, code, estatus) {
+        if (estatus === 'Completa') {
+
+
+
+
+            if (code === 'BSA_APP_PRNA_VT' || code === 'BSA_APP_PRRE_VT' || code === 'BSA_APP_BANA_VT' || code === 'BSA_APP_BARE_VT') {
+                $('#beca2').text(name);  // Cambiar el nombre del modal
+
+                $('#fake').modal('show');
+            } else {
+
+
+
+
+                var mensaje = 'A';
+                $('#documentos tbody').empty();  // Limpiar las filas existentes
+
+                $('#beca').text(name);  // Cambiar el nombre del modal
+
+                // Realizar la solicitud AJAX
+                $.post("@Url.Action("getEstatus", "Home")", { item: '1' }, function (datas) {
+
+                    // Obtener la instancia de DataTables (que ya está inicializada)
+                    var table = $('#documentos').DataTable();
+                    table.clear();
+
+                    // Crear un array vacío para las nuevas filas
+                    var newRows = [];
+
+                    // Procesar los datos y agregarlos a un array
+                    $.each(datas, function (index, item) {
+                        var fila = [
+                            item.descripcion,
+                            item.estatus,
+                            getIconByDocumento(item.documento)
+                            // Llamamos a una función para obtener el ícono según el tipo de documento
+                        ];
+                        newRows.push(fila);  // Agregar la fila al array
+                    });
+
+                    // Agregar las nuevas filas a DataTables
+                    table.rows.add(newRows);  // Añadir las filas a la tabla
+
+                    // Redibujar la tabla para reflejar los cambios
+                    table.draw();  // Forzar el redibujado de la tabla
+
+                    // Mostrar el modal
+                    $('#ok').modal('show');
+                });
+            }
+
+        } else {
+            $('#beca2').text(name);  // Cambiar el nombre del modal
+            $('#beca4').text('Es necesario completar la solicitud, para poder visualizar esta sección');  // Cambiar el nombre del modal
+
+            $('#fake').modal('show');
+        }
+}
+
+// Función auxiliar para obtener el ícono de acuerdo al tipo de documento
+function getIconByDocumento(documento) {
+    if (documento === 'PS') {
+        return '<i style="color:#d9534f;" class="fa fa-exclamation-circle" aria-hidden="true"></i>';
+    } else if (documento === 'COMP' || documento === 'CM') {
+        return '<i style="color:#28a745;" class="fa fa-check-circle" aria-hidden="true"></i>';
+    } else if (documento === 'NR' || documento === 'PD') {
+        return '<i style="color:#fd7e14;" class="fa fa-clock" aria-hidden="true"></i>';
+    } else if (documento === 'IN' || documento === 'IV') {
+        return '<i style="color:#e83e8c;" class="fa fa-ban" aria-hidden="true"></i>';
+    } else {
+        return '<i style="color:#6c757d;" class="fa fa-question-circle" aria-hidden="true"></i>';
+    }
+    }
+
+    function getFile(clave) {
+        var width = 800; // Ancho de la ventana
+        var height = 600; // Altura de la ventana
+        var left = (screen.width / 2) - (width / 2); // Centrar horizontalmente
+        var top = (screen.height / 2) - (height / 2); // Centrar verticalmente
+        window.open('/Home/DisplayDocument/?documento=' + clave, '_blank', `top=${top},left=${left},width=${width},height=${height},toolbar=1,resizable=1`);
+    }
+
+    // Funcionalidad para los botones "Más" del historial de renovaciones
+    $(document).ready(function() {
+        // Escuchar eventos de colapso para cambiar el ícono del botón
+        $('[id^="detalleRenovacion"]').on('show.bs.collapse', function () {
+            var currentId = this.id;
+
+            // Cerrar todos los otros detalles de renovación antes de abrir el actual
+            $('[id^="detalleRenovacion"]').each(function() {
+                if (this.id !== currentId && $(this).hasClass('show')) {
+                    $(this).collapse('hide');
+                }
+            });
+
+            var button = $('[data-bs-target="#' + this.id + '"]');
+            button.find('i').removeClass('fa-plus').addClass('fa-minus');
+        });
+
+        $('[id^="detalleRenovacion"]').on('hide.bs.collapse', function () {
+            var button = $('[data-bs-target="#' + this.id + '"]');
+            button.find('i').removeClass('fa-minus').addClass('fa-plus');
+        });
+    });
+    </script>

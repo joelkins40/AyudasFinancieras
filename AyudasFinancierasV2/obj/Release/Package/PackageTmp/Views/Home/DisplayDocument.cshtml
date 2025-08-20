@@ -1,0 +1,61 @@
+﻿@model AyudasFinancierasV2.Models.Entity.Documento
+
+@{
+    ViewBag.Title = "SAF - Carga de Documentos";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/fonts/funtes.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/CargaDocumentos/fileDisplay.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .documento {
+            width: 100%;
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .documento object {
+                flex: 1;
+            }
+    </style>
+</head>
+<body class="bodydoc">
+    <div class="documento">
+        
+        @if (Model.fileInfo == null || string.IsNullOrEmpty(Model.fileInfo.FileType) || string.IsNullOrEmpty(Model.fileInfo.FileContent))
+        {
+            <h3 style="padding-top: 20%;margin-bottom: 20%;">
+                Por el momento no está disponible, puedes dirigirte a CIAA para consultarlo.
+            </h3>
+        }
+        else if (Model.fileInfo.FileType == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || Convert.ToSingle(Model.fileInfo.FileContentSize) > 1500)
+        {
+            <h3 style="padding-top: 20%;margin-bottom: 20%;">
+                "El archivo se encuentra subido exitosamente pero en este momento no es posible
+                su visualización, pero si lo deseas puedes descargarlo."
+            </h3>
+        }
+        else
+        {
+            <object data="data:@Model.fileInfo.FileType;base64,@Model.fileInfo.FileContent" type="@Model.fileInfo.FileType" style="width: 100%; height: 100%;"></object>
+        }
+        @if (Model.fileInfo != null && !string.IsNullOrEmpty(Model.fileInfo.FileType) && !string.IsNullOrEmpty(Model.fileInfo.FileContent))
+        {
+            <a class="btn btn-warning" href="data:@Model.fileInfo.FileType;base64,@Model.fileInfo.FileContent" download="@Model.fileInfo.FileName">Descargar (@Model.fileInfo.FileContentSize KB)</a>
+        }
+    </div>
+</body>
+</html>

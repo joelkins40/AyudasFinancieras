@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<style>
+    .list-Datos{
+        font-size: 11px
+    }
+    .btn-primaryYellow {
+        background-color: #f0dc24
+    }
+    tr{
+        padding: 100px
+    }
+
+    .final {
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    .solicitudes {
+        margin: 15px
+    }
+
+    .circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: yellow
+    }
+
+        .circle img {
+            height: 100px;
+        }
+
+    .tableLessMargin {
+        margin: 40px
+    }
+
+    .accordion-item {
+        border: 1px;
+        padding: 20px;
+        border-radius: 10px
+    }
+
+    .accordion-header {
+        background-color: #6874cc;
+        width: 100%;
+        height: 45px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding-bottom: 20px;
+        border: none;
+    }
+
+    .accordion-header-text {
+        color: white;
+        font-size: 20px;
+        font: bold;
+        padding: 30px
+    }
+
+    .accordion-body-text {
+        background-color: #e8eff1;
+        border-radius: 10px
+    }
+
+    .tableItem {
+        margin: 10px
+    }
+</style>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            
+            <div class="accordion-body-text">
+                <div class="row justify-content-around">
+
+                    <div class="col-12">
+                          <img src="~/Content/Img/carrera.png" alt="Alternate Text" />
+
+                    </div>    
+                    <div class="col-4">
+                        <h6 class="toast-title">Fundación Dr. Rodrigo F. Barragán Villarreal</h6>
+
+                   
+                            <div class="basic-list-group">
+                                <ul class="list-group list-group-flush">
+                                    
+                                    <li class="list-Datos">Promedio mínimo requerido:85</li>
+                                    <li class="list-Datos">Puntaje admisión:1,300 puntos</li>
+                                    <li class="list-Datos"">Tipo de beca:Beca de benefactor</li>
+                                    <li class="list-Datos"></li>
+                                    <li class="list-Datos"></li>
+                                </ul>
+                       
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <h7 class="toast-title">Trámite de pre- selección para aplicar a la beca</h7>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-Datos">Llenar la siguiente encuesta</li>
+                            <li class="list-Datos">  <button class=" btn btn-primaryYellow"> Completar solicitud <i style="color:black; text-align: right" class="fa fa-info-circle" aria-hidden="true"></i></button></li>
+
+                            <li class="list-Datos">Mandar un correo a:</li>
+                            <li class="list-Datos" ">ayudasfinancieras@udem.edu.mx</li>
+                          
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+    </div>
+   

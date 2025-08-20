@@ -1,0 +1,3121 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<style>
+    /* Asegurar codificación correcta de caracteres */
+    html {
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-feature-settings: "kern" 1;
+        -moz-font-feature-settings: "kern" 1;
+        -ms-font-feature-settings: "kern" 1;
+        font-feature-settings: "kern" 1;
+        font-kerning: normal;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        font-optical-sizing: auto;
+        font-style: normal;
+        color: #333;
+        line-height: 1.7;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        min-height: 100vh;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+
+    .btn-primaryYellow {
+        background-color: #fff500;
+        color: #333;
+        border: none;
+        font-weight: 500;
+        text-transform: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(255, 245, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-primaryYellow:hover {
+            color: #333;
+            background-color: #e6dd00;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 245, 0, 0.4);
+        }
+
+        .btn-primaryYellow:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(255, 245, 0, 0.3);
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        font-weight: 500;
+        text-transform: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(108, 117, 125, 0.2);
+        }
+
+    .btn {
+        border-radius: 12px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn:hover {
+            background-color: #fff500;
+            color: #333;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 245, 0, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:focus {
+            box-shadow: 0 0 0 3px rgba(255, 245, 0, 0.3);
+        }
+
+    .card-body {
+        margin: 20px;
+    }
+
+    .popover-header {
+        background-color: #333;
+    }
+
+    /* Estilos mejorados para inputs y formularios */
+    .form-control,
+    .form-select {
+        border: 2px solid #e9ecef;
+        border-radius: 12px;
+        padding: 14px 16px;
+        font-size: 0.95rem;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        color: #495057;
+        line-height: 1.5;
+    }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #fff500;
+            box-shadow: 0 0 0 3px rgba(255, 245, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
+            background-color: #fffef8;
+            outline: none;
+            transform: translateY(-1px);
+        }
+
+        .form-control:hover:not(:focus),
+        .form-select:hover:not(:focus) {
+            border-color: #dee2e6;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-control::placeholder {
+            color: #adb5bd;
+            font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+
+    .form-label {
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
+    }
+
+    /* Textarea específico */
+    .form-control[rows] {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    /* Form groups */
+    .mb-3,
+    .mb-4 {
+        position: relative;
+    }
+
+    /* Input group improvements */
+    .input-group .form-control {
+        border-radius: 0 12px 12px 0;
+    }
+
+    .input-group .input-group-text {
+        border: 2px solid #e9ecef;
+        border-right: none;
+        border-radius: 12px 0 0 12px;
+        background-color: #f8f9fa;
+        color: #6c757d;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .input-group:focus-within .input-group-text {
+        border-color: #fff500;
+        background-color: #fffef8;
+    }
+
+    /* Checkboxes y radios mejorados */
+    .form-check-input {
+        width: 1.2em;
+        height: 1.2em;
+        border: 2px solid #333;
+        border-radius: 6px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+
+        .form-check-input:focus {
+            border-color: #333;
+            box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+
+        .form-check-input:checked {
+            background-color: #333;
+            border-color: #333;
+            box-shadow: 0 2px 8px rgba(51, 51, 51, 0.3);
+        }
+
+        .form-check-input:hover:not(:checked) {
+            border-color: #555;
+            transform: scale(1.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+    .form-check-label {
+        font-weight: 400;
+        color: #495057;
+        cursor: pointer;
+        margin-left: 8px;
+        line-height: 1.6;
+    }
+
+    /* Radio buttons específicos */
+    .form-check-input[type="radio"] {
+        border-radius: 50%;
+    }
+
+    /* Select mejorado */
+    .form-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23495057' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px 12px;
+        cursor: pointer;
+    }
+
+        .form-select:focus {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+        }
+
+    .btn-left {
+        border-color: #333;
+        background-color: white;
+        color: #333;
+    }
+
+        .btn-left .fa {
+            color: #333
+        }
+
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+        color: #333;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        line-height: 1.3;
+        margin-bottom: 1.2rem;
+    }
+
+    h1, .h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #333 0%, #555 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    h2, .h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #333;
+        border-bottom: 3px solid #fff500;
+        padding-bottom: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    h3, .h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #495057;
+    }
+
+    h4, .h4 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #495057;
+    }
+
+    p {
+        line-height: 1.7;
+        color: #6c757d;
+        margin-bottom: 1rem;
+    }
+
+    /* Asegurar tipografía consistente en navegación */
+    .nav-wizard li .nav-link span {
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+
+    /* Asegurar que botones tengan tipografía consistente */
+    .btn, button, input[type="button"], input[type="submit"] {
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+
+    /* Modal headers y contenido */
+    .modal-header, .modal-body, .modal-footer {
+    }
+
+    .iconos {
+        color: #fff500;
+    }
+
+    .iconos-black {
+        color: #333
+    }
+
+    .rounded-1-5 {
+        border-radius: 0.725rem !important;
+    }
+
+    .input-radio-lg {
+        transform: scale(1.2);
+        margin-right: 3rem;
+        vertical-align: middle;
+        accent-color: #333;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid #333 !important;
+        background-color: #ffffff !important;
+    }
+
+        .input-radio-lg:hover {
+            transform: scale(1.3);
+            border-color: #555 !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .input-radio-lg:checked {
+            background-color: #333 !important;
+            border-color: #333 !important;
+            box-shadow: 0 2px 8px rgba(51, 51, 51, 0.3);
+        }
+
+        .input-radio-lg:focus {
+            border-color: #333 !important;
+            box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.15);
+            outline: none;
+        }
+
+    /* Card improvements */
+    .card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        position: relative;
+    }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #fff500 0%, #e6dd00 100%);
+            z-index: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+    .card-body {
+        margin: 20px;
+        padding: 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .h4-letter-spacing {
+        letter-spacing: 0.04em; /* Ajusta el valor según lo que necesites */
+    }
+
+    .separator-icon {
+        font-size: 1.8em;
+        opacity: 1;
+        color: #fff500 !important;
+    }
+
+    .nav-wizard li {
+        display: flex !important;
+        align-items: center;
+        position: relative;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+        .nav-wizard li:last-child .separator-icon {
+            display: none;
+        }
+
+        .nav-wizard li .nav-link {
+            display: flex !important;
+            align-items: center;
+            flex-wrap: nowrap;
+            text-decoration: none;
+            padding: 15px 20px;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: color 0.2s ease, transform 0.2s ease;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+            .nav-wizard li .nav-link:hover {
+                text-decoration: none;
+            }
+
+            .nav-wizard li .nav-link i {
+                font-size: 2em;
+                width: 60px;
+                height: 60px;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: background 0.2s ease, transform 0.2s ease;
+                margin-right: 15px;
+                background: rgba(51, 51, 51, 0.1);
+                color: #333;
+                border: 3px solid #333;
+                flex-shrink: 0;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .nav-wizard li .nav-link:hover i {
+                background: rgba(255, 245, 0, 0.2);
+                transform: scale(1.05);
+            }
+
+            .nav-wizard li .nav-link span {
+                font-size: 1.1em;
+                font-weight: 500;
+                color: #999;
+                transition: color 0.2s ease;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .nav-wizard li .nav-link:hover span {
+                color: #333;
+            }
+    /* Estados activo y completado simplificados */
+    .form-wizard .nav-wizard li .nav-link.active i {
+        background: linear-gradient(135deg, #fff500 0%, #e6dd00 100%) !important;
+        color: #333 !important;
+        border-color: #fff500 !important;
+        box-shadow: 0 4px 12px rgba(255,245,0,0.3);
+        transform: scale(1.03);
+    }
+
+    .form-wizard .nav-wizard li .nav-link.active span {
+        color: #333 !important;
+        font-weight: 600;
+    }
+
+    .form-wizard .nav-wizard li .nav-link.done i {
+        background: linear-gradient(135deg, #fff500 0%, #e6dd00 100%) !important;
+        color: #333 !important;
+        border-color: #fff500 !important;
+        box-shadow: 0 4px 12px rgba(255,245,0,0.3);
+        transform: scale(1.03);
+    }
+
+    .form-wizard .nav-wizard li .nav-link.done span {
+        color: #333 !important;
+        font-weight: 600;
+    }
+    /* Override SmartWizard default styles */
+    .form-wizard .nav-wizard li {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        background: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        animation: none !important;
+        display: flex !important;
+    }
+
+        .form-wizard .nav-wizard li .nav-link span {
+            background: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            line-height: normal !important;
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            color: inherit !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .form-wizard .nav-wizard li .nav-link {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: flex !important;
+        }
+
+            .form-wizard .nav-wizard li .nav-link i {
+                opacity: 1 !important;
+                visibility: visible !important;
+                display: flex !important;
+            }
+
+            .form-wizard .nav-wizard li .nav-link:after {
+                display: none !important;
+            }
+            /* Final override to ensure navigation is always visible */
+            .sw-theme-default .nav.nav-tabs .nav-link,
+            .sw-theme-default .nav.nav-tabs .nav-link.active,
+            .sw-theme-default .nav.nav-tabs .nav-link.done,
+            .form-wizard .nav-wizard,
+            .form-wizard .nav-wizard li,
+            .form-wizard .nav-wizard li .nav-link,
+            .form-wizard .nav-wizard li .nav-link i,
+            .form-wizard .nav-wizard li .nav-link span {
+                opacity: 1 !important;
+                visibility: visible !important;
+                display: flex !important;
+            }
+
+                .form-wizard .nav-wizard li .nav-link span {
+                    display: inline !important;
+                }
+
+    .form-wizard .nav-wizard {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 25px;
+        margin: 0;
+        border: none;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.8) 100%);
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        position: relative;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    }
+
+    /* Animación suave para las transiciones de pasos */
+    .tab-content {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tab-pane {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+        .tab-pane.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    /* Loading effect para botones */
+    .btn.loading {
+        position: relative;
+        color: transparent !important;
+        pointer-events: none;
+    }
+
+        .btn.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            margin-left: -10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid #333;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Efecto de focus visible mejorado */
+    .btn:focus-visible,
+    .form-control:focus-visible,
+    .form-select:focus-visible,
+    .form-check-input:focus-visible {
+        outline: 2px solid #fff500;
+        outline-offset: 2px;
+    }
+
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Mejoras para elementos disabled */
+    .btn:disabled,
+    .form-control:disabled,
+    .form-select:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none !important;
+    }
+
+    /* Alert mejorado */
+    .alert {
+        border: none;
+        border-radius: 12px;
+        padding: 16px 20px;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+    }
+
+    .alert-warning {
+        background: linear-gradient(135deg, rgba(255, 245, 0, 0.15) 0%, rgba(255, 193, 7, 0.1) 100%);
+        border-left: 4px solid #fff500;
+        color: #856404;
+    }
+
+    .alert-success {
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(25, 135, 84, 0.05) 100%);
+        border-left: 4px solid #198754;
+        color: #0f5132;
+    }
+
+    .alert-danger {
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(214, 51, 132, 0.05) 100%);
+        border-left: 4px solid #dc3545;
+        color: #721c24;
+    }
+
+    /* Ocultar completamente los botones por defecto del SmartWizard */
+    .sw-toolbar,
+    .sw-btn-next,
+    .sw-btn-prev,
+    .sw-toolbar-top,
+    .sw-toolbar-bottom {
+        display: none !important;
+    }
+
+    @@media (max-width: 768px) {
+        .nav-wizard li .nav-link span {
+            display: none !important;
+        }
+
+        .separator-icon {
+            display: none !important;
+        }
+
+        .nav-wizard li .nav-link i {
+            margin-right: 0 !important;
+            font-size: 1.6em;
+            width: 45px;
+            height: 45px;
+            border-width: 2px;
+        }
+
+        .form-wizard .nav-wizard {
+            justify-content: space-evenly;
+            padding: 18px 15px;
+        }
+
+        .card-body {
+            margin: 10px;
+            padding: 1.5rem;
+        }
+
+        .card {
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        .h2 {
+            font-size: 1.5rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .h1 {
+            font-size: 2rem !important;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            font-size: 0.95rem;
+        }
+
+        .form-control,
+        .form-select {
+            font-size: 16px; /* Evita zoom en iOS */
+            padding: 14px 16px;
+        }
+
+        .input-radio-lg {
+            margin-right: 1.5rem;
+            transform: scale(1.1);
+        }
+
+        .ms-3 {
+            margin-left: 1rem !important;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+        }
+    }
+
+    @@media (max-width: 576px) {
+        body {
+            font-size: 14px;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .card {
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+            .card::before {
+                height: 3px;
+            }
+
+        .card-body {
+            margin: 5px;
+            padding: 1rem;
+        }
+
+        .form-wizard .nav-wizard {
+            padding: 12px 8px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-wizard li {
+            flex-shrink: 0;
+            min-width: 60px;
+        }
+
+            .nav-wizard li .nav-link i {
+                width: 40px;
+                height: 40px;
+                font-size: 1.4em;
+                border-width: 2px;
+            }
+
+        .h1 {
+            font-size: 1.75rem !important;
+        }
+
+        .h2 {
+            font-size: 1.25rem !important;
+            margin-bottom: 0.75rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+
+        .h4-letter-spacing {
+            font-size: 1.1rem !important;
+        }
+
+        .btn {
+            padding: 16px 24px;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+        /* Botones de navegación en móvil */
+        .row.justify-content-center .col-auto {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+            .row.justify-content-center .col-auto .btn {
+                width: 100%;
+            }
+
+        .form-check-inline {
+            display: block !important;
+            margin-bottom: 15px;
+        }
+
+        .form-control,
+        .form-select {
+            padding: 16px;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .input-radio-lg {
+            transform: scale(1.0);
+            margin-right: 1rem;
+        }
+        /* Mejoras para tab-content en móvil */
+        .tab-pane {
+            padding: 0.5rem 0;
+        }
+
+        .alert {
+            padding: 12px 16px;
+            font-size: 0.85rem;
+        }
+    }
+
+    /* Media queries para pantallas medianas y grandes */
+    @@media (min-width: 992px) {
+        .card-body {
+            padding: 3rem;
+        }
+
+        .form-wizard .nav-wizard {
+            padding: 30px;
+        }
+
+        .nav-wizard li .nav-link i {
+            width: 70px;
+            height: 70px;
+            font-size: 2.2em;
+        }
+
+        .h1 {
+            font-size: 3rem !important;
+        }
+
+        .h2 {
+            font-size: 2.25rem !important;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            font-size: 1rem;
+        }
+
+        .form-control,
+        .form-select {
+            padding: 16px 20px;
+            font-size: 1rem;
+        }
+    }
+
+    @@media (min-width: 1200px) {
+        .container-fluid {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card-body {
+            padding: 3.5rem;
+        }
+
+        .form-wizard .nav-wizard {
+            padding: 35px;
+        }
+
+        .nav-wizard li .nav-link {
+            padding: 20px 25px;
+        }
+    }
+
+    /* Animaciones para entrada de elementos */
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .card {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Removed animation from nav-wizard li to ensure immediate visibility */
+    .nav-wizard li {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        animation: none; /* Evita conflictos con animaciones de focus */
+    }
+
+    /* Continuación de media queries existentes */
+
+    @@media (min-width: 576px) and (max-width: 768px) {
+        .form-wizard .nav-wizard {
+            padding: 18px;
+        }
+
+        .nav-wizard li .nav-link i {
+            width: 48px;
+            height: 48px;
+            font-size: 1.5em;
+            border-width: 2px;
+        }
+
+        .card-body {
+            margin: 12px;
+            padding: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+        }
+    }
+
+    @@media (min-width: 769px) and (max-width: 1024px) {
+        .form-wizard .nav-wizard {
+            padding: 18px;
+        }
+
+        .nav-wizard li .nav-link {
+            padding: 12px 16px;
+        }
+
+            .nav-wizard li .nav-link i {
+                width: 52px;
+                height: 52px;
+                font-size: 1.7em;
+                border-width: 2px;
+            }
+
+        .separator-icon {
+            font-size: 1.5em;
+        }
+
+        .card-body {
+            margin: 15px;
+        }
+    }
+
+    @@media (min-width: 1200px) {
+        .form-wizard .nav-wizard {
+            justify-content: center;
+            gap: 2rem;
+            padding: 25px;
+        }
+
+        .container-fluid {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    }
+
+    /* Mejoras generales de responsividad */
+    @@media (max-width: 991px) {
+        .col-lg-6 {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .col-lg-12 {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .form-check-inline {
+            display: block !important;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .ms-3 {
+            margin-left: 0.75rem !important;
+        }
+
+        .ms-5 {
+            margin-left: 1rem !important;
+        }
+    }
+
+    /* Mejoras para formularios en todos los tamaños */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .default-select, .form-select {
+        min-height: 44px;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .form-control {
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    /* Botones con mejor accesibilidad táctil */
+    .btn {
+        min-height: 44px;
+        touch-action: manipulation;
+        transition: all 0.15s ease-in-out;
+        border: none;
+        font-weight: normal;
+        text-transform: none;
+    }
+
+    /* Radio buttons y checkboxes más grandes para móvil */
+    .form-check-input {
+        margin-top: 0.25em;
+        margin-right: 0.75rem;
+    }
+
+    .form-check-label {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    /* Mejor espaciado en contenedores de formularios */
+    .tab-pane .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .tab-pane .col-12 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    @@media (min-width: 768px) {
+        .tab-pane .col-12 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+
+    /* Custom styling for info tooltips */
+    .info-tooltip-wrapper {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 8px;
+        padding: 2px 6px;
+        border-radius: 12px;
+        background-color: rgba(228, 148, 83, 0.1);
+        transition: all 0.2s ease;
+    }
+
+    .info-tooltip-wrapper:hover {
+        background-color: rgba(228, 148, 83, 0.2);
+        transform: translateY(-1px);
+    }
+
+    .info-tooltip-wrapper .text-custom-orange {
+        color: #e49453 !important;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    /* ========== MEJORAS RESPONSIVAS PARA NAV-WIZARD ========== */
+    
+    /* Diseño vertical para móviles */
+    @@media (max-width: 767px) {
+        .form-wizard .nav-wizard {
+            flex-direction: column !important;
+            padding: 15px 10px !important;
+            gap: 8px;
+        }
+
+        .nav-wizard li {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            justify-content: flex-start !important;
+        }
+
+        .nav-wizard li .nav-link {
+            width: 100% !important;
+            padding: 12px 15px !important;
+            font-size: 0.95rem !important;
+            border-radius: 12px !important;
+            background: rgba(255, 255, 255, 0.8) !important;
+            border: 2px solid #e9ecef !important;
+            margin-bottom: 8px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-wizard li .nav-link:hover {
+            background: rgba(255, 245, 0, 0.1) !important;
+            border-color: #fff500 !important;
+            transform: translateX(5px) !important;
+        }
+
+        .nav-wizard li .nav-link i {
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 1.3rem !important;
+            margin-right: 12px !important;
+            border-width: 2px !important;
+            flex-shrink: 0 !important;
+        }
+
+        .nav-wizard li .nav-link span {
+            font-size: 0.9rem !important;
+            line-height: 1.3 !important;
+            text-align: left !important;
+        }
+
+        /* Ocultar separadores en móvil */
+        .separator-icon {
+            display: none !important;
+        }
+
+        /* Estados activo y completado para móvil */
+        .form-wizard .nav-wizard li .nav-link.active {
+            background: linear-gradient(135deg, rgba(255, 245, 0, 0.2) 0%, rgba(230, 221, 0, 0.2) 100%) !important;
+            border-color: #fff500 !important;
+            box-shadow: 0 4px 12px rgba(255, 245, 0, 0.2) !important;
+        }
+
+        .form-wizard .nav-wizard li .nav-link.done {
+            background: linear-gradient(135deg, rgba(255, 245, 0, 0.15) 0%, rgba(230, 221, 0, 0.15) 100%) !important;
+            border-color: #d4d4aa !important;
+        }
+    }
+
+    /* Diseño compacto para tablets */
+    @@media (min-width: 768px) and (max-width: 991px) {
+        .form-wizard .nav-wizard {
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            padding: 20px 15px !important;
+        }
+
+        .nav-wizard li {
+            flex: 0 1 calc(50% - 10px) !important;
+            max-width: calc(50% - 10px) !important;
+            margin: 5px !important;
+        }
+
+        .nav-wizard li .nav-link {
+            padding: 12px 15px !important;
+            font-size: 0.95rem !important;
+            border-radius: 10px !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid #dee2e6 !important;
+            text-align: center !important;
+            justify-content: center !important;
+        }
+
+        .nav-wizard li .nav-link i {
+            width: 45px !important;
+            height: 45px !important;
+            font-size: 1.4rem !important;
+            margin-right: 10px !important;
+        }
+
+        .nav-wizard li .nav-link span {
+            font-size: 0.9rem !important;
+            line-height: 1.2 !important;
+        }
+
+        /* Ocultar separadores en tablet */
+        .separator-icon {
+            display: none !important;
+        }
+    }
+
+    /* Mejoras para pantallas muy pequeñas (menos de 480px) */
+    @@media (max-width: 479px) {
+        .form-wizard .nav-wizard {
+            padding: 10px 5px !important;
+        }
+
+        .nav-wizard li .nav-link {
+            padding: 10px 12px !important;
+            font-size: 0.85rem !important;
+            margin-bottom: 6px !important;
+        }
+
+        .nav-wizard li .nav-link i {
+            width: 35px !important;
+            height: 35px !important;
+            font-size: 1.1rem !important;
+            margin-right: 10px !important;
+        }
+
+        .nav-wizard li .nav-link span {
+            font-size: 0.85rem !important;
+            line-height: 1.2 !important;
+        }
+    }
+
+    /* Animaciones suaves para las transiciones */
+    @@media (max-width: 991px) {
+        .nav-wizard li .nav-link {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .nav-wizard li .nav-link:active {
+            transform: scale(0.98) !important;
+        }
+    }
+
+    /* Mejoras de accesibilidad táctil */
+    @@media (hover: none) and (pointer: coarse) {
+        .nav-wizard li .nav-link {
+            min-height: 44px !important; /* Tamaño mínimo recomendado para touch */
+            padding: 12px 15px !important;
+        }
+
+        .nav-wizard li .nav-link:hover {
+            transform: none !important; /* Remover hover effects en dispositivos táctiles */
+        }
+
+        .nav-wizard li .nav-link:active {
+            background: rgba(255, 245, 0, 0.2) !important;
+            transform: scale(0.98) !important;
+        }
+    }
+
+    /* Estilo para inputs de solo lectura/visualización */
+    .solo-visible {
+        background-color: #f8f9fa !important;
+        border-color: #dee2e6 !important;
+        color: #6c757d !important;
+        cursor: not-allowed !important;
+        opacity: 0.65 !important;
+        pointer-events: none !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+    }
+
+    .solo-visible:focus {
+        background-color: #f8f9fa !important;
+        border-color: #dee2e6 !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    .solo-visible::placeholder {
+        color: #adb5bd !important;
+    }
+
+    /* Deshabilitar clics en la navegación del wizard */
+    .nav-wizard li a {
+        pointer-events: none !important;
+        cursor: default !important;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .nav-wizard li a:hover {
+        text-decoration: none !important;
+    }
+
+    /* Estilos mejorados para el paso activo del wizard */
+    .nav-wizard li.active a {
+        background-color: transparent !important;
+        color: #333 !important;
+        font-weight: bold !important;
+        border-radius: 0 !important;
+        padding: 8px 12px !important;
+        box-shadow: none !important;
+        position: relative;
+        border: none !important;
+    }
+
+    /* Línea indicadora para el paso activo */
+    .nav-wizard li.active a::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: #333 !important;
+        border-radius: 2px;
+    }
+
+    .nav-wizard li.active a i {
+        color: #333 !important;
+        background: linear-gradient(135deg, #fff500 0%, #e6dd00 100%) !important;
+        border-color: #fff500 !important;
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(255, 245, 0, 0.3);
+    }
+
+    .nav-wizard li.active a span {
+        color: #333 !important;
+        font-weight: 700 !important;
+    }
+
+    /* Estilos mejorados para pasos completados */
+    .nav-wizard li.completed a {
+        background-color: transparent !important;
+        color: #6c757d !important;
+        border-radius: 0 !important;
+        padding: 8px 12px !important;
+        border: none !important;
+        position: relative;
+        opacity: 0.8;
+    }
+
+    .nav-wizard li.completed a i {
+        color: white !important;
+        background: #6c757d !important;
+        border-color: #6c757d !important;
+        transform: scale(0.95);
+    }
+
+    .nav-wizard li.completed a span {
+        color: #6c757d !important;
+        font-weight: 500 !important;
+    }
+
+    /* Agregar un pequeño check mark para pasos completados */
+    .nav-wizard li.completed a::after {
+        content: '✓';
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        background-color: #6c757d;
+        color: white;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(108, 117, 125, 0.3);
+    }
+    
+    /* Estilos para pasos no completados (por defecto) */
+    .nav-wizard li:not(.active):not(.completed) a {
+        background-color: transparent !important;
+        color: #6c757d !important;
+        border: none !important;
+        opacity: 0.6;
+        padding: 8px 12px !important;
+    }
+    
+    .nav-wizard li:not(.active):not(.completed) a i {
+        color: #6c757d !important;
+        background: rgba(108, 117, 125, 0.1) !important;
+        border-color: #dee2e6 !important;
+        transform: scale(0.9);
+    }
+    
+    .nav-wizard li:not(.active):not(.completed) a span {
+        color: #6c757d !important;
+        font-weight: 400 !important;
+    }
+
+    /* Hover effects */
+    .nav-wizard li:not(.active) a:hover {
+        opacity: 1 !important;
+    }
+
+    .nav-wizard li:not(.active) a:hover i {
+        transform: scale(1.02) !important;
+        background: rgba(255, 245, 0, 0.1) !important;
+        border-color: #fff500 !important;
+    }
+
+    .nav-wizard li:not(.active) a:hover span {
+        color: #333 !important;
+    }
+    
+    /* Estilos para validación */
+    .form-error {
+        border: 2px solid #e74c3c !important;
+        background-color: #fdf2f2 !important;
+    }
+    
+    /* Estilos especiales para radio buttons con error */
+    input[type="radio"].form-error {
+        outline: 2px solid #e74c3c !important;
+        outline-offset: 2px;
+    }
+    
+    /* Resaltar el label de radio buttons con error */
+    input[type="radio"].form-error + label,
+    input[type="radio"].form-error ~ label {
+        color: #e74c3c !important;
+        font-weight: bold;
+    }
+    
+    .validation-error-message {
+        color: #e74c3c;
+        font-size: 0.875rem;
+        margin-top: 8px;
+        display: block;
+        font-weight: bold;
+    }
+    
+    /* Espaciado específico para mensajes de error después de Bootstrap Select */
+    .dropdown.bootstrap-select + .validation-error-message {
+        margin-top: 5px;
+    }
+    
+    /* Quitar bordes del contenedor Bootstrap Select */
+    .dropdown.bootstrap-select.form-control {
+        border: none !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    
+    /* Quitar bordes cuando el select interno tiene error */
+    .dropdown.bootstrap-select.form-control:has(select.form-error),
+    .dropdown.bootstrap-select.form-control select.form-error ~ * {
+        border: none !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    
+    /* Asegurar que solo el botón dropdown tenga el estilo correcto */
+    .dropdown.bootstrap-select .dropdown-toggle {
+        border: 2px solid #e9ecef !important;
+        background-color: #ffffff !important;
+        border-radius: 12px !important;
+        padding: 14px 16px !important;
+    }
+    
+    /* Estilo del botón cuando el select tiene error */
+    .dropdown.bootstrap-select:has(select.form-error) .dropdown-toggle {
+        border: 2px solid #e74c3c !important;
+        background-color: #fdf2f2 !important;
+    }
+    
+    .validation-summary {
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        display: none;
+    }
+</style>
+<div class="container-fluid">
+    <div class="d-flex align-items-stretch" style="background-color:#333; min-height: 100px;">
+        
+        <!-- Contenido central con logos institucionales -->
+        <div class="flex-grow-1 d-flex align-items-center justify-content-between pe-4">
+            <!-- Logo UDEM -->
+            <div class="d-flex align-items-center">
+                <img class="img-fluid" 
+                     style="height: 100%; max-height: 100px; width: auto; object-fit: contain;" 
+                     src="https://www.udem.edu.mx/sites/default/files/udem-logotipo-principal.png" 
+                     alt="Logo UDEM" 
+                     onerror="this.style.display='none'" />
+                <div class="text-white d-none d-lg-block ms-3">
+                    <h6 class="mb-0 fw-bold">Universidad de Monterrey</h6>
+                    <small class="opacity-75">Sistema de Ayudas Financieras</small>
+                </div>
+            </div>
+            
+            <!-- Información adicional del lado derecho -->
+            <div class="text-white text-end d-none d-md-block">
+                <small class="opacity-75">Portal de Becas</small>
+                <br>
+                <small class="opacity-50">2025</small>
+            </div>
+        </div>
+    </div>
+    <!-- row -->
+    <div class="row g-0">
+        <div class="col-12">
+            <div class="card border-0" style="height:auto">
+
+                <div class="card-body p-3 p-md-4">
+                    <div id="smartwizard" class="form-wizard order-create">
+                        <ul class="nav nav-wizard yellow">
+                            <li>
+                                <a class="nav-link d-flex align-items-center" href="#datos1" onclick="return false;">
+                                    <i class="fas fa-user iconos me-2" aria-hidden="true"></i>
+                                    <span>Información General</span>
+                                </a>
+                                <i class="fa fa-chevron-right ms-3 separator-icon d-none d-md-inline" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <a class="nav-link d-flex align-items-center" href="#datos2" onclick="return false;">
+                                    <i class="fas fa-book iconos me-2" aria-hidden="true"></i>
+                                    <span>Información Académica</span>
+                                </a>
+                                <i class="fa fa-chevron-right ms-3 separator-icon d-none d-md-inline" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <a class="nav-link d-flex align-items-center" href="#datos3" onclick="return false;">
+                                    <i class="fas fa-university iconos me-2" aria-hidden="true"></i>
+                                    <span>Información Formativa</span>
+                                </a>
+                                <i class="fa fa-chevron-right ms-3 separator-icon d-none d-md-inline" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <a class="nav-link d-flex align-items-center" href="#datos4" onclick="return false;">
+                                    <i class="fas fa-dollar-sign iconos me-2" aria-hidden="true"></i>
+                                    <span>Información Económica</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="datos1" class="tab-pane" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="h2 mb-3 mb-md-4 pb-2 pb-md-3 fw-bold text-black ms-2 ms-md-3">Información General</h1>
+                                        <div class="validation-summary">
+                                            <strong>Por favor complete todos los campos requeridos antes de continuar.</strong>
+                                        </div>
+                                    </div>
+
+                                    @foreach (var item1 in ViewBag.preguntas)
+                                    {
+                                        if (item1.categoria.Equals("1"))
+                                        {
+
+
+                                            <div class="col-lg-12 mb-2">
+                                                <div class="form-group">
+                                                    @if (item1.posicion.Contains("."))
+                                                    {
+                                                        <div class="ms-3">
+                                                            <span class="@(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                                @item1.posicion. @item1.pregunta
+                                                                @if (!item1.comentario.Equals(""))
+                                                                {
+                                                                    <i class="fa fa-info-circle iconos"
+                                                                       data-bs-toggle="tooltip"
+                                                                       data-bs-placement="top"
+                                                                       title="@item1.comentario"
+                                                                       style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h4 class="h4-letter-spacing">
+                                                            @item1.posicion.
+                                                            <span class="ms-3">@item1.pregunta</span>
+                                                            @if (!item1.comentario.Equals(""))
+                                                            {
+                                                                <span class="info-tooltip-wrapper"
+                                                                   data-bs-toggle="tooltip"
+                                                                   data-bs-placement="top"
+                                                                   title="@item1.comentario"
+                                                                   style="cursor:pointer;"><i class="fas fa-question-circle text-custom-orange me-1" style="font-size: 1.1em;"></i><small class="text-custom-orange fw-bold">Conoce más</small></span>
+                                                            }
+                                                        </h4>
+                                                    }
+
+                                                    <div class="mb-3">
+                                                        @if (item1.tipo.Equals("RD"))
+                                                        {
+
+                                                            foreach (var opt in item1.opciones)
+                                                            {
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
+                                                                        @opt.descripcion
+                                                                    </label>
+                                                                </div>
+
+
+                                                            }
+
+
+                                                            if (item1.otro.Equals("SI"))
+                                                            {
+                                                                <div class="form-check form-check-inline ms-3 disabled">
+                                                                    <input type="text" name="firstName" class="form-control solo-visible" placeholder="Nacionalidad" readonly required>
+
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                        @if (item1.tipo.Equals("CB"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
+                                                                            <option>Seleccionar opción</option>
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(item1.respuesta != null && item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
+
+                                                                            }
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("CBM"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
+
+                                                                            @{
+                                                                                var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
+                                                                            }
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("TX"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="form-control form-control-lg rounded-1-5 solo-visible" placeholder="" value="@item1.respuesta" readonly required>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("SN"))
+                                                        {
+                                                            <div class="form-check form-check-inline ms-3">
+                                                                <label class="form-check-label">
+                                                                    <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline ms-3">
+                                                                <label class="form-check-label">
+                                                                    <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="NO" @(item1.respuesta != null && item1.respuesta.Equals("NO") ? "checked" : "") onchange="ocultarDiv(@item1.categoria@item1.posicion)">NO
+                                                                </label>
+                                                            </div>
+                                                        }
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+
+
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-square btn-primaryYellow px-4" onclick="validateAndNext(0)">
+                                                Siguiente <i class="fa fa-arrow-circle-right iconos-black"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="datos2" class="tab-pane" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="h2 mb-3 mb-md-4 pb-2 pb-md-3 fw-bold text-black ms-2 ms-md-3">Información Académica</h1>
+                                        <div class="validation-summary">
+                                            <strong>Por favor complete todos los campos requeridos antes de continuar.</strong>
+                                        </div>
+                                    </div>
+                                    @foreach (var item1 in ViewBag.preguntas)
+                                    {
+                                        if (item1.categoria.Equals("2"))
+                                        {
+
+
+                                            <div class="col-lg-12 mb-2">
+                                                <div class="form-group">
+                                                    @if (item1.posicion.Contains("."))
+                                                    {
+                                                        <div class="ms-3">
+                                                            <span class="@(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                                @item1.posicion. @item1.pregunta
+                                                                @if (!item1.comentario.Equals(""))
+                                                                {
+                                                                    <span class="info-tooltip-wrapper"
+                                                                       data-bs-toggle="tooltip"
+                                                                       data-bs-placement="top"
+                                                                       title="@item1.comentario"
+                                                                       style="cursor:pointer;"><i class="fas fa-question-circle text-custom-orange me-1" style="font-size: 1.1em;"></i><small class="text-custom-orange fw-bold">Conoce más</small></span>
+
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h4 class="h4-letter-spacing">
+                                                            @item1.posicion.
+                                                            <span class="ms-3">@item1.pregunta</span>
+                                                            @if (!item1.comentario.Equals(""))
+                                                            {
+                                                                <span class="info-tooltip-wrapper"
+                                                                   data-bs-toggle="tooltip"
+                                                                   data-bs-placement="top"
+                                                                   title="@item1.comentario"
+                                                                   style="cursor:pointer;"><i class="fas fa-question-circle text-custom-orange me-1" style="font-size: 1.1em;"></i><small class="text-custom-orange fw-bold">Conoce más</small></span>
+                                                            }
+                                                        </h4>
+                                                    }
+
+                                                    <div class="mb-3">
+                                                        @if (item1.tipo.Equals("RD"))
+                                                        {
+
+                                                            foreach (var opt in item1.opciones)
+                                                            {
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
+                                                                        @opt.descripcion
+                                                                    </label>
+                                                                </div>
+
+
+
+                                                            }
+
+
+                                                            if (item1.otro.Equals("SI"))
+                                                            {
+                                                                <div class="form-check form-check-inline ms-3 disabled">
+                                                                    <input type="text" name="firstName" class="form-control solo-visible" placeholder="Nacionalidad" readonly required>
+
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                        @if (item1.tipo.Equals("CB"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
+                                                                            <option>Seleccionar opción</option>
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(item1.respuesta != null && item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
+
+                                                                            }
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("CBM"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
+
+                                                                            @{
+                                                                                var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
+                                                                            }
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("TX"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="form-control form-control-lg rounded-1-5 solo-visible" placeholder="" value="@item1.respuesta" readonly required>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("SN"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                <label class="form-check-label">
+                                                                    <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="NO" @(item1.respuesta != null && item1.respuesta.Equals("NO") ? "checked" : "") onchange="ocultarDiv(@item1.categoria@item1.posicion)">NO
+                                                                </label>
+                                                            </div>
+                                                            </div>
+                                                        }
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+
+
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-square btn-primaryYellow px-4 me-2" onclick="goToPrevious(1)">
+                                                <i class="fa fa-arrow-circle-left iconos-black" style="font-size: 1rem"></i> Anterior
+                                            </button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-square btn-primaryYellow px-4" onclick="validateAndNext(1)">
+                                                Siguiente <i class="fa fa-arrow-circle-right iconos-black"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="datos3" class="tab-pane" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="h2 mb-3 mb-md-4 pb-2 pb-md-3 fw-bold text-black ms-2 ms-md-3">Información Formativa</h1>
+                                        <div class="validation-summary">
+                                            <strong>Por favor complete todos los campos requeridos antes de continuar.</strong>
+                                        </div>
+                                    </div>
+                                    @foreach (var item1 in ViewBag.preguntas)
+                                    {
+                                        if (item1.categoria.Equals("3"))
+                                        {
+
+
+                                            <div class="col-lg-12 mb-2">
+                                                <div class="form-group">
+                                                    @if (item1.posicion.Contains("."))
+                                                    {
+                                                        <div class="ms-3">
+                                                            <span class="@(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                                @item1.posicion. @item1.pregunta
+                                                                @if (!item1.comentario.Equals(""))
+                                                                {
+                                                                    <span class="info-tooltip-wrapper"
+                                                                       data-bs-toggle="tooltip"
+                                                                       data-bs-placement="top"
+                                                                       title="@item1.comentario"
+                                                                       style="cursor:pointer;"><i class="fas fa-question-circle text-custom-orange me-1" style="font-size: 1.1em;"></i><small class="text-custom-orange fw-bold">Conoce más</small></span>
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h4 class="h4-letter-spacing">
+                                                            @item1.posicion.
+                                                            <span class="ms-3">@item1.pregunta</span>
+                                                            @if (!item1.comentario.Equals(""))
+                                                            {
+                                                                <span class="info-tooltip-wrapper"
+                                                                   data-bs-toggle="tooltip"
+                                                                   data-bs-placement="top"
+                                                                   title="@item1.comentario"
+                                                                   style="cursor:pointer;"><i class="fas fa-question-circle text-custom-orange me-1" style="font-size: 1.1em;"></i><small class="text-custom-orange fw-bold">Conoce más</small></span>
+                                                            }
+                                                        </h4>
+                                                    }
+
+                                                    <div class="mb-3">
+                                                        @if (item1.tipo.Equals("RD"))
+                                                        {
+
+                                                            foreach (var opt in item1.opciones)
+                                                            {
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
+                                                                        @opt.descripcion
+                                                                    </label>
+                                                                </div>
+
+
+
+                                                            }
+
+
+                                                            if (item1.otro.Equals("SI"))
+                                                            {
+                                                                <div class="form-check form-check-inline ms-3 disabled">
+                                                                    <input type="text" name="firstName" class="form-control solo-visible" placeholder="Nacionalidad" readonly required>
+
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                        @if (item1.tipo.Equals("CB"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
+                                                                            <option>Seleccionar opción</option>
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(item1.respuesta != null && item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
+
+                                                                            }
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("CBM"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
+
+                                                                            @{
+                                                                                var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
+                                                                            }
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("TX"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="form-control form-control-lg rounded-1-5 solo-visible" placeholder="" value="@item1.respuesta" readonly required>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("SN"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="NO" @(item1.respuesta != null && item1.respuesta.Equals("NO") ? "checked" : "") onchange="ocultarDiv(@item1.categoria@item1.posicion)">NO
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        }
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+
+
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-square btn-primaryYellow px-4 me-2" onclick="goToPrevious(2)">
+                                                <i class="fa fa-arrow-circle-left iconos-black" style="font-size: 1rem"></i> Anterior
+                                            </button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-square btn-primaryYellow px-4" onclick="validateAndNext(2)">
+                                                Siguiente <i class="fa fa-arrow-circle-right iconos-black"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div id="datos4" class="tab-pane" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="h2 mb-3 mb-md-4 pb-2 pb-md-3 fw-bold text-black ms-2 ms-md-3">Información Económica</h1>
+                                        <div class="validation-summary">
+                                            <strong>Por favor complete todos los campos requeridos antes de continuar.</strong>
+                                        </div>
+                                    </div>
+                                    @foreach (var item1 in ViewBag.preguntas)
+                                    {
+                                        if (item1.categoria.Equals("4"))
+                                        {
+
+
+                                            <div class="col-lg-12 mb-2">
+                                                <div class="form-group">
+                                                    @if (item1.posicion.Contains("."))
+                                                    {
+
+                                                        <div class="ms-3">
+                                                            <span class="@(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                                @item1.posicion. @item1.pregunta
+                                                                @if (!item1.comentario.Equals(""))
+                                                                {
+                                                                    <span class="info-tooltip-wrapper"
+                                                                       data-bs-toggle="tooltip"
+                                                                       data-bs-placement="top"
+                                                                       title="@item1.comentario"
+                                                                       style="cursor:pointer;"><i class="fas fa-question-circle text-custom-orange me-1" style="font-size: 1.1em;"></i><small class="text-custom-orange fw-bold">Conoce más</small></span>
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h4 class="h4-letter-spacing">
+                                                            @item1.posicion.
+                                                            <span class="ms-3">@item1.pregunta</span>
+                                                            @if (!item1.comentario.Equals(""))
+                                                            {
+                                                                <span class="info-tooltip-wrapper"
+                                                                   data-bs-toggle="tooltip"
+                                                                   data-bs-placement="top"
+                                                                   title="@item1.comentario"
+                                                                   style="cursor:pointer;"><i class="fas fa-question-circle text-custom-orange me-1" style="font-size: 1.1em;"></i><small class="text-custom-orange fw-bold">Conoce más</small></span>
+                                                            }
+                                                        </h4>
+                                                    }
+
+                                                    <div class="mb-3">
+                                                        @if (item1.tipo.Equals("RD"))
+                                                        {
+
+                                                            foreach (var opt in item1.opciones)
+                                                            {
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                                                                                       <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
+                                                                        @opt.descripcion
+                                                                    </label>
+                                                                </div>
+
+
+
+                                                            }
+
+
+                                                            if (item1.otro.Equals("SI"))
+                                                            {
+                                                                <div class="form-check form-check-inline ms-3 disabled">
+                                                                    <input type="text" name="firstName" class="form-control solo-visible" placeholder="Nacionalidad" readonly required>
+
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                        @if (item1.tipo.Equals("CB"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
+                                                                            <option>Seleccionar opción</option>
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
+
+                                                                            }
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("CBM"))
+                                                        {
+                                                            <div class="col-12 col-md-6 mb-3 @(item1.oculta.Equals("") ? "ms-1" : "ms-md-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control form-select wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
+                                                                            @{
+                                                                                var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
+                                                                            }
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("TX"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="form-control form-control-lg rounded-1-5 solo-visible" placeholder="" value="@item1.respuesta" readonly required>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("SN"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="NO" @(item1.respuesta != null && item1.respuesta.Equals("NO") ? "checked" : "") onchange="ocultarDiv(@item1.categoria@item1.posicion)">NO
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        }
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-square btn-primaryYellow px-4 me-2" onclick="goToPrevious(3)">
+                                                <i class="fa fa-arrow-circle-left iconos-black" style="font-size: 1rem"></i> Anterior
+                                            </button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn btn-primaryYellow px-4" data-bs-toggle="modal" data-bs-target="#save">
+                                                Enviar respuestas
+                                                <i class="fa fa-send iconos-black" aria-hidden="true"></i>
+                                                <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display:none; margin-left: 5px;"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="save" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">¿Guardar respuestas?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3">¿Estás seguro de que deseas guardar estos datos? Al hacerlo, se almacenarán de manera segura para futuras consultas. Confirma para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primaryYellow" onclick="guardarEvaluacion()" data-bs-dismiss="modal">Guardar información</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="ok" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Guardado con éxito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3">¡Listo! Tus datos han sido guardados correctamente. Si necesitas hacer algún cambio, puedes editarlos en cualquier momento. ¡Que tengas un excelente día!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primaryYellow w-100" data-bs-dismiss="modal" onclick="redireccionar()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loadingSpinner" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.9); z-index:9999; text-align:center;">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-center">
+            <div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+            <p class="mt-3 fw-bold">Cargando...</p>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        // Initialize SmartWizard
+        $('#smartwizard').smartWizard({
+            selected: 0, // Start with first step
+            theme: 'default',
+            transition: {
+                animation: 'slide-horizontal'
+            },
+            toolbarSettings: {
+                toolbarPosition: 'none', // Ocultar la barra de herramientas completamente
+                showNextButton: false,
+                showPreviousButton: false
+            },
+            anchorSettings: {
+                enableAllAnchors: true,
+                markDoneStep: true,
+                markAllPreviousStepsAsDone: true,
+                removeDoneStepOnNavigateBack: false,
+                enableAnchorOnDoneStep: true
+            }
+        });
+
+        // Configurar listeners de cambio en campos para validación inmediata
+        setupFieldChangeListeners();
+        
+        // Inicializar el estado del wizard
+        updateWizardStepClasses(0);
+        
+        // Detectar cambios en el wizard y actualizar clases
+        $('#smartwizard').on("showStep", function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
+            updateWizardStepClasses(stepIndex);
+        });
+
+        // Handle navigation button clicks
+        $('a[href="#datos1"], a[href="#datos2"], a[href="#datos3"], a[href="#datos4"]').on('click', function(e) {
+            e.preventDefault();
+            var targetStep = $(this).attr('href').replace('#datos', '');
+            var stepIndex = parseInt(targetStep) - 1;
+            $('#smartwizard').smartWizard("goToStep", stepIndex);
+        });
+
+        // Handle custom navigation buttons
+        $('.btn[href="#datos1"], .btn[href="#datos2"], .btn[href="#datos3"], .btn[href="#datos4"]').on('click', function(e) {
+            e.preventDefault();
+            var targetStep = $(this).attr('href').replace('#datos', '');
+            var stepIndex = parseInt(targetStep) - 1;
+            $('#smartwizard').smartWizard("goToStep", stepIndex);
+        });
+    });
+    
+    // Función para actualizar las clases active y completed de los pasos del wizard
+    function updateWizardStepClasses(currentStepIndex) {
+        // Obtener todos los elementos li del nav-wizard
+        var $navItems = $('#smartwizard .nav-wizard li');
+        
+        $navItems.each(function(index) {
+            var $li = $(this);
+            var $link = $li.find('a.nav-link');
+            
+            // Limpiar todas las clases de estado
+            $li.removeClass('active completed');
+            $link.removeClass('active done');
+            
+            if (index < currentStepIndex) {
+                // Pasos anteriores al actual son "completed"
+                $li.addClass('completed');
+                $link.addClass('done');
+            } else if (index === currentStepIndex) {
+                // El paso actual es "active"
+                $li.addClass('active');
+                $link.addClass('active');
+            }
+            // Los pasos posteriores no tienen clases especiales
+        });
+    }
+
+    function mostrarDiv(id) {
+        id = String(id); // Asegurarse de que id sea una cadena
+
+        id = id.replace('.', ''); // Eliminar el punto del id si existe
+
+        var iteme = $('.V' + id);
+        iteme.removeAttr('hidden');
+        // Buscar el radio button con value="SI" dentro del div identificado por iteme
+        var radioButton = iteme.find('input[type="radio"][value="SI"]');
+        if (radioButton.length) {
+            radioButton.prop('checked', true); // Seleccionar el radio button con value "SI"
+            radioButton.trigger('change'); // Lanzar el evento change
+
+        }
+
+        var smart = $('#smartwizard');
+        smart.find('.tab-content').css('height', 'auto');
+        
+        // Verificar la completitud del paso después de mostrar el div
+        setTimeout(function() {
+            checkCurrentStepCompletion();
+        }, 100);
+    }
+
+    function ocultarDiv(id) {
+        id = String(id); // Asegurarse de que id sea una cadena
+
+        id = id.replace('.', ''); // Eliminar el punto del id si existe
+
+        var iteme = $('.V' + id);
+        iteme.attr('hidden', true);
+
+        // Buscar el radio button con value="NO" dentro del div identificado por iteme
+        var radioButton = iteme.find('input[type="radio"][value="NO"]');
+        if (radioButton.length) {
+            radioButton.prop('checked', true); // Seleccionar el radio button con value "NO"
+            radioButton.trigger('change'); // Lanzar el evento change
+
+        }
+
+        var smart = $('#smartwizard');
+        smart.smartWizard('resetHeight');
+        
+        // Limpiar errores de campos que ahora están ocultos y verificar completitud
+        setTimeout(function() {
+            clearErrorsFromHiddenFields();
+            checkCurrentStepCompletion();
+        }, 100);
+    }
+
+       $(document).ready(function() {
+        @foreach (var item1 in ViewBag.preguntas)
+        {
+            if (item1.tipo.Equals("SN"))
+            {
+                if (item1.respuesta != null && item1.respuesta.Equals("SI"))
+                    {
+                        @:mostrarDiv(@item1.categoria@item1.posicion);
+                    }
+                    else if (item1.respuesta != null && item1.respuesta.Equals("NO"))
+                    {
+                        @:ocultarDiv(@item1.categoria@item1.posicion);
+                    }
+            }
+        }
+    });
+    function guardarEvaluacion() {
+        $('#spinner').show();
+        var lista = [];
+        for (var i = 1; i <= 500; i++) {
+            var ite = $('input:radio[name=SN' + i + ']:checked').val();
+
+
+            if (ite != undefined) {
+                lista.push({
+                    'id': i,
+                    'respuesta': ite
+                });
+            } else {
+                var ite2 = $('input:radio[name=RD' + i + ']:checked').val();
+                if (ite2 != undefined) {
+                    lista.push({
+                        'id': i,
+                        'respuesta': ite2
+                    });
+
+                } else {
+                    var ite3 = $('#TX' + i).val();
+                    if (ite3 != undefined) {
+                       
+                        lista.push({
+                            'id': i,
+                            'respuesta': ite3
+                        });
+
+                    } else {
+                        var ite4 = $('#CB' + i).val();
+                        if (ite4 != undefined) {
+                            lista.push({
+                                'id': i,
+                                'respuesta': ite4
+
+                            });
+
+                        } else {
+                            var ite5 = $('#CBM' + i).val();
+                            if (ite5 != undefined) {
+                                if (ite5.length === 0 || (ite5.length === 1 && ite5[0] === "0")) {
+                                    lista.push({
+                                        'id': i,
+                                        'respuesta': "NA"
+                                    });
+                                } else {
+                                    lista.push({
+                                        'id': i,
+                                        'respuesta': ite5.join(',')
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+
+        var mensaje = JSON.stringify(
+            {
+                'pidm': '0013246',
+                'nivel': '202010',
+                'respuestas': lista
+            });
+
+
+        $.ajax({
+            url: '/Form/guardarEvaluacion',
+            type: "post",
+            contentType: "application/json",
+            dataType: "json",
+            traditional: true,
+            data: mensaje,
+            success: function (results) {
+                // Ocultar el spinner
+                $('#spinner').hide();
+                $('#ok').modal('show');
+            },
+            error: function () {
+                // Ocultar el spinner en caso de error
+                $('#spinner').hide();
+                alert('Error al guardar la evaluación.');
+            }
+        })
+    }
+    function redireccionar() {
+        // Mostrar el spinner
+    $('#loadingSpinner').show();
+
+    // Redireccionar después de un breve retraso para asegurar que el spinner se muestre
+    setTimeout(function() {
+        window.location.href = '/Becas/Index';
+    }, 500); // Puedes ajustar el retraso según sea necesario
+    }
+
+    // Función para detectar y marcar el li activo basado en la URL
+    function setActiveStepFromURL() {
+        var hash = window.location.hash;
+        var stepIndex = 0;
+        
+        // Mapear hash a índice del paso
+        switch(hash) {
+            case '#datos1':
+                stepIndex = 0;
+                break;
+            case '#datos2':
+                stepIndex = 1;
+                break;
+            case '#datos3':
+                stepIndex = 2;
+                break;
+            case '#datos4':
+                stepIndex = 3;
+                break;
+            default:
+                stepIndex = 0; // Por defecto el primer paso
+        }
+        
+        // Actualizar el estado visual
+        updateWizardStateFromURL(stepIndex);
+    }
+    
+    // Función para actualizar el estado visual basado en la URL
+    function updateWizardStateFromURL(currentStep) {
+        $('.nav-wizard li').removeClass('active completed');
+        
+        // Marcar pasos completados y activo
+        $('.nav-wizard li').each(function(index) {
+            if (index < currentStep) {
+                $(this).addClass('completed');
+            } else if (index === currentStep) {
+                $(this).addClass('active');
+            }
+        });
+    }
+    
+    // Escuchar cambios en el hash de la URL
+    $(window).on('hashchange', function() {
+        setActiveStepFromURL();
+    });
+    
+    // Ejecutar al cargar la página
+    $(document).ready(function() {
+        setActiveStepFromURL();
+        
+        // Configurar listeners para limpiar errores automáticamente
+        setupFieldChangeListeners();
+        
+        // Detectar clics en botones de navegación y actualizar estado
+        $('button[onclick*="smartWizard(\'next\')"]').on('click', function() {
+            setTimeout(function() {
+                updateActiveStepFromCurrentTab();
+            }, 100); // Pequeño delay para que SmartWizard complete el cambio
+        });
+        
+        $('button[onclick*="smartWizard(\'prev\')"]').on('click', function() {
+            setTimeout(function() {
+                updateActiveStepFromCurrentTab();
+            }, 100); // Pequeño delay para que SmartWizard complete el cambio
+        });
+        
+        // También detectar eventos del SmartWizard directamente
+        $('#smartwizard').on('showStep', function(e, anchorObject, stepIndex, stepDirection) {
+            updateWizardStateFromURL(stepIndex);
+        });
+    });
+    
+    // Función para actualizar el estado basado en la pestaña actualmente visible
+    function updateActiveStepFromCurrentTab() {
+        var activeTabIndex = 0;
+        
+        // Buscar cuál tab-pane está activo/visible
+        $('#smartwizard .tab-pane').each(function(index) {
+            if ($(this).hasClass('active') || $(this).is(':visible')) {
+                activeTabIndex = index;
+                return false; // break del each
+            }
+        });
+        
+        // Actualizar el estado visual
+        updateWizardStateFromURL(activeTabIndex);
+        
+        // También actualizar la URL para mantener consistencia
+        var newHash = '#datos' + (activeTabIndex + 1);
+        if (window.location.hash !== newHash) {
+            history.replaceState(null, null, newHash);
+        }
+    }
+    
+    // Función para validar y avanzar al siguiente paso
+    function validateAndNext(currentStepIndex) {
+        // Limpiar errores previos
+        clearValidationErrors();
+        
+        // Validar el paso actual
+        if (validateCurrentStep(currentStepIndex)) {
+            // Si la validación es exitosa, proceder al siguiente paso
+            $('#smartwizard').smartWizard('next');
+            // Actualizar las clases del wizard después de navegar
+            setTimeout(function() {
+                updateWizardStepClasses(currentStepIndex + 1);
+            }, 100);
+        } else {
+            // Si hay errores, mostrar mensaje de resumen
+            showValidationSummary();
+        }
+    }
+    
+    // Función para limpiar errores de validación
+    function clearValidationErrors() {
+        $('.form-error').removeClass('form-error');
+        $('.validation-error-message').remove();
+        $('.validation-summary').hide();
+        
+        // Limpiar estilos de radio buttons con error
+        $('input[type="radio"]').each(function() {
+            $(this).removeClass('form-error');
+        });
+        
+        // Restaurar color de labels de radio buttons
+        $('input[type="radio"] + label, input[type="radio"] ~ label').css({
+            'color': '',
+            'font-weight': ''
+        });
+    }
+    
+    // Función para limpiar errores de un campo específico
+    function clearFieldErrors($field) {
+        $field.removeClass('form-error');
+        $field.siblings('.validation-error-message').remove();
+        
+        // Para selects de Bootstrap Select, también limpiar mensajes después del contenedor dropdown
+        if ($field.hasClass('default-select') || $field.hasClass('form-select')) {
+            var $dropdownContainer = $field.closest('.dropdown.bootstrap-select');
+            if ($dropdownContainer.length > 0) {
+                $dropdownContainer.siblings('.validation-error-message').remove();
+                
+                // Restaurar estilos normales del contenedor
+                $dropdownContainer.css({
+                    'border': 'none',
+                    'background-color': 'transparent',
+                    'box-shadow': 'none',
+                    'outline': 'none'
+                });
+                
+                // Restaurar estilos normales del botón dropdown
+                var $dropdownToggle = $dropdownContainer.find('.dropdown-toggle');
+                if ($dropdownToggle.length > 0) {
+                    $dropdownToggle.css({
+                        'border': '2px solid #e9ecef',
+                        'background-color': '#ffffff'
+                    });
+                }
+            }
+        }
+        
+        // Si es un radio button, limpiar todo el grupo
+        if ($field.attr('type') === 'radio') {
+            var radioName = $field.attr('name');
+            var $radioGroup = $('input[name="' + radioName + '"]');
+            $radioGroup.removeClass('form-error');
+            
+            // Restaurar color de labels del grupo
+            $radioGroup.each(function() {
+                $(this).next('label').css({
+                    'color': '',
+                    'font-weight': ''
+                });
+            });
+            
+            // Remover mensajes de error del grupo
+            $field.closest('.form-group, .mb-3').find('.validation-error-message').remove();
+        }
+    }
+    
+    // Función para configurar listeners de cambio en los campos
+    function setupFieldChangeListeners() {
+        // Listener para inputs de texto
+        $(document).on('input change', 'input[type="text"], textarea', function() {
+            var $field = $(this);
+            if ($field.hasClass('form-error')) {
+                var value = $field.val();
+                if (value && value.trim() !== '') {
+                    clearFieldErrors($field);
+                }
+            }
+        });
+        
+        // Listener para radio buttons
+        $(document).on('change', 'input[type="radio"]', function() {
+            var $field = $(this);
+            if ($field.is(':checked')) {
+                clearFieldErrors($field);
+            }
+        });
+        
+        // Listener para selects
+        $(document).on('change', 'select', function() {
+            var $field = $(this);
+            if ($field.hasClass('form-error')) {
+                var value = $field.val();
+                if (value && value !== '' && value !== 'Seleccionar opción') {
+                    clearFieldErrors($field);
+                }
+            }
+        });
+        
+        // Listener específico para Bootstrap Select
+        $(document).on('changed.bs.select', 'select.default-select', function() {
+            var $field = $(this);
+            if ($field.hasClass('form-error')) {
+                var value = $field.val();
+                if (value && value !== '' && value !== 'Seleccionar opción') {
+                    clearFieldErrors($field);
+                }
+            }
+        });
+        
+        // Listener para checkboxes
+        $(document).on('change', 'input[type="checkbox"]', function() {
+            var $field = $(this);
+            if ($field.hasClass('form-error') && $field.is(':checked')) {
+                clearFieldErrors($field);
+            }
+        });
+        
+        // Verificar si el paso actual está completo después de cada cambio
+        $(document).on('input change', 'input, select, textarea', function() {
+            setTimeout(function() {
+                checkCurrentStepCompletion();
+            }, 100);
+        });
+        
+        // Crear un observer para detectar cuando elementos se muestran u ocultan
+        if (typeof MutationObserver !== 'undefined') {
+            var observer = new MutationObserver(function(mutations) {
+                var shouldRecheck = false;
+                
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && 
+                        (mutation.attributeName === 'hidden' || 
+                         mutation.attributeName === 'class' || 
+                         mutation.attributeName === 'style')) {
+                        shouldRecheck = true;
+                    }
+                });
+                
+                if (shouldRecheck) {
+                    setTimeout(function() {
+                        checkCurrentStepCompletion();
+                        // También limpiar errores de campos que ahora están ocultos
+                        clearErrorsFromHiddenFields();
+                    }, 150);
+                }
+            });
+            
+            // Observar cambios en el contenedor del wizard
+            var wizardContainer = document.querySelector('#smartwizard');
+            if (wizardContainer) {
+                observer.observe(wizardContainer, {
+                    attributes: true,
+                    childList: true,
+                    subtree: true,
+                    attributeFilter: ['hidden', 'class', 'style']
+                });
+            }
+        }
+    }
+    
+    // Función para limpiar errores de campos que ahora están ocultos
+    function clearErrorsFromHiddenFields() {
+        $('.form-error').each(function() {
+            var $field = $(this);
+            var $container = $field.closest('.form-group, .mb-3, .col-lg-12, .col-lg-6, .form-check, div[class*="V"]');
+            
+            // Si el campo o su contenedor ya no están visibles, limpiar errores
+            if (!$field.is(':visible') || 
+                $field.is('[hidden]') || 
+                $container.is('[hidden]') || 
+                $container.hasClass('hidden') ||
+                $container.css('display') === 'none') {
+                clearFieldErrors($field);
+            }
+        });
+    }
+    
+    // Función para verificar si el paso actual está completo y ocultar mensaje de error si es así
+    function checkCurrentStepCompletion() {
+        var $currentStep = null;
+        var currentStepIndex = 0;
+        
+        // Encontrar el paso actualmente visible
+        $('#smartwizard .tab-pane').each(function(index) {
+            if ($(this).hasClass('active') || $(this).is(':visible')) {
+                $currentStep = $(this);
+                currentStepIndex = index;
+                return false; // break
+            }
+        });
+        
+        if (!$currentStep) {
+            return;
+        }
+        
+        // Verificar si el paso está completo (usando la misma lógica de validación pero sin marcar errores)
+        var isComplete = isStepComplete(currentStepIndex);
+        
+        if (isComplete) {
+            // Si el paso está completo, ocultar el mensaje de resumen de errores
+            $currentStep.find('.validation-summary').hide();
+        }
+    }
+    
+    // Función para verificar si un paso está completo (sin marcar errores)
+    function isStepComplete(stepIndex) {
+        var stepId = '#datos' + (stepIndex + 1);
+        var $currentStep = $(stepId);
+        
+        // Buscar todos los campos que deberían ser validados
+        var fieldsToValidate = $currentStep.find('input[type="radio"], select.default-select, input[required], select[required], textarea[required]');
+        
+        // Filtrar solo campos visibles
+        fieldsToValidate = fieldsToValidate.filter(function() {
+            var $field = $(this);
+            var $container = $field.closest('.form-group, .mb-3, .col-lg-12, .col-lg-6, .form-check, div[class*="V"]');
+            
+            // Verificar si el campo o su contenedor está visible
+            return $field.is(':visible') && 
+                   !$field.is('[hidden]') && 
+                   !$container.is('[hidden]') && 
+                   !$container.hasClass('hidden') &&
+                   $container.css('display') !== 'none';
+        });
+        
+        // Agrupar radio buttons por nombre para validarlos como grupo
+        var radioGroups = {};
+        var isComplete = true;
+        
+        fieldsToValidate.each(function() {
+            var $field = $(this);
+            var fieldType = $field.attr('type');
+            var fieldName = $field.attr('name');
+            
+            if (fieldType === 'radio') {
+                // Agrupar radio buttons por nombre
+                if (!radioGroups[fieldName]) {
+                    radioGroups[fieldName] = [];
+                }
+                radioGroups[fieldName].push($field);
+            } else {
+                // Validar campos individuales (selects, inputs, etc.)
+                var fieldValue = $field.val();
+                var isFieldValid = true;
+                
+                if ($field.is('select')) {
+                    // Para selects, verificar si se seleccionó algo diferente a la opción por defecto
+                    if (!fieldValue || fieldValue === '' || fieldValue === 'Seleccionar opción') {
+                        isFieldValid = false;
+                    }
+                } else if ($field.attr('required')) {
+                    // Para inputs con required, verificar si no está vacío
+                    if (!fieldValue || fieldValue.trim() === '') {
+                        isFieldValid = false;
+                    }
+                }
+                
+                if (!isFieldValid) {
+                    isComplete = false;
+                }
+            }
+        });
+        
+        // Validar grupos de radio buttons (solo grupos que tengan al menos un campo visible)
+        for (var groupName in radioGroups) {
+            var $radioGroup = radioGroups[groupName];
+            var isGroupValid = false;
+            
+            // Verificar si algún radio del grupo está seleccionado
+            for (var i = 0; i < $radioGroup.length; i++) {
+                if ($radioGroup[i].is(':checked')) {
+                    isGroupValid = true;
+                    break;
+                }
+            }
+            
+            if (!isGroupValid) {
+                isComplete = false;
+            }
+        }
+        
+        return isComplete;
+    }
+    
+    // Función para validar el paso actual
+    function validateCurrentStep(stepIndex) {
+        var isValid = true;
+        var stepId = '#datos' + (stepIndex + 1);
+        var $currentStep = $(stepId);
+        
+        // Buscar todos los campos que deberían ser validados
+        // Incluir campos con required y también radio buttons y selects que son parte del formulario
+        var fieldsToValidate = $currentStep.find('input[type="radio"], select.default-select, input[required], select[required], textarea[required]');
+        
+        // Filtrar solo campos visibles
+        fieldsToValidate = fieldsToValidate.filter(function() {
+            var $field = $(this);
+            var $container = $field.closest('.form-group, .mb-3, .col-lg-12, .col-lg-6, .form-check, div[class*="V"]');
+            
+            // Verificar si el campo o su contenedor está visible
+            return $field.is(':visible') && 
+                   !$field.is('[hidden]') && 
+                   !$container.is('[hidden]') && 
+                   !$container.hasClass('hidden') &&
+                   $container.css('display') !== 'none';
+        });
+        
+        // Agrupar radio buttons por nombre para validarlos como grupo
+        var radioGroups = {};
+        
+        fieldsToValidate.each(function() {
+            var $field = $(this);
+            var fieldType = $field.attr('type');
+            var fieldName = $field.attr('name');
+            
+            if (fieldType === 'radio') {
+                // Agrupar radio buttons por nombre
+                if (!radioGroups[fieldName]) {
+                    radioGroups[fieldName] = [];
+                }
+                radioGroups[fieldName].push($field);
+            } else {
+                // Validar campos individuales (selects, inputs, etc.)
+                var fieldValue = $field.val();
+                var isFieldValid = true;
+                
+                if ($field.is('select')) {
+                    // Para selects múltiples, verificar si el array tiene elementos
+                    if ($field.attr('multiple')) {
+                        // Select múltiple: verificar si hay al menos una opción seleccionada
+                        if (!fieldValue || !Array.isArray(fieldValue) || fieldValue.length === 0) {
+                            isFieldValid = false;
+                        } else {
+                            // También verificar que no sean valores vacíos o por defecto
+                            var hasValidSelection = false;
+                            for (var i = 0; i < fieldValue.length; i++) {
+                                if (fieldValue[i] && fieldValue[i] !== '' && fieldValue[i] !== 'Seleccionar opción') {
+                                    hasValidSelection = true;
+                                    break;
+                                }
+                            }
+                            if (!hasValidSelection) {
+                                isFieldValid = false;
+                            }
+                        }
+                    } else {
+                        // Select simple: verificar si se seleccionó algo diferente a la opción por defecto
+                        if (!fieldValue || fieldValue === '' || fieldValue === 'Seleccionar opción') {
+                            isFieldValid = false;
+                        }
+                    }
+                } else if ($field.attr('required')) {
+                    // Para inputs con required, verificar si no está vacío
+                    if (!fieldValue || fieldValue.trim() === '') {
+                        isFieldValid = false;
+                    }
+                }
+                
+                // Si el campo no es válido, marcarlo como error
+                if (!isFieldValid) {
+                    isValid = false;
+                    $field.addClass('form-error');
+                    
+                    // Para selects de Bootstrap Select, limpiar estilos del contenedor y aplicar al botón
+                    if ($field.hasClass('default-select') || $field.hasClass('form-select')) {
+                        var $dropdownContainer = $field.closest('.dropdown.bootstrap-select');
+                        if ($dropdownContainer.length > 0) {
+                            // Limpiar estilos del contenedor
+                            $dropdownContainer.css({
+                                'border': 'none',
+                                'background-color': 'transparent',
+                                'box-shadow': 'none',
+                                'outline': 'none'
+                            });
+                            
+                            // Aplicar estilos de error al botón dropdown
+                            var $dropdownToggle = $dropdownContainer.find('.dropdown-toggle');
+                            if ($dropdownToggle.length > 0) {
+                                $dropdownToggle.css({
+                                    'border': '2px solid #e74c3c',
+                                    'background-color': '#fdf2f2'
+                                });
+                            }
+                        }
+                    }
+                    
+                    // Agregar mensaje de error si no existe
+                    if ($field.siblings('.validation-error-message').length === 0 && $field.closest('.form-group, .mb-3').find('.validation-error-message').length === 0) {
+                        var errorMessage = '<small class="validation-error-message">Este campo es requerido</small>';
+                        
+                        // Para selects de Bootstrap Select, agregar el mensaje después del contenedor dropdown
+                        if ($field.hasClass('default-select') || $field.hasClass('form-select')) {
+                            var $dropdownContainer = $field.closest('.dropdown.bootstrap-select');
+                            if ($dropdownContainer.length > 0) {
+                                $dropdownContainer.after(errorMessage);
+                            } else {
+                                // Fallback: agregar después del campo si no hay contenedor dropdown
+                                $field.after(errorMessage);
+                            }
+                        } else {
+                            // Para otros tipos de campo, agregar después del campo
+                            $field.after(errorMessage);
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Validar grupos de radio buttons (solo grupos que tengan al menos un campo visible)
+        for (var groupName in radioGroups) {
+            var $radioGroup = radioGroups[groupName];
+            var isGroupValid = false;
+            
+            // Verificar si algún radio del grupo está seleccionado
+            for (var i = 0; i < $radioGroup.length; i++) {
+                if ($radioGroup[i].is(':checked')) {
+                    isGroupValid = true;
+                    break;
+                }
+            }
+            
+            // Si ningún radio está seleccionado, marcar error en todo el grupo
+            if (!isGroupValid) {
+                isValid = false;
+                
+                // Marcar todos los radio buttons del grupo como error
+                for (var j = 0; j < $radioGroup.length; j++) {
+                    $radioGroup[j].addClass('form-error');
+                }
+                
+                // Agregar mensaje de error al contenedor del grupo si no existe
+                var $lastRadio = $($radioGroup[$radioGroup.length - 1]);
+                var $container = $lastRadio.closest('.form-group, .mb-3');
+                if ($container.find('.validation-error-message').length === 0) {
+                    var errorMessage = '<small class="validation-error-message">Debe seleccionar una opción</small>';
+                    $container.append(errorMessage);
+                }
+            }
+        }
+        
+        return isValid;
+    }
+    
+    // Función para mostrar resumen de errores de validación
+    function showValidationSummary() {
+        // Encontrar el paso actualmente visible
+        var $currentStep = null;
+        $('#smartwizard .tab-pane').each(function() {
+            if ($(this).hasClass('active') || $(this).is(':visible')) {
+                $currentStep = $(this);
+                return false; // break
+            }
+        });
+        
+        if (!$currentStep) {
+            $currentStep = $('#smartwizard .tab-pane').first();
+        }
+        
+        // Buscar el resumen de errores en el paso actual
+        var $summary = $currentStep.find('.validation-summary');
+        
+        if ($summary.length > 0) {
+            $summary.show();
+            
+            // Hacer scroll hacia el resumen de errores
+            setTimeout(function() {
+                $summary[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    }
+
+    // Función para navegar al paso anterior
+    function goToPrevious(currentStepIndex) {
+        $('#smartwizard').smartWizard('prev');
+        // Actualizar las clases del wizard después de navegar
+        setTimeout(function() {
+            updateWizardStepClasses(currentStepIndex - 1);
+        }, 100);
+    }
+</script>

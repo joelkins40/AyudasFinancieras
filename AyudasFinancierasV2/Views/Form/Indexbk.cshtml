@@ -1,0 +1,1928 @@
+@{
+    ViewBag.Title = "About";
+}
+
+<style>
+    /* Asegurar codificación correcta de caracteres */
+    html {
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-feature-settings: "kern" 1;
+        -moz-font-feature-settings: "kern" 1;
+        -ms-font-feature-settings: "kern" 1;
+        font-feature-settings: "kern" 1;
+        font-kerning: normal;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        font-optical-sizing: auto;
+        font-style: normal;
+        color: #333;
+        line-height: 1.7;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        min-height: 100vh;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+
+    .btn-primaryYellow {
+        background-color: #fff500;
+        color: #333;
+        border: none;
+        font-weight: 500;
+        text-transform: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(255, 245, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-primaryYellow:hover {
+        color: #333;
+        background-color: #e6dd00;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 245, 0, 0.4);
+    }
+    .btn-primaryYellow:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(255, 245, 0, 0.3);
+    }
+    
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        font-weight: 500;
+        text-transform: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+    }
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+    }
+    .btn-secondary:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(108, 117, 125, 0.2);
+    }
+ 
+    .btn {
+        border-radius: 12px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    .btn:hover {
+        background-color: #fff500;
+        color: #333;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 245, 0, 0.4);
+    }
+    .btn:active {
+        transform: translateY(0);
+    }
+    .btn:focus {
+        box-shadow: 0 0 0 3px rgba(255, 245, 0, 0.3);
+    }
+    .card-body {
+        margin: 20px;
+    }
+    
+    .popover-header {
+        background-color: #333;
+    }
+    
+    /* Estilos mejorados para inputs y formularios */
+    .form-control,
+    .form-select {
+        border: 2px solid #e9ecef;
+        border-radius: 12px;
+        padding: 14px 16px;
+        font-size: 0.95rem;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        color: #495057;
+        line-height: 1.5;
+    }
+    
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #fff500;
+        box-shadow: 0 0 0 3px rgba(255, 245, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
+        background-color: #fffef8;
+        outline: none;
+        transform: translateY(-1px);
+    }
+    
+    .form-control:hover:not(:focus),
+    .form-select:hover:not(:focus) {
+        border-color: #dee2e6;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+    }
+    
+    .form-control::placeholder {
+        color: #adb5bd;
+        font-weight: 300;
+        letter-spacing: 0.2px;
+    }
+    
+    .form-label {
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
+    }
+    
+    /* Textarea específico */
+    .form-control[rows] {
+        min-height: 120px;
+        resize: vertical;
+    }
+    
+    /* Form groups */
+    .mb-3,
+    .mb-4 {
+        position: relative;
+    }
+    
+    /* Input group improvements */
+    .input-group .form-control {
+        border-radius: 0 12px 12px 0;
+    }
+    
+    .input-group .input-group-text {
+        border: 2px solid #e9ecef;
+        border-right: none;
+        border-radius: 12px 0 0 12px;
+        background-color: #f8f9fa;
+        color: #6c757d;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .input-group:focus-within .input-group-text {
+        border-color: #fff500;
+        background-color: #fffef8;
+    }
+    
+    /* Checkboxes y radios mejorados */
+    .form-check-input {
+        width: 1.2em;
+        height: 1.2em;
+        border: 2px solid #dee2e6;
+        border-radius: 6px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+    
+    .form-check-input:focus {
+        border-color: #fff500;
+        box-shadow: 0 0 0 3px rgba(255, 245, 0, 0.15);
+        outline: none;
+    }
+    
+    .form-check-input:checked {
+        background-color: #fff500;
+        border-color: #fff500;
+        box-shadow: 0 2px 8px rgba(255, 245, 0, 0.3);
+    }
+    
+    .form-check-input:hover:not(:checked) {
+        border-color: #adb5bd;
+        transform: scale(1.05);
+    }
+    
+    .form-check-label {
+        font-weight: 400;
+        color: #495057;
+        cursor: pointer;
+        margin-left: 8px;
+        line-height: 1.6;
+    }
+    
+    /* Radio buttons específicos */
+    .form-check-input[type="radio"] {
+        border-radius: 50%;
+    }
+    
+    /* Select mejorado */
+    .form-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23495057' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px 12px;
+        cursor: pointer;
+    }
+    
+    .form-select:focus {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+    }
+    
+    .btn-left{
+        border-color: #333;
+        background-color: white;
+        color: #333;
+    }
+
+    .btn-left .fa {
+            color: #333
+    }
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+        color: #333;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        line-height: 1.3;
+        margin-bottom: 1.2rem;
+    }
+    
+    h1, .h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #333 0%, #555 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    h2, .h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #333;
+        border-bottom: 3px solid #fff500;
+        padding-bottom: 8px;
+        margin-bottom: 1.5rem;
+    }
+    
+    h3, .h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #495057;
+    }
+    
+    h4, .h4 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #495057;
+    }
+    
+    p {
+        line-height: 1.7;
+        color: #6c757d;
+        margin-bottom: 1rem;
+    }
+  
+    /* Asegurar tipografía consistente en navegación */
+    .nav-wizard li .nav-link span {
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+    
+    /* Asegurar que botones tengan tipografía consistente */
+    .btn, button, input[type="button"], input[type="submit"] {
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+    
+    /* Modal headers y contenido */
+    .modal-header, .modal-body, .modal-footer {
+    }
+    
+    .iconos {
+        color: #fff500;
+    }
+    .iconos-black{
+        color:#333
+    }
+    .rounded-1-5 {
+        border-radius: 0.725rem !important;
+    }
+    .input-radio-lg {
+        transform: scale(1.2);
+        margin-right: 3rem;
+        vertical-align: middle;
+        accent-color: #fff500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .input-radio-lg:hover {
+        transform: scale(1.3);
+    }
+    
+    /* Card improvements */
+    .card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #fff500 0%, #e6dd00 100%);
+        z-index: 1;
+    }
+    
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card-body {
+        margin: 20px;
+        padding: 2rem;
+        position: relative;
+        z-index: 2;
+    }
+    .h4-letter-spacing {
+        letter-spacing: 0.04em; /* Ajusta el valor según lo que necesites */
+    }
+    .separator-icon {
+        font-size: 1.8em;
+        opacity: 1;
+        color: #fff500 !important;
+    }
+    .nav-wizard li {
+        display: flex !important;
+        align-items: center;
+        position: relative;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .nav-wizard li:last-child .separator-icon {
+        display: none;
+    }
+    .nav-wizard li .nav-link {
+        display: flex !important;
+        align-items: center;
+        flex-wrap: nowrap;
+        text-decoration: none;
+        padding: 15px 20px;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        font-size: 1.1em;
+        font-weight: 500;
+        transition: color 0.2s ease, transform 0.2s ease;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .nav-wizard li .nav-link:hover {
+        text-decoration: none;
+    }
+    .nav-wizard li .nav-link i {
+        font-size: 2em;
+        width: 60px;
+        height: 60px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.2s ease, transform 0.2s ease;
+        margin-right: 15px;
+        background: rgba(51, 51, 51, 0.1);
+        color: #333;
+        border: 3px solid #333;
+        flex-shrink: 0;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .nav-wizard li .nav-link:hover i {
+        background: rgba(255, 245, 0, 0.2);
+        transform: scale(1.05);
+    }
+    
+    .nav-wizard li .nav-link span {
+        font-size: 1.1em;
+        font-weight: 500;
+        color: #999;
+        transition: color 0.2s ease;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .nav-wizard li .nav-link:hover span {
+        color: #333;
+    }
+    /* Estados activo y completado simplificados */
+    .form-wizard .nav-wizard li .nav-link.active i {
+        background: linear-gradient(135deg, #fff500 0%, #e6dd00 100%) !important;
+        color: #333 !important;
+        border-color: #fff500 !important;
+        box-shadow: 0 4px 12px rgba(255,245,0,0.3);
+        transform: scale(1.03);
+    }
+    .form-wizard .nav-wizard li .nav-link.active span {
+        color: #333 !important;
+        font-weight: 600;
+    }
+    .form-wizard .nav-wizard li .nav-link.done i {
+        background: linear-gradient(135deg, #fff500 0%, #e6dd00 100%) !important;
+        color: #333 !important;
+        border-color: #fff500 !important;
+        box-shadow: 0 4px 12px rgba(255,245,0,0.3);
+        transform: scale(1.03);
+    }
+    .form-wizard .nav-wizard li .nav-link.done span {
+        color: #333 !important;
+        font-weight: 600;
+    }
+    /* Override SmartWizard default styles */
+    .form-wizard .nav-wizard li {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        background: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        animation: none !important;
+        display: flex !important;
+    }
+    .form-wizard .nav-wizard li .nav-link span {
+        background: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        width: auto !important;
+        height: auto !important;
+        line-height: normal !important;
+        display: inline !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        color: inherit !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .form-wizard .nav-wizard li .nav-link {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+    .form-wizard .nav-wizard li .nav-link i {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+    .form-wizard .nav-wizard li .nav-link:after {
+        display: none !important;
+    }
+    /* Final override to ensure navigation is always visible */
+    .sw-theme-default .nav.nav-tabs .nav-link,
+    .sw-theme-default .nav.nav-tabs .nav-link.active,
+    .sw-theme-default .nav.nav-tabs .nav-link.done,
+    .form-wizard .nav-wizard,
+    .form-wizard .nav-wizard li,
+    .form-wizard .nav-wizard li .nav-link,
+    .form-wizard .nav-wizard li .nav-link i,
+    .form-wizard .nav-wizard li .nav-link span {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+    
+    .form-wizard .nav-wizard li .nav-link span {
+        display: inline !important;
+    }
+    .form-wizard .nav-wizard {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 25px;
+        margin: 0;
+        border: none;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.8) 100%);
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        position: relative;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    }
+    
+    /* Animación suave para las transiciones de pasos */
+    .tab-content {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .tab-pane {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .tab-pane.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    /* Loading effect para botones */
+    .btn.loading {
+        position: relative;
+        color: transparent !important;
+        pointer-events: none;
+    }
+    
+    .btn.loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid #333;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+    
+    @@keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    /* Efecto de focus visible mejorado */
+    .btn:focus-visible,
+    .form-control:focus-visible,
+    .form-select:focus-visible,
+    .form-check-input:focus-visible {
+        outline: 2px solid #fff500;
+        outline-offset: 2px;
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Mejoras para elementos disabled */
+    .btn:disabled,
+    .form-control:disabled,
+    .form-select:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none !important;
+    }
+    
+    /* Alert mejorado */
+    .alert {
+        border: none;
+        border-radius: 12px;
+        padding: 16px 20px;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+    }
+    
+    .alert-warning {
+        background: linear-gradient(135deg, rgba(255, 245, 0, 0.15) 0%, rgba(255, 193, 7, 0.1) 100%);
+        border-left: 4px solid #fff500;
+        color: #856404;
+    }
+    
+    .alert-success {
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(25, 135, 84, 0.05) 100%);
+        border-left: 4px solid #198754;
+        color: #0f5132;
+    }
+    
+    .alert-danger {
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(214, 51, 132, 0.05) 100%);
+        border-left: 4px solid #dc3545;
+        color: #721c24;
+    }
+    
+    /* Ocultar completamente los botones por defecto del SmartWizard */
+    .sw-toolbar,
+    .sw-btn-next,
+    .sw-btn-prev,
+    .sw-toolbar-top,
+    .sw-toolbar-bottom {
+        display: none !important;
+    }
+    @@media (max-width: 768px) {
+        .nav-wizard li .nav-link span {
+            display: none !important;
+        }
+        .separator-icon {
+            display: none !important;
+        }
+        .nav-wizard li .nav-link i {
+            margin-right: 0 !important;
+            font-size: 1.6em;
+            width: 45px;
+            height: 45px;
+            border-width: 2px;
+        }
+        .form-wizard .nav-wizard {
+            justify-content: space-evenly;
+            padding: 18px 15px;
+        }
+        .card-body {
+            margin: 10px;
+            padding: 1.5rem;
+        }
+        .card {
+            border-radius: 15px;
+            margin: 10px;
+        }
+        .h2 {
+            font-size: 1.5rem !important;
+            margin-bottom: 1rem !important;
+        }
+        .h1 {
+            font-size: 2rem !important;
+        }
+        .btn {
+            padding: 14px 24px;
+            font-size: 0.95rem;
+        }
+        .form-control,
+        .form-select {
+            font-size: 16px; /* Evita zoom en iOS */
+            padding: 14px 16px;
+        }
+        .input-radio-lg {
+            margin-right: 1.5rem;
+            transform: scale(1.1);
+        }
+        .ms-3 {
+            margin-left: 1rem !important;
+        }
+        .form-label {
+            font-size: 0.9rem;
+        }
+    }
+    
+    @@media (max-width: 576px) {
+        body {
+            font-size: 14px;
+        }
+        .container-fluid {
+            padding: 0;
+        }
+        .card {
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .card::before {
+            height: 3px;
+        }
+        .card-body {
+            margin: 5px;
+            padding: 1rem;
+        }
+        .form-wizard .nav-wizard {
+            padding: 12px 8px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.95);
+        }
+        .nav-wizard li {
+            flex-shrink: 0;
+            min-width: 60px;
+        }
+        .nav-wizard li .nav-link i {
+            width: 40px;
+            height: 40px;
+            font-size: 1.4em;
+            border-width: 2px;
+        }
+        .h1 {
+            font-size: 1.75rem !important;
+        }
+        .h2 {
+            font-size: 1.25rem !important;
+            margin-bottom: 0.75rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+        .h4-letter-spacing {
+            font-size: 1.1rem !important;
+        }
+        .btn {
+            padding: 16px 24px;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+        /* Botones de navegación en móvil */
+        .row.justify-content-center .col-auto {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .row.justify-content-center .col-auto .btn {
+            width: 100%;
+        }
+        .form-check-inline {
+            display: block !important;
+            margin-bottom: 15px;
+        }
+        .form-control,
+        .form-select {
+            padding: 16px;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .input-radio-lg {
+            transform: scale(1.0);
+            margin-right: 1rem;
+        }
+        /* Mejoras para tab-content en móvil */
+        .tab-pane {
+            padding: 0.5rem 0;
+        }
+        .alert {
+            padding: 12px 16px;
+            font-size: 0.85rem;
+        }
+    }
+    
+    /* Media queries para pantallas medianas y grandes */
+    @@media (min-width: 992px) {
+        .card-body {
+            padding: 3rem;
+        }
+        .form-wizard .nav-wizard {
+            padding: 30px;
+        }
+        .nav-wizard li .nav-link i {
+            width: 70px;
+            height: 70px;
+            font-size: 2.2em;
+        }
+        .h1 {
+            font-size: 3rem !important;
+        }
+        .h2 {
+            font-size: 2.25rem !important;
+        }
+        .btn {
+            padding: 16px 32px;
+            font-size: 1rem;
+        }
+        .form-control,
+        .form-select {
+            padding: 16px 20px;
+            font-size: 1rem;
+        }
+    }
+    
+    @@media (min-width: 1200px) {
+        .container-fluid {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card-body {
+            padding: 3.5rem;
+        }
+        .form-wizard .nav-wizard {
+            padding: 35px;
+        }
+        .nav-wizard li .nav-link {
+            padding: 20px 25px;
+        }
+    }
+    
+    /* Animaciones para entrada de elementos */
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @@keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .card {
+        animation: fadeInUp 0.6s ease-out;
+    }
+    
+    /* Removed animation from nav-wizard li to ensure immediate visibility */
+    .nav-wizard li {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    
+    .form-control:focus,
+    .form-select:focus {
+        animation: none; /* Evita conflictos con animaciones de focus */
+    }
+    
+    /* Continuación de media queries existentes */
+    
+    @@media (min-width: 576px) and (max-width: 768px) {
+        .form-wizard .nav-wizard {
+            padding: 18px;
+        }
+        .nav-wizard li .nav-link i {
+            width: 48px;
+            height: 48px;
+            font-size: 1.5em;
+            border-width: 2px;
+        }
+        .card-body {
+            margin: 12px;
+            padding: 20px;
+        }
+        .btn {
+            padding: 12px 24px;
+        }
+    }
+    
+    @@media (min-width: 769px) and (max-width: 1024px) {
+        .form-wizard .nav-wizard {
+            padding: 18px;
+        }
+        .nav-wizard li .nav-link {
+            padding: 12px 16px;
+        }
+        .nav-wizard li .nav-link i {
+            width: 52px;
+            height: 52px;
+            font-size: 1.7em;
+            border-width: 2px;
+        }
+        .separator-icon {
+            font-size: 1.5em;
+        }
+        .card-body {
+            margin: 15px;
+        }
+    }
+    
+    @@media (min-width: 1200px) {
+        .form-wizard .nav-wizard {
+            justify-content: center;
+            gap: 2rem;
+            padding: 25px;
+        }
+        .container-fluid {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    }
+    
+    /* Mejoras generales de responsividad */
+    @@media (max-width: 991px) {
+        .col-lg-6 {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        .col-lg-12 {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        .form-check-inline {
+            display: block !important;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .ms-3 {
+            margin-left: 0.75rem !important;
+        }
+        .ms-5 {
+            margin-left: 1rem !important;
+        }
+    }
+    
+    /* Mejoras para formularios en todos los tamaños */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .default-select, .form-select {
+        min-height: 44px;
+        font-size: 1rem;
+        width: 100%;
+    }
+    
+    .form-control {
+        min-height: 44px;
+        font-size: 1rem;
+    }
+    
+    /* Botones con mejor accesibilidad táctil */
+    .btn {
+        min-height: 44px;
+        touch-action: manipulation;
+        transition: all 0.15s ease-in-out;
+        border: none;
+        font-weight: normal;
+        text-transform: none;
+    }
+    
+    /* Radio buttons y checkboxes más grandes para móvil */
+    .form-check-input {
+        margin-top: 0.25em;
+        margin-right: 0.75rem;
+    }
+    
+    .form-check-label {
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    /* Mejor espaciado en contenedores de formularios */
+    .tab-pane .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .tab-pane .col-12 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    @@media (min-width: 768px) {
+        .tab-pane .col-12 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+</style>
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-center p-3" style="background-color:#333; min-height: 80px;">
+        <img class="img-fluid" style="max-width: 200px; height: auto;" src="/Content/Img/Logo.png" alt="Logo" />
+    </div>
+    <!-- row -->
+    <div class="row g-0">
+        <div class="col-12">
+            <div class="card border-0" style="height:auto">
+
+                <div class="card-body p-3 p-md-4">
+                    <div id="smartwizard" class="form-wizard order-create">
+                        <ul class="nav nav-wizard yellow"> 
+                            <li>
+                                <a class="nav-link d-flex align-items-center" href="#datos1">
+                                    <i class="fas fa-user iconos me-2" aria-hidden="true"></i>
+                                    <span>Información General</span>
+                                </a>
+                                <i class="fa fa-chevron-right ms-3 separator-icon d-none d-md-inline" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <a class="nav-link d-flex align-items-center" href="#datos2">
+                                    <i class="fas fa-book iconos me-2" aria-hidden="true"></i>
+                                    <span>Información Académica</span>
+                                </a>
+                                <i class="fa fa-chevron-right ms-3 separator-icon d-none d-md-inline" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <a class="nav-link d-flex align-items-center" href="#datos3">
+                                    <i class="fas fa-university iconos me-2" aria-hidden="true"></i>
+                                    <span>Información Formativa</span>
+                                </a>
+                                <i class="fa fa-chevron-right ms-3 separator-icon d-none d-md-inline" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <a class="nav-link d-flex align-items-center" href="#datos4">
+                                    <i class="fas fa-dollar-sign iconos me-2" aria-hidden="true"></i>
+                                    <span>Información Económica</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="datos1" class="tab-pane" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="h2 mb-3 mb-md-4 pb-2 pb-md-3 fw-bold text-black ms-2 ms-md-3">Información General</h1>
+                                    </div>
+
+                                    @foreach (var item1 in ViewBag.preguntas)
+                                    {
+                                        if (item1.categoria.Equals("1"))
+                                        {
+
+
+                                            <div class="col-lg-12 mb-2">
+                                                <div class="form-group">
+                                                    @if (item1.posicion.Contains("."))
+                                                    {
+                                                        <div class="ms-3">
+                                                            <span class="@(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                                @item1.posicion. @item1.pregunta
+                                                                @if (!item1.comentario.Equals(""))
+                                                                {
+                                                                    <i class="fa fa-info-circle iconos"
+                                                                       data-bs-toggle="tooltip"
+                                                                       data-bs-placement="top"
+                                                                       title="@item1.comentario"
+                                                                       style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                <h4 class="h4-letter-spacing">
+                                                    @item1.posicion.
+                                                    <span class="ms-3">@item1.pregunta</span>
+                                                    @if (!item1.comentario.Equals(""))
+                                                    {
+                                                        <i class="fa fa-info-circle iconos"
+                                                           data-bs-toggle="tooltip"
+                                                           data-bs-placement="top"
+                                                           title="@item1.comentario"
+                                                           style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
+                                                    }
+                                                </h4>
+                                                    }
+
+                                                    <div class="mb-3">
+                                                        @if (item1.tipo.Equals("RD"))
+                                                        {
+
+                                                            foreach (var opt in item1.opciones)
+                                                            {
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
+                                                                        @opt.descripcion
+                                                                    </label>
+                                                                </div>
+
+
+                                                            }
+
+
+                                                            if (item1.otro.Equals("SI"))
+                                                            {
+                                                                <div class="form-check form-check-inline ms-3 disabled">
+                                                                    <input type="text" name="firstName" class="form-control" placeholder="Nacionalidad" required>
+
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                        @if (item1.tipo.Equals("CB"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
+                                                                            <option>Seleccionar opción</option>
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(item1.respuesta != null && item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
+
+                                                                            }
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("CBM"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
+
+                                                                            @{
+                                                                                var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
+                                                                            }
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("TX"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="form-control form-control-lg rounded-1-5" placeholder="" value="@item1.respuesta" required>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("SN"))
+                                                        {
+                                                            <div class="form-check form-check-inline ms-3">
+                                                                <label class="form-check-label">
+                                                                    <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline ms-3">
+                                                                <label class="form-check-label">
+                                                                    <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="NO" @(item1.respuesta != null && item1.respuesta.Equals("NO") ? "checked" : "") onchange="ocultarDiv(@item1.categoria@item1.posicion)">NO
+                                                                </label>
+                                                            </div>
+                                                        }
+
+
+
+
+                                                    </div>
+                                                </div>
+                                                    </div>
+                                        }
+                                    }
+
+
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-auto">
+                                            <a href="#datos2" type="button" class="btn btn-square btn-primaryYellow px-4">
+                                                Siguiente <i class="fa fa-arrow-circle-right iconos-black"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="datos2" class="tab-pane" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="h2 mb-3 mb-md-4 pb-2 pb-md-3 fw-bold text-black ms-2 ms-md-3">Información Academica</h1>
+                                    </div>
+                                    @foreach (var item1 in ViewBag.preguntas)
+                                    {
+                                        if (item1.categoria.Equals("2"))
+                                        {
+
+
+                                            <div class="col-lg-12 mb-2">
+                                                <div class="form-group">
+                                                    @if (item1.posicion.Contains("."))
+                                                    {
+                                                      <div class="ms-3">
+                                                          <span class="@(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                              @item1.posicion. @item1.pregunta
+                                                              @if (!item1.comentario.Equals(""))
+                                                              {
+                                                                  <i class="fa fa-info-circle iconos"
+                                                                     data-bs-toggle="tooltip"
+                                                                     data-bs-placement="top"
+                                                                     title="@item1.comentario"
+                                                                     style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
+
+                                                              }
+                                                          </span>
+                                                      </div>
+                                                    }
+                                                    else
+                                                    {
+                                                <h4 class="h4-letter-spacing">
+                                                    @item1.posicion.
+                                                    <span class="ms-3">@item1.pregunta</span>
+                                                    @if (!item1.comentario.Equals(""))
+                                                    {
+                                                        <i class="fa fa-info-circle iconos"
+                                                           data-bs-toggle="tooltip"
+                                                           data-bs-placement="top"
+                                                           title="@item1.comentario"
+                                                           style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
+                                                    }
+                                                </h4>
+                                                    }
+
+                                                    <div class="mb-3">
+                                                        @if (item1.tipo.Equals("RD"))
+                                                        {
+
+                                                            foreach (var opt in item1.opciones)
+                                                            {
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
+                                                                        @opt.descripcion
+                                                                    </label>
+                                                                </div>
+
+
+
+                                                            }
+
+
+                                                            if (item1.otro.Equals("SI"))
+                                                            {
+                                                                <div class="form-check form-check-inline ms-3 disabled">
+                                                                    <input type="text" name="firstName" class="form-control" placeholder="Nacionalidad" required>
+
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                        @if (item1.tipo.Equals("CB"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
+                                                                            <option>Seleccionar opción</option>
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(item1.respuesta != null && item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
+
+                                                                            }
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("CBM"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
+
+                                                                            @{
+                                                                                var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
+                                                                            }
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("TX"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="form-control form-control-lg rounded-1-5" placeholder="" value="@item1.respuesta" required>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("SN"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="NO" @(item1.respuesta != null && item1.respuesta.Equals("NO") ? "checked" : "") onchange="ocultarDiv(@item1.categoria@item1.posicion)">NO
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        }
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+
+
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-auto">
+                                            <a href="#datos1" type="button" class="btn btn-square btn-primaryYellow px-4 me-2">
+                                                <i class="fa fa-arrow-circle-left iconos-black" style="font-size: 1rem"></i> Anterior
+                                            </a>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="#datos3" type="button" class="btn btn-square btn-primaryYellow px-4">
+                                                Siguiente <i class="fa fa-arrow-circle-right iconos-black"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="datos3" class="tab-pane" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="h2 mb-3 mb-md-4 pb-2 pb-md-3 fw-bold text-black ms-2 ms-md-3">Información Formativa</h1>
+                                    </div>
+                                    @foreach (var item1 in ViewBag.preguntas)
+                                    {
+                                        if (item1.categoria.Equals("3"))
+                                        {
+
+
+                                            <div class="col-lg-12 mb-2">
+                                                <div class="form-group">
+                                                    @if (item1.posicion.Contains("."))
+                                                    {
+                                                        <div class="ms-3">
+                                                            <span class="@(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                                @item1.posicion. @item1.pregunta
+                                                                @if (!item1.comentario.Equals(""))
+                                                                {
+                                                                    <i class="fa fa-info-circle iconos"
+                                                                       data-bs-toggle="tooltip"
+                                                                       data-bs-placement="top"
+                                                                       title="@item1.comentario"
+                                                                       style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                <h4 class="h4-letter-spacing">
+                                                    @item1.posicion.
+                                                    <span class="ms-3">@item1.pregunta</span>
+                                                    @if (!item1.comentario.Equals(""))
+                                                    {
+                                                        <i class="fa fa-info-circle iconos"
+                                                           data-bs-toggle="tooltip"
+                                                           data-bs-placement="top"
+                                                           title="@item1.comentario"
+                                                           style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
+                                                    }
+                                                </h4>
+                                                    }
+
+                                                    <div class="mb-3">
+                                                        @if (item1.tipo.Equals("RD"))
+                                                        {
+
+                                                            foreach (var opt in item1.opciones)
+                                                            {
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
+                                                                        @opt.descripcion
+                                                                    </label>
+                                                                </div>
+
+
+
+                                                            }
+
+
+                                                            if (item1.otro.Equals("SI"))
+                                                            {
+                                                                <div class="form-check form-check-inline ms-3 disabled">
+                                                                    <input type="text" name="firstName" class="form-control" placeholder="Nacionalidad" required>
+
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                        @if (item1.tipo.Equals("CB"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
+                                                                            <option>Seleccionar opción</option>
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(item1.respuesta != null && item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
+
+                                                                            }
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("CBM"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
+                                                                            @{
+                                                                                var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
+                                                                            }
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("TX"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="form-control form-control-lg rounded-1-5" placeholder="" value="@item1.respuesta" required>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("SN"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="NO" @(item1.respuesta != null && item1.respuesta.Equals("NO") ? "checked" : "") onchange="ocultarDiv(@item1.categoria@item1.posicion)">NO
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        }
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+
+
+
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-auto">
+                                            <a href="#datos2" type="button" class="btn btn-square btn-primaryYellow px-4 me-2">
+                                                <i class="fa fa-arrow-circle-left iconos-black" style="font-size: 1rem"></i> Anterior
+                                            </a>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="#datos4" type="button" class="btn btn-square btn-primaryYellow px-4">
+                                                Siguiente <i class="fa fa-arrow-circle-right iconos-black"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div id="datos4" class="tab-pane" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="h2 mb-3 mb-md-4 pb-2 pb-md-3 fw-bold text-black ms-2 ms-md-3">Información Económica</h1>
+                                    </div>
+                                    @foreach (var item1 in ViewBag.preguntas)
+                                    {
+                                        if (item1.categoria.Equals("4"))
+                                        {
+
+
+                                            <div class="col-lg-12 mb-2">
+                                                <div class="form-group">
+                                                    @if (item1.posicion.Contains("."))
+                                                    {
+
+                                                        <div class="ms-3">
+                                                            <span class="@(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                                @item1.posicion. @item1.pregunta
+                                                                @if (!item1.comentario.Equals(""))
+                                                                {
+                                                                    <i class="fa fa-info-circle iconos"
+                                                                       data-bs-toggle="tooltip"
+                                                                       data-bs-placement="top"
+                                                                       title="@item1.comentario"
+                                                                       style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                <h4 class="h4-letter-spacing">
+                                                    @item1.posicion.
+                                                    <span class="ms-3">@item1.pregunta</span>
+                                                    @if (!item1.comentario.Equals(""))
+                                                    {
+                                                        <i class="fa fa-info-circle iconos"
+                                                           data-bs-toggle="tooltip"
+                                                           data-bs-placement="top"
+                                                           title="@item1.comentario"
+                                                           style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
+                                                    }
+                                                </h4>
+                                                    }
+
+                                                    <div class="mb-3">
+                                                        @if (item1.tipo.Equals("RD"))
+                                                        {
+
+                                                            foreach (var opt in item1.opciones)
+                                                            {
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
+                                                                        @opt.descripcion
+                                                                    </label>
+                                                                </div>
+
+
+
+                                                            }
+
+
+                                                            if (item1.otro.Equals("SI"))
+                                                            {
+                                                                <div class="form-check form-check-inline ms-3 disabled">
+                                                                    <input type="text" name="firstName" class="form-control" placeholder="Nacionalidad" required>
+
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                        @if (item1.tipo.Equals("CB"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
+                                                                            <option>Seleccionar opción</option>
+
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
+
+                                                                            }
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("CBM"))
+                                                        {
+                                                            <div class="col-12 col-md-6 mb-3 @(item1.oculta.Equals("") ? "ms-1" : "ms-md-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+                                                                <div class="form-group">
+                                                                    <div class="dropdown bootstrap-select default-select form-control wide">
+                                                                        <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control form-select wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
+                                                                            @{
+                                                                                var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
+                                                                            }
+                                                                            @foreach (var opt in item1.opciones)
+                                                                            {
+                                                                                <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("TX"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="form-control form-control-lg rounded-1-5" placeholder="" value="@item1.respuesta" required>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        @if (item1.tipo.Equals("SN"))
+                                                        {
+                                                            <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
+
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline ms-3">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="NO" @(item1.respuesta != null && item1.respuesta.Equals("NO") ? "checked" : "") onchange="ocultarDiv(@item1.categoria@item1.posicion)">NO
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        }
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    <div class="row g-2 justify-content-center">
+                                        <div class="col-auto">
+                                            <a href="#datos3" type="button" class="btn btn-square btn-primaryYellow px-4 me-2">
+                                                <i class="fa fa-arrow-circle-left iconos-black" style="font-size: 1rem"></i> Anterior
+                                            </a>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn btn-primaryYellow px-4" data-bs-toggle="modal" data-bs-target="#save">
+                                                Enviar respuestas
+                                                <i class="fa fa-send iconos-black" aria-hidden="true"></i>
+                                                <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display:none; margin-left: 5px;"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="save" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">¿Guardar respuestas?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3">¿Estás seguro de que deseas guardar estos datos? Al hacerlo, se almacenarán de manera segura para futuras consultas. Confirma para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primaryYellow" onclick="guardarEvaluacion()" data-bs-dismiss="modal">Guardar información</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="ok" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Guardado con éxito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3">¡Listo! Tus datos han sido guardados correctamente. Si necesitas hacer algún cambio, puedes editarlos en cualquier momento. ¡Que tengas un excelente día!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primaryYellow w-100" data-bs-dismiss="modal" onclick="redireccionar()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loadingSpinner" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.9); z-index:9999; text-align:center;">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-center">
+            <div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+            <p class="mt-3 fw-bold">Cargando...</p>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        // Initialize SmartWizard
+        $('#smartwizard').smartWizard({
+            selected: 0, // Start with first step
+            theme: 'default',
+            transition: {
+                animation: 'slide-horizontal'
+            },
+            toolbarSettings: {
+                toolbarPosition: 'none', // Ocultar la barra de herramientas completamente
+                showNextButton: false,
+                showPreviousButton: false
+            },
+            anchorSettings: {
+                enableAllAnchors: true,
+                markDoneStep: true,
+                markAllPreviousStepsAsDone: true,
+                removeDoneStepOnNavigateBack: false,
+                enableAnchorOnDoneStep: true
+            }
+        });
+
+        // Handle navigation button clicks
+        $('a[href="#datos1"], a[href="#datos2"], a[href="#datos3"], a[href="#datos4"]').on('click', function(e) {
+            e.preventDefault();
+            var targetStep = $(this).attr('href').replace('#datos', '');
+            var stepIndex = parseInt(targetStep) - 1;
+            $('#smartwizard').smartWizard("goToStep", stepIndex);
+        });
+
+        // Handle custom navigation buttons
+        $('.btn[href="#datos1"], .btn[href="#datos2"], .btn[href="#datos3"], .btn[href="#datos4"]').on('click', function(e) {
+            e.preventDefault();
+            var targetStep = $(this).attr('href').replace('#datos', '');
+            var stepIndex = parseInt(targetStep) - 1;
+            $('#smartwizard').smartWizard("goToStep", stepIndex);
+        });
+    });
+
+    function mostrarDiv(id) {
+        id = String(id); // Asegurarse de que id sea una cadena
+
+        id = id.replace('.', ''); // Eliminar el punto del id si existe
+
+        var iteme = $('.V' + id);
+        iteme.removeAttr('hidden');
+        // Buscar el radio button con value="SI" dentro del div identificado por iteme
+        var radioButton = iteme.find('input[type="radio"][value="SI"]');
+        if (radioButton.length) {
+            radioButton.prop('checked', true); // Seleccionar el radio button con value "SI"
+            radioButton.trigger('change'); // Lanzar el evento change
+
+        }
+
+        var smart = $('#smartwizard');
+        smart.find('.tab-content').css('height', 'auto');
+    }
+
+    function ocultarDiv(id) {
+        id = String(id); // Asegurarse de que id sea una cadena
+
+        id = id.replace('.', ''); // Eliminar el punto del id si existe
+
+        var iteme = $('.V' + id);
+        iteme.attr('hidden', true);
+
+        // Buscar el radio button con value="NO" dentro del div identificado por iteme
+        var radioButton = iteme.find('input[type="radio"][value="NO"]');
+        if (radioButton.length) {
+            radioButton.prop('checked', true); // Seleccionar el radio button con value "NO"
+            radioButton.trigger('change'); // Lanzar el evento change
+
+        }
+
+        var smart = $('#smartwizard');
+        smart.smartWizard('resetHeight');
+    }
+
+       $(document).ready(function() {
+        @foreach (var item1 in ViewBag.preguntas)
+        {
+            if (item1.tipo.Equals("SN"))
+            {
+                if (item1.respuesta != null && item1.respuesta.Equals("SI"))
+                    {
+                        @:mostrarDiv(@item1.categoria@item1.posicion);
+                    }
+                    else if (item1.respuesta != null && item1.respuesta.Equals("NO"))
+                    {
+                        @:ocultarDiv(@item1.categoria@item1.posicion);
+                    }
+            }
+        }
+    });
+    function guardarEvaluacion() {
+        $('#spinner').show();
+        var lista = [];
+        for (var i = 1; i <= 500; i++) {
+            var ite = $('input:radio[name=SN' + i + ']:checked').val();
+
+
+            if (ite != undefined) {
+                lista.push({
+                    'id': i,
+                    'respuesta': ite
+                });
+            } else {
+                var ite2 = $('input:radio[name=RD' + i + ']:checked').val();
+                if (ite2 != undefined) {
+                    lista.push({
+                        'id': i,
+                        'respuesta': ite2
+                    });
+
+                } else {
+                    var ite3 = $('#TX' + i).val();
+                    if (ite3 != undefined) {
+                        lista.push({
+                            'id': i,
+                            'respuesta': ite3
+                        });
+
+                    } else {
+                        var ite4 = $('#CB' + i).val();
+                        if (ite4 != undefined) {
+                            lista.push({
+                                'id': i,
+                                'respuesta': ite4
+
+                            });
+
+                        } else {
+                            var ite5 = $('#CBM' + i).val();
+                            if (ite5 != undefined) {
+                                if (ite5.length === 0 || (ite5.length === 1 && ite5[0] === "0")) {
+                                    lista.push({
+                                        'id': i,
+                                        'respuesta': "NA"
+                                    });
+                                } else {
+                                    lista.push({
+                                        'id': i,
+                                        'respuesta': ite5.join(',')
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+
+        var mensaje = JSON.stringify(
+            {
+                'pidm': '0013246',
+                'nivel': '202010',
+                'respuestas': lista
+            });
+
+
+        $.ajax({
+            url: '/Form/guardarEvaluacion',
+            type: "post",
+            contentType: "application/json",
+            dataType: "json",
+            traditional: true,
+            data: mensaje,
+            success: function (results) {
+                // Ocultar el spinner
+                $('#spinner').hide();
+                $('#ok').modal('show');
+            },
+            error: function () {
+                // Ocultar el spinner en caso de error
+                $('#spinner').hide();
+                alert('Error al guardar la evaluación.');
+            }
+        })
+    }
+    function redireccionar() {
+        // Mostrar el spinner
+    $('#loadingSpinner').show();
+
+    // Redireccionar después de un breve retraso para asegurar que el spinner se muestre
+    setTimeout(function() {
+        window.location.href = '/Becas/Index';
+    }, 500); // Puedes ajustar el retraso según sea necesario
+    }
+</script>
