@@ -2,14 +2,12 @@ table.DTFC_Cloned tr {
   background-color: white;
   margin-bottom: 0;
 }
-
 div.DTFC_LeftHeadWrapper table,
 div.DTFC_RightHeadWrapper table {
   border-bottom: none !important;
   margin-bottom: 0 !important;
   background-color: white;
 }
-
 div.DTFC_LeftBodyWrapper table,
 div.DTFC_RightBodyWrapper table {
   border-top: none;
@@ -35,7 +33,6 @@ div.DTFC_RightBodyWrapper table tbody tr:first-child th,
 div.DTFC_RightBodyWrapper table tbody tr:first-child td {
   border-top: none;
 }
-
 div.DTFC_LeftFootWrapper table,
 div.DTFC_RightFootWrapper table {
   border-top: none;

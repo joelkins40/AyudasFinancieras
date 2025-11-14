@@ -1,22 +1,11 @@
 (function($) {
-    /* "use strict" */
-
-	
-	/* function draw() {
-		
-	} */
-
  var dzSparkLine = function(){
 	let draw = Chart.controllers.line.__super__.draw; //draw shadow
-	
 	var screenWidth = $(window).width();
-	
 	var barChart1 = function(){
 		if(jQuery('#barChart_1').length > 0 ){
 			const barChart_1 = document.getElementById("barChart_1").getContext('2d');
-    
 			barChart_1.height = 100;
-
 			new Chart(barChart_1, {
 				type: 'bar',
 				data: {
@@ -41,7 +30,6 @@
 							}
 						}],
 						xAxes: [{
-							// Change here
 							barPercentage: 0.5
 						}]
 					}
@@ -51,16 +39,11 @@
 	}
 	var barChart2 = function(){
 		if(jQuery('#barChart_2').length > 0 ){
-
-		//gradient bar chart
 			const barChart_2 = document.getElementById("barChart_2").getContext('2d');
-			//generate gradient
 			const barChart_2gradientStroke = barChart_2.createLinearGradient(0, 0, 0, 250);
 			barChart_2gradientStroke.addColorStop(0, "rgba(34, 47, 185, 1)");
 			barChart_2gradientStroke.addColorStop(1, "rgba(34, 47, 185, 0.5)");
-
 			barChart_2.height = 100;
-
 			new Chart(barChart_2, {
 				type: 'bar',
 				data: {
@@ -86,7 +69,6 @@
 							}
 						}],
 						xAxes: [{
-							// Change here
 							barPercentage: 0.5
 						}]
 					}
@@ -94,26 +76,19 @@
 			});
 		}
 	}
-
 	var barChart3 = function(){
-		//stalked bar chart
 		if(jQuery('#barChart_3').length > 0 ){
 			const barChart_3 = document.getElementById("barChart_3").getContext('2d');
-			//generate gradient
 			const barChart_3gradientStroke = barChart_3.createLinearGradient(50, 100, 50, 50);
 			barChart_3gradientStroke.addColorStop(0, "rgba(34, 47, 185, 1)");
 			barChart_3gradientStroke.addColorStop(1, "rgba(34, 47, 185, 0.5)");
-
 			const barChart_3gradientStroke2 = barChart_3.createLinearGradient(50, 100, 50, 50);
 			barChart_3gradientStroke2.addColorStop(0, "rgba(33, 183, 49, 1)");
 			barChart_3gradientStroke2.addColorStop(1, "rgba(33, 183, 49, 1)");
-
 			const barChart_3gradientStroke3 = barChart_3.createLinearGradient(50, 100, 50, 50);
 			barChart_3gradientStroke3.addColorStop(0, "rgba(255, 38, 37, 1)");
 			barChart_3gradientStroke3.addColorStop(1, "rgba(255, 38, 37, 1)");
-			
 			barChart_3.height = 100;
-
 			let barChartData = {
 				defaultFontFamily: 'Poppins',
 				labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
@@ -157,9 +132,7 @@
 						'12'
 					]
 				}]
-
 			};
-
 			new Chart(barChart_3, {
 				type: 'bar',
 				data: barChartData,
@@ -188,14 +161,8 @@
 		}
 	}
 	var lineChart1 = function(){
-		
-		
 		if(jQuery('#lineChart_1').length > 0 ){
-
-
-		//basic line chart
 			const lineChart_1 = document.getElementById("lineChart_1").getContext('2d');
-
 			Chart.controllers.line = Chart.controllers.line.extend({
 				draw: function () {
 					draw.apply(this, arguments);
@@ -212,9 +179,7 @@
 					}
 				}
 			});
-			
 			lineChart_1.height = 100;
-
 			new Chart(lineChart_1, {
 				type: 'line',
 				data: {
@@ -251,20 +216,14 @@
 					}
 				}
 			});
-			
 		}
 	}
-	
 	var lineChart2 = function(){
-		//gradient line chart
 		if(jQuery('#lineChart_2').length > 0 ){
-			
 			const lineChart_2 = document.getElementById("lineChart_2").getContext('2d');
-			//generate gradient
 			const lineChart_2gradientStroke = lineChart_2.createLinearGradient(500, 0, 100, 0);
 			lineChart_2gradientStroke.addColorStop(0, "rgba(34, 47, 185, 1)");
 			lineChart_2gradientStroke.addColorStop(1, "rgba(34, 47, 185, 0.5)");
-
 			Chart.controllers.line = Chart.controllers.line.extend({
 				draw: function () {
 					draw.apply(this, arguments);
@@ -281,9 +240,7 @@
 					}
 				}
 			});
-				
 			lineChart_2.height = 100;
-
 			new Chart(lineChart_2, {
 				type: 'line',
 				data: {
@@ -323,18 +280,14 @@
 		}
 	}
 	var lineChart3 = function(){
-		//dual line chart
 		if(jQuery('#lineChart_3').length > 0 ){
 			const lineChart_3 = document.getElementById("lineChart_3").getContext('2d');
-			//generate gradient
 			const lineChart_3gradientStroke1 = lineChart_3.createLinearGradient(500, 0, 100, 0);
 			lineChart_3gradientStroke1.addColorStop(0, "rgba(34, 47, 185, 1)");
 			lineChart_3gradientStroke1.addColorStop(1, "rgba(34, 47, 185, 0.5)");
-
 			const lineChart_3gradientStroke2 = lineChart_3.createLinearGradient(500, 0, 100, 0);
 			lineChart_3gradientStroke2.addColorStop(0, "rgba(255, 92, 0, 1)");
 			lineChart_3gradientStroke2.addColorStop(1, "rgba(255, 92, 0, 1)");
-
 			Chart.controllers.line = Chart.controllers.line.extend({
 				draw: function () {
 					draw.apply(this, arguments);
@@ -351,9 +304,7 @@
 					}
 				}
 			});
-				
 			lineChart_3.height = 100;
-
 			new Chart(lineChart_3, {
 				type: 'line',
 				data: {
@@ -400,11 +351,8 @@
 		}
 	}
 	var lineChart03 = function(){
-		//dual line chart
 		if(jQuery('#lineChart_3Kk').length > 0 ){
 			const lineChart_3Kk = document.getElementById("lineChart_3Kk").getContext('2d');
-			//generate gradient
-			
 			Chart.controllers.line = Chart.controllers.line.extend({
 				draw: function () {
 					draw.apply(this, arguments);
@@ -421,9 +369,7 @@
 					}
 				}
 			});
-				
 			lineChart_3Kk.height = 100;
-
 			new Chart(lineChart_3Kk, {
 				type: 'line',
 				data: {
@@ -464,21 +410,16 @@
 							ticks: {
 								padding: 5
 							},
-							
 						}]
 					}
 				}
 			});
 		}
-
 	}	
 	var areaChart1 = function(){	
-		//basic area chart
 		if(jQuery('#areaChart_1').length > 0 ){
 			const areaChart_1 = document.getElementById("areaChart_1").getContext('2d');
-    
 			areaChart_1.height = 100;
-
 			new Chart(areaChart_1, {
 				type: 'line',
 				data: {
@@ -518,16 +459,12 @@
 		}
 	}
 	var areaChart2 = function(){	
-		//gradient area chart
 		if(jQuery('#areaChart_2').length > 0 ){
 			const areaChart_2 = document.getElementById("areaChart_2").getContext('2d');
-			//generate gradient
 			const areaChart_2gradientStroke = areaChart_2.createLinearGradient(0, 1, 0, 500);
 			areaChart_2gradientStroke.addColorStop(0, "rgba(255, 38, 37, 0.2)");
 			areaChart_2gradientStroke.addColorStop(1, "rgba(255, 38, 37, 0)");
-			
 			areaChart_2.height = 100;
-
 			new Chart(areaChart_2, {
 				type: 'line',
 				data: {
@@ -565,14 +502,10 @@
 			});
 		}    
 	}    
-
 	var areaChart3 = function(){	
-		//gradient area chart
 		if(jQuery('#areaChart_3').length > 0 ){
 			const areaChart_3 = document.getElementById("areaChart_3").getContext('2d');
-    
 			areaChart_3.height = 100;
-
 			new Chart(areaChart_3, {
 				type: 'line',
 				data: {
@@ -617,21 +550,15 @@
 			});
 		}
 	}
-
 	var radarChart = function(){	
 		if(jQuery('#radar_chart').length > 0 ){
-			//radar chart
 			const radar_chart = document.getElementById("radar_chart").getContext('2d');
-
 			const radar_chartgradientStroke1 = radar_chart.createLinearGradient(500, 0, 100, 0);
 			radar_chartgradientStroke1.addColorStop(0, "rgba(54, 185, 216, .5)");
 			radar_chartgradientStroke1.addColorStop(1, "rgba(75, 255, 162, .5)");
-
 			const radar_chartgradientStroke2 = radar_chart.createLinearGradient(500, 0, 100, 0);
 			radar_chartgradientStroke2.addColorStop(0, "rgba(68, 0, 235, .5");
 			radar_chartgradientStroke2.addColorStop(1, "rgba(68, 236, 245, .5");
-
-			// radar_chart.height = 100;
 			new Chart(radar_chart, {
 				type: 'radar',
 				data: {
@@ -667,11 +594,8 @@
 		}
 	}
 	var pieChart = function(){
-		//pie chart
 		if(jQuery('#pie_chart').length > 0 ){
-			//pie chart
 			const pie_chart = document.getElementById("pie_chart").getContext('2d');
-			// pie_chart.height = 100;
 			new Chart(pie_chart, {
 				type: 'pie',
 				data: {
@@ -691,7 +615,6 @@
 							"rgba(34, 47, 185, .5)",
 							"rgba(0,0,0,0.07)"
 						]
-
 					}],
 					labels: [
 						"one",
@@ -710,9 +633,7 @@
 	}
     var doughnutChart = function(){
 		if(jQuery('#doughnut_chart').length > 0 ){
-			//doughut chart
 			const doughnut_chart = document.getElementById("doughnut_chart").getContext('2d');
-			// doughnut_chart.height = 100;
 			new Chart(doughnut_chart, {
 				type: 'doughnut',
 				data: {
@@ -732,14 +653,7 @@
 							"rgba(33, 183, 49, .9)",
 							"rgba(255, 38, 37, .9)"
 						]
-
 					}],
-					// labels: [
-					//     "green",
-					//     "green",
-					//     "green",
-					//     "green"
-					// ]
 				},
 				options: {
 					weight: 1,	
@@ -752,9 +666,7 @@
 	}
 	var polarChart = function(){
 		if(jQuery('#polar_chart').length > 0 ){
-			//polar chart
 			const polar_chart = document.getElementById("polar_chart").getContext('2d');
-			// polar_chart.height = 100;
 			new Chart(polar_chart, {
 				type: 'polarArea',
 				data: {
@@ -769,7 +681,6 @@
 							"rgba(39, 129, 213, 1)",
 							"rgba(255, 92, 0, 1)"
 						]
-
 					}]
 				},
 				options: {
@@ -777,18 +688,11 @@
 					maintainAspectRatio: false
 				}
 			});
-
 		}
 	}
-
-
-
-	/* Function ============ */
 	return {
 		init:function(){
 		},
-		
-		
 		load:function(){
 			barChart1();	
 			barChart2();
@@ -805,7 +709,6 @@
 			doughnutChart(); 
 			polarChart(); 
 		},
-		
 		resize:function(){
 			barChart1();	
 			barChart2();
@@ -823,19 +726,14 @@
 			polarChart(); 
 		}
 	}
-
 }();
-
 	jQuery(document).ready(function(){
 	});
-		
 	jQuery(window).on('load',function(){
 		dzSparkLine.load();
 	});
-
 	jQuery(window).on('resize',function(){
 		dzSparkLine.resize();
 		setTimeout(function(){ dzSparkLine.resize(); }, 1000);		
 	});     
-
 })(jQuery);

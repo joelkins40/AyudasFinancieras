@@ -7,7 +7,6 @@ div.dt-autofill-handle {
   border: 1px solid #337ab7;
   background: #337ab7;
 }
-
 div.dt-autofill-select {
   position: absolute;
   z-index: 1001;
@@ -22,7 +21,6 @@ div.dt-autofill-select.left, div.dt-autofill-select.right {
   width: 3px;
   margin-left: -1px;
 }
-
 div.dt-autofill-list {
   position: fixed;
   top: 50%;
@@ -68,7 +66,6 @@ div.dt-autofill-list div.dt-autofill-button {
   padding: 0.5em 0;
   border-bottom: 1px solid #ccc;
 }
-
 div.dt-autofill-background {
   position: fixed;
   top: 0;

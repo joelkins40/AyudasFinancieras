@@ -1,0 +1,833 @@
+@{
+    ViewBag.Title = "Aplicar a Becas Seleccionadas";
+}
+<style>
+    body {
+        font-family: "Montserrat", sans-serif !important;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 0;
+    }
+    .page-header {
+        background: #333;
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+    }
+    .page-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        color: white;
+    }
+    .udem-logo {
+        background: #fff500;
+        color: #333;
+        padding: 10px 20px;
+        font-weight: 900;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(255, 245, 0, 0.3);
+        border: 2px solid #fff500;
+    }
+    .navigation-container {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        padding: 1.5rem 2rem;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+    .navigation-container:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        transform: translateY(-1px);
+    }
+    .nav-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        justify-content: center;
+    }
+    .step-indicator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .step-text {
+        background: linear-gradient(135deg, #fff500 0%, #ffeb3b 100%);
+        color: #333;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        box-shadow: 0 2px 8px rgba(255, 245, 0, 0.3);
+        border: 2px solid #fff500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+    .step-text:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(255, 245, 0, 0.4);
+    }
+    .step-line {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #fff500 0%, #ffeb3b 100%);
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(255, 245, 0, 0.3);
+    }
+    @@media (max-width: 768px) {
+        .nav-content {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .step-text {
+            font-size: 12px;
+            padding: 6px 12px;
+        }
+        .navigation-container {
+            padding: 1rem;
+        }
+    }
+    .btn-primary-custom {
+        background-color: #fff500;
+        color: #333;
+        border: none;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    .btn-primary-custom:hover {
+        background-color: #e6dd00;
+        color: #333;
+        transform: translateY(-1px);
+    }
+    .btn-back {
+        background-color: #333;
+        color: white;
+        border: none;
+        font-weight: 500;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    .btn-back:hover {
+        background-color: #222;
+        color: white;
+        transform: translateY(-1px);
+    }
+    .becas-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    .beca-item {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+    .beca-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border-color: #fff500;
+    }
+    .beca-info {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex: 1;
+    }
+    .beca-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 3px solid #fff500;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    .beca-details {
+        flex: 1;
+    }
+    .beca-title {
+        color: #333;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0 0 0.5rem 0;
+    }
+    .beca-subtitle {
+        color: #666;
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin: 0;
+    }
+    .beca-actions-list {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    .aplicar-btn {
+        background-color: #333;
+        color: white;
+        border: none;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 12px 20px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+    .aplicar-btn:hover {
+        background-color: #222;
+        color: white;
+        text-decoration: none;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .conoce-mas-btn {
+        background-color: #fff500;
+        color: #333;
+        border: none;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 10px 16px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+    }
+    .conoce-mas-btn:hover {
+        background-color: #e6dd00;
+        color: #333;
+        text-decoration: none;
+        transform: translateY(-1px);
+    }
+    .loading-spinner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(5px);
+    }
+    .spinner-custom {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #fff500;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+    @@keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .fade-in {
+        animation: fadeIn 0.6s ease-in;
+    }
+    @@keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .page-title {
+            font-size: 1.5rem;
+        }
+        .udem-logo {
+            font-size: 1.2rem;
+            padding: 6px 12px;
+        }
+        .beca-item {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+        .beca-info {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+        .beca-actions-list {
+            flex-direction: column;
+            gap: 0.8rem;
+            width: 100%;
+        }
+        .aplicar-btn,
+        .conoce-mas-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+    .description-section {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        border-left: 4px solid #fff500;
+        transition: all 0.3s ease;
+    }
+    .description-section:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+    }
+    .description-text {
+        color: #333;
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 0;
+        text-align: center;
+        position: relative;
+    }
+    .description-text::before {
+        content: "??";
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 1.3rem;
+    }
+    .description-highlight {
+        color: #333;
+        font-weight: 600;
+        background: linear-gradient(135deg, #fff500 0%, #ffeb3b 100%);
+        padding: 2px 8px;
+        border-radius: 4px;
+        display: inline;
+    }
+    /* Estilos para el modal personalizado */
+    .custom-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    .custom-modal-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    .custom-modal {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        max-width: 450px;
+        width: 90%;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        transform: scale(0.7) translateY(50px);
+        transition: all 0.3s ease;
+        border: 3px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+    .custom-modal-overlay.show .custom-modal {
+        transform: scale(1) translateY(0);
+    }
+    .custom-modal::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #fff500 0%, #ffeb3b 100%);
+    }
+    .custom-modal.warning::before {
+        background: linear-gradient(90deg, #ff9800 0%, #ff5722 100%);
+    }
+    .custom-modal.info::before {
+        background: linear-gradient(90deg, #2196f3 0%, #03a9f4 100%);
+    }
+    .custom-modal.success::before {
+        background: linear-gradient(90deg, #4caf50 0%, #8bc34a 100%);
+    }
+    .modal-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #f0f0f0;
+    }
+    .modal-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        background: linear-gradient(135deg, #fff500 0%, #ffeb3b 100%);
+        box-shadow: 0 4px 12px rgba(255, 245, 0, 0.3);
+    }
+    .modal-icon.warning {
+        background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+        box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+    }
+    .modal-icon.info {
+        background: linear-gradient(135deg, #2196f3 0%, #03a9f4 100%);
+        box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+    }
+    .modal-icon.success {
+        background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+        box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    }
+    .modal-icon.confirm {
+        background: linear-gradient(135deg, #6f42c1 0%, #007bff 100%);
+        box-shadow: 0 4px 12px rgba(111, 66, 193, 0.3);
+        border: 3px solid white;
+        color: white;
+    }
+    .custom-modal.confirm::before {
+        background: linear-gradient(90deg, #6f42c1 0%, #007bff 100%);
+    }
+    .modal-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #333;
+        margin: 0;
+        flex: 1;
+    }
+    .modal-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #666;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-close:hover {
+        background: #f0f0f0;
+        color: #333;
+        transform: scale(1.1);
+    }
+    .modal-body {
+        margin-bottom: 2rem;
+    }
+    .modal-message {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #555;
+        margin: 0;
+        text-align: center;
+    }
+    .modal-footer {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .modal-btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .modal-btn-primary {
+        background: linear-gradient(135deg, #fff500 0%, #ffeb3b 100%);
+        color: #333;
+        box-shadow: 0 4px 12px rgba(255, 245, 0, 0.3);
+    }
+    .modal-btn-primary:hover {
+        background: linear-gradient(135deg, #e6dd00 0%, #ffd600 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 245, 0, 0.4);
+    }
+    .modal-btn-secondary {
+        background: #f8f9fa;
+        color: #333;
+        border: 2px solid #e9ecef;
+    }
+    .modal-btn-secondary:hover {
+        background: #e9ecef;
+        border-color: #dee2e6;
+        transform: translateY(-1px);
+    }
+    @@media (max-width: 768px) {
+        .custom-modal {
+            margin: 1rem;
+            padding: 1.5rem;
+        }
+        .modal-header {
+            margin-bottom: 1rem;
+        }
+        .modal-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+        }
+        .modal-title {
+            font-size: 1.2rem;
+        }
+        .modal-message {
+            font-size: 1rem;
+        }
+        .modal-footer {
+            flex-direction: column;
+        }
+        .modal-btn {
+            width: 100%;
+        }
+    }
+</style>
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">
+                <div class="udem-logo">UDEM</div>
+                Aplicar a Becas Seleccionadas
+            </h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="navigation-container fade-in">
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="nav-content">
+                    <button onclick="goBackToStep2();" class="btn btn-back">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i> 
+                        Regresar a Selección
+                    </button>
+                    <div class="step-indicator">
+                        <span class="step-text">
+                            <i class="fa fa-file-text" aria-hidden="true"></i>
+                            Paso 3 de 3 - Aplicar a Becas
+                        </span>
+                        <div class="step-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="description-section fade-in">
+            <h5 class="description-text">
+                Estas son las <span class="description-highlight">becas que seleccionaste previamente</span>. Ahora puedes aplicar a cada una individualmente haciendo clic en el botón "Aplicar Ahora":
+            </h5>
+        </div>
+        <div class="becas-list">
+            @if (ViewBag.selectedBecas != null && ViewBag.selectedBecas.Count > 0)
+            {
+                foreach (var beca in ViewBag.selectedBecas)
+                {
+                    <div class="beca-item fade-in">
+                        <div class="beca-info">
+                            <img class="beca-icon" 
+                                 src="~/Content/Img/@beca.icon" 
+                                 alt="Icono de @beca.nombre" 
+                                 onerror="this.src='~/Content/Img/carrera.png'" />
+                            <div class="beca-details">
+                                <h4 class="beca-title">@beca.nombre</h4>
+                                <p class="beca-subtitle">Haz clic en "Aplicar Ahora" para ir directamente al formulario de solicitud</p>
+                            </div>
+                        </div>
+                        <div class="beca-actions-list">
+                            <button class="conoce-mas-btn" onclick="window.open('@beca.uri', '_blank')">
+                                <i class="fa fa-eye" aria-hidden="true"></i> 
+                                Conoce más
+                            </button>
+                            <button class="aplicar-btn" onclick="aplicarBeca('@beca.code')">
+                                <i class="fa fa-file-text" aria-hidden="true"></i> 
+                                Aplicar Ahora
+                            </button>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12">
+                    <div class="alert alert-warning text-center">
+                        <i class="fa fa-exclamation-triangle fa-2x mb-3" aria-hidden="true"></i>
+                        <h5>No hay becas seleccionadas</h5>
+                        <p>No se encontraron becas seleccionadas. Por favor, regresa al paso anterior para seleccionar becas.</p>
+                        <button onclick="goBackToStep2();" class="btn btn-primary-custom">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Seleccionar
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div id="customModal" class="custom-modal-overlay">
+    <div class="custom-modal">
+        <div class="modal-header">
+            <div class="modal-icon">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </div>
+            <h4 class="modal-title">Información</h4>
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p class="modal-message">Mensaje del modal</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-primary" onclick="closeModal()">
+                Entendido
+            </button>
+        </div>
+    </div>
+</div>
+<div id="loadingSpinner" class="loading-spinner" style="display:none;">
+    <div class="text-center">
+        <div class="spinner-custom"></div>
+        <h5 style="color: #333; margin-top: 1rem;">Procesando solicitudes...</h5>
+    </div>
+</div>
+<script>
+    // Función para regresar al paso 2
+    function goBackToStep2() {
+        $('#loadingSpinner').show();
+        setTimeout(function () {
+            window.location.href = '/Becas/Index';
+        }, 500);
+    }
+    // Función para aplicar a una beca individual
+    function aplicarBeca(becaCode) {
+        showConfirmModal(
+            `¿Estás seguro de que deseas aplicar a esta beca? Se abrirá la página correspondiente para completar tu solicitud.`,
+            function() {
+                // Función que se ejecuta al confirmar
+                $('#loadingSpinner').show();
+                getUrl(becaCode);
+                // Mostrar mensaje de éxito después de un momento
+                setTimeout(() => {
+                    $('#loadingSpinner').hide();
+                    showAlert('Procesando tu solicitud. Se abrirá la página de la beca seleccionada.', 'success');
+                }, 1000);
+            }
+        );
+    }
+    // Función para obtener URL y abrir la beca
+    function getUrl(id) {
+        const code = id;
+        $.ajax({
+            url: '/Becas/getUrlBeca',
+            type: "post",
+            contentType: "application/json",
+            dataType: "json",
+            traditional: true,
+            data: JSON.stringify({ code: code }),
+            success: function (results) {
+                if (results) {
+                    window.open(results, '_blank');
+                } else {
+                    showAlert('No se pudo obtener la URL de la beca.', 'warning');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+                showAlert('Ocurrió un error al procesar la solicitud. Por favor, inténtalo de nuevo.', 'warning');
+            }
+        });
+    }
+    // Función para mostrar modal personalizado
+    function showAlert(message, type = 'info') {
+        const modal = document.getElementById('customModal');
+        const modalEl = modal.querySelector('.custom-modal');
+        const iconEl = modal.querySelector('.modal-icon i');
+        const titleEl = modal.querySelector('.modal-title');
+        const messageEl = modal.querySelector('.modal-message');
+        const iconContainer = modal.querySelector('.modal-icon');
+        // Limpiar clases anteriores
+        modalEl.className = 'custom-modal';
+        iconContainer.className = 'modal-icon';
+        // Configurar según el tipo
+        let icon, title, modalClass;
+        switch(type) {
+            case 'warning':
+                icon = 'fa-exclamation-triangle';
+                title = 'Atención';
+                modalClass = 'warning';
+                break;
+            case 'success':
+                icon = 'fa-check-circle';
+                title = 'Éxito';
+                modalClass = 'success';
+                break;
+            case 'error':
+                icon = 'fa-times-circle';
+                title = 'Error';
+                modalClass = 'warning';
+                break;
+            default:
+                icon = 'fa-info-circle';
+                title = 'Información';
+                modalClass = 'info';
+        }
+        // Aplicar configuración
+        iconEl.className = `fa ${icon}`;
+        titleEl.textContent = title;
+        messageEl.textContent = message;
+        modalEl.classList.add(modalClass);
+        iconContainer.classList.add(modalClass);
+        // Mostrar modal
+        modal.classList.add('show');
+        // Auto-cerrar después de 8 segundos
+        setTimeout(() => {
+            if (modal.classList.contains('show')) {
+                closeModal();
+            }
+        }, 8000);
+    }
+    // Función para cerrar el modal
+    function closeModal() {
+        const modal = document.getElementById('customModal');
+        modal.classList.remove('show');
+    }
+    // Cerrar modal al hacer click fuera de él
+    document.addEventListener('click', function(e) {
+        const modal = document.getElementById('customModal');
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    // Cerrar modal con la tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+    // Función para mostrar modal de confirmación
+    function showConfirmModal(message, onConfirm, onCancel = null) {
+        const modal = document.getElementById('customModal');
+        const modalEl = modal.querySelector('.custom-modal');
+        const iconEl = modal.querySelector('.modal-icon i');
+        const titleEl = modal.querySelector('.modal-title');
+        const messageEl = modal.querySelector('.modal-message');
+        const iconContainer = modal.querySelector('.modal-icon');
+        const footerEl = modal.querySelector('.modal-footer');
+        // Limpiar clases anteriores
+        modalEl.className = 'custom-modal';
+        iconContainer.className = 'modal-icon';
+        // Configurar para confirmación
+        iconEl.className = 'fa fa-question-circle';
+        titleEl.textContent = 'Confirmación';
+        messageEl.textContent = message;
+        modalEl.classList.add('confirm');
+        iconContainer.classList.add('confirm');
+        // Crear botones de confirmación
+        footerEl.innerHTML = `
+            <button class="modal-btn modal-btn-secondary" onclick="handleConfirmCancel()">
+                <i class="fa fa-times" aria-hidden="true"></i> Cancelar
+            </button>
+            <button class="modal-btn modal-btn-primary" onclick="handleConfirmAccept()">
+                <i class="fa fa-check" aria-hidden="true"></i> Confirmar
+            </button>
+        `;
+        // Guardar callbacks globalmente para acceso desde onclick
+        window.currentConfirmCallback = onConfirm;
+        window.currentCancelCallback = onCancel;
+        // Mostrar modal
+        modal.classList.add('show');
+    }
+    // Manejar confirmación
+    function handleConfirmAccept() {
+        closeModal();
+        if (window.currentConfirmCallback) {
+            window.currentConfirmCallback();
+        }
+        // Limpiar callbacks
+        window.currentConfirmCallback = null;
+        window.currentCancelCallback = null;
+        // Restaurar footer original
+        restoreModalFooter();
+    }
+    // Manejar cancelación
+    function handleConfirmCancel() {
+        closeModal();
+        if (window.currentCancelCallback) {
+            window.currentCancelCallback();
+        }
+        // Limpiar callbacks
+        window.currentConfirmCallback = null;
+        window.currentCancelCallback = null;
+        // Restaurar footer original
+        restoreModalFooter();
+    }
+    // Restaurar footer original del modal
+    function restoreModalFooter() {
+        const footerEl = document.querySelector('#customModal .modal-footer');
+        footerEl.innerHTML = `
+            <button class="modal-btn modal-btn-primary" onclick="closeModal()">
+                Entendido
+            </button>
+        `;
+    }
+    // Efectos interactivos
+    $(document).ready(function() {
+        // Tooltips
+        $('[title]').tooltip();
+        // Efecto hover en las becas
+        $('.beca-item').hover(
+            function() {
+                $(this).find('.beca-icon').css('transform', 'scale(1.1) rotate(2deg)');
+            },
+            function() {
+                $(this).find('.beca-icon').css('transform', 'scale(1) rotate(0deg)');
+            }
+        );
+        // Animación de entrada escalonada
+        $('.beca-item').each(function(index) {
+            $(this).css('animation-delay', (index * 0.1) + 's');
+        });
+    });
+</script>

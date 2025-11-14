@@ -51,18 +51,15 @@ div.dt-button-info h2 {
 div.dt-button-info > div {
   padding: 1em;
 }
-
 ul.dt-buttons li {
   margin: 0;
 }
 ul.dt-buttons li.active a {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
 }
-
 ul.dt-buttons.button-group a {
   margin-bottom: 0;
 }
-
 ul.dt-button-collection.f-dropdown {
   -webkit-column-gap: 8px;
   -moz-column-gap: 8px;
@@ -123,7 +120,6 @@ ul.dt-button-collection.f-dropdown.fixed {
 ul.dt-button-collection.f-dropdown.fixed:before, ul.dt-button-collection.f-dropdown.fixed:after {
   display: none;
 }
-
 div.dt-button-background {
   position: fixed;
   top: 0;
@@ -132,7 +128,6 @@ div.dt-button-background {
   height: 100%;
   z-index: 88;
 }
-
 @media screen and (max-width: 767px) {
   ul.dt-buttons {
     float: none;
@@ -156,7 +151,6 @@ div.button-group.stacked.dropdown-pane a.button {
 div.button-group.stacked.dropdown-pane a.button:last-child {
   margin-bottom: 0;
 }
-
 div.dt-buttons button.button.processing,
 div.dt-buttons div.button.processing,
 div.dt-buttons a.button.processing {

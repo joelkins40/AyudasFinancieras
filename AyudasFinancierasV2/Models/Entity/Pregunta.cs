@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace AyudasFinancierasV2.Models.Entity
 {
     public class Pregunta
@@ -19,7 +18,5 @@ namespace AyudasFinancierasV2.Models.Entity
         public List <Opciones> opciones { get; set; }
         public string respuesta { get; set; }
         public string comentario { get; set; }
-
-
     }
 }

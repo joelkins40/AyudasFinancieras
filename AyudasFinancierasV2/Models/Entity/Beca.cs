@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace AyudasFinancierasV2.Models.Entity
 {
     public class Beca
@@ -16,6 +15,8 @@ namespace AyudasFinancierasV2.Models.Entity
         public double hasta { get; set; }
         public string icon { get; set; }
         public string uri { get; set; }
-
+        public string fecha { get; set; }
+        public string pidm { get; set; }
+        public string porcentaje { get; set; }
     }
 }

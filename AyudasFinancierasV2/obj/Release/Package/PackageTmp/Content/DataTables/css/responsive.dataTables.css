@@ -113,7 +113,6 @@ table.dataTable > tbody > tr.child span.dtr-title {
   min-width: 75px;
   font-weight: bold;
 }
-
 div.dtr-modal {
   position: fixed;
   box-sizing: border-box;
@@ -170,7 +169,6 @@ div.dtr-modal div.dtr-modal-background {
   z-index: 101;
   background: rgba(0, 0, 0, 0.6);
 }
-
 @media screen and (max-width: 767px) {
   div.dtr-modal div.dtr-modal-display {
     width: 95%;

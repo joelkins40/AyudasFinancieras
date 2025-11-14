@@ -18,7 +18,6 @@ div.DTS div.dataTables_paginate,
 div.DTS div.dataTables_length {
   display: none;
 }
-
 div.DTS tbody tr.even {
   background-color: white;
 }

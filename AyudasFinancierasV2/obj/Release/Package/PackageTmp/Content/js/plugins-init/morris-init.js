@@ -1,10 +1,7 @@
 (function($) {
     "use strict"
-
 	var dzMorris = function(){
-		
 		var screenWidth = $(window).width();
-		
 		var setChartWidth = function(){
 			if(screenWidth <= 768)
 			{
@@ -13,14 +10,12 @@
 				jQuery('.morris_chart_height').css('min-width',chartBlockWidth - 31);
 			}
 		}
-		
 		var donutChart = function(){
 			Morris.Donut({
 				element: 'morris_donught',
 				data: [{
 					label: "\xa0 \xa0 Download Sales \xa0 \xa0",
 					value: 12,
-
 				}, {
 					label: "\xa0 \xa0 In-Store Sales \xa0 \xa0",
 					value: 30
@@ -31,13 +26,9 @@
 				resize: true,
 				redraw: true,
 				colors: ['#222fb9', 'rgb(255, 122, 1)', '#21b731'],
-				//responsive:true,
-				
 			});
 		}
-		
 		var lineChart = function(){
-			//line chart
 			let line = new Morris.Line({
 				element: 'morris_line',
 				resize: true,
@@ -93,9 +84,7 @@
 				axes: false
 			});	
 		}
-		
 		var lineChart2 = function(){
-			//Area chart
 			Morris.Area({
 				element: 'line_chart_2',
 				data: [{
@@ -134,8 +123,6 @@
 						windows: 10,
 						mac: 10
 					}
-
-
 				],
 				xkey: 'period',
 				ykeys: ['smartphone', 'windows', 'mac'],
@@ -149,12 +136,9 @@
 				hideHover: 'auto',
 				lineColors: ['rgb(255, 38, 37)', 'rgb(39, 129, 213)', '#222fb9'],
 				resize: true
-
 			});
 		}
-		
 		var barChart = function(){
-			//bar chart
 			Morris.Bar({
 				element: 'morris_bar',
 				data: [{
@@ -203,9 +187,7 @@
 				barSizeRatio: 0.25,
 			});
 		}
-		
 		var barStalkChart = function(){
-			//bar chart
 			Morris.Bar({
 				element: 'morris_bar_stalked',
 				data: [{
@@ -279,14 +261,9 @@
 				barSizeRatio: 0.25,
 				stacked: true, 
 				behaveLikeLine: true,
-				//redraw: true
-				
-				// barRadius: [6, 6, 0, 0]
 			});		
 		}
-		
 		var areaChart = function(){
-			//area chart
 			Morris.Area({
 				element: 'morris_area',
 				data: [{
@@ -325,8 +302,6 @@
 						windows: 10,
 						mac: 10
 					}
-
-
 				],
 				lineColors: ['#222fb9', 'rgb(16, 202, 147)', 'rgb(255, 122, 1)'],
 				xkey: 'period',
@@ -339,50 +314,40 @@
 				behaveLikeLine: true,
 				gridLineColor: 'transparent',
 				hideHover: 'auto'
-
 			});
 		}
-		
 		var areaChart2 = function(){
-			//area chart
 			Morris.Area({
 				element: 'morris_area_2',
 				data: [{
 						period: '2010',
 						SiteA: 0,
 						SiteB: 0,
-
 					}, {
 						period: '2011',
 						SiteA: 130,
 						SiteB: 100,
-
 					}, {
 						period: '2012',
 						SiteA: 80,
 						SiteB: 60,
-
 					}, {
 						period: '2013',
 						SiteA: 70,
 						SiteB: 200,
-
 					}, {
 						period: '2014',
 						SiteA: 180,
 						SiteB: 150,
-
 					}, {
 						period: '2015',
 						SiteA: 105,
 						SiteB: 90,
-
 					},
 					{
 						period: '2016',
 						SiteA: 250,
 						SiteB: 150,
-
 					}
 				],
 				xkey: 'period',
@@ -398,12 +363,8 @@
 				hideHover: 'auto',
 				lineColors: ['rgb(39, 129, 213)', 'rgb(0, 0, 128)'],
 				resize: true
-
 			});	
 		}
-		
-		
-		/* Function ============ */
 		return {
 			init:function(){
 				setChartWidth();
@@ -413,38 +374,17 @@
 				barChart();
 				barStalkChart();
 				areaChart();
-				//areaChart2();
 			},
-			
-			
 			resize:function(){
 				screenWidth = $(window).width();
-				/* setChartWidth();
-				donutChart();
-				lineChart();
-				lineChart2();
-				barChart();
-				barStalkChart();
-				areaChart();
-				areaChart2(); */
 			}
 		}
-		
 	}();
-
 	jQuery(document).ready(function(){
 		dzMorris.init();
-		//dzMorris.resize();
-	
 	});
-		
 	jQuery(window).on('load',function(){
-		//dzMorris.init();
 	});
-		
 	jQuery( window ).resize(function() {
-		//dzMorris.resize();
-		//dzMorris.init();
 	});
-   
 })(jQuery);

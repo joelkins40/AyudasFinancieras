@@ -1,7 +1,6 @@
-ï»¿@{
+@{
     ViewBag.Title = "Becas Disponibles";
 }
-
 <style>
     body {
         font-family: "Montserrat", sans-serif !important;
@@ -9,7 +8,6 @@
         margin: 0;
         padding: 0;
     }
-
     .page-header {
         background: #333;
         color: white;
@@ -18,7 +16,6 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         margin-bottom: 2rem;
     }
-
     .page-title {
         font-size: 1.8rem;
         font-weight: 600;
@@ -29,7 +26,6 @@
         gap: 15px;
         color: white;
     }
-
     .udem-logo {
         background: #fff500;
         color: #333;
@@ -40,14 +36,12 @@
         box-shadow: 0 2px 8px rgba(255, 245, 0, 0.3);
         border: 2px solid #fff500;
     }
-
     .search-container {
         background: white;
         padding: 2rem;
         margin-bottom: 2rem;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-
     .navigation-container {
         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
         padding: 1.5rem 2rem;
@@ -57,12 +51,10 @@
         border: 1px solid #e9ecef;
         transition: all 0.3s ease;
     }
-
     .navigation-container:hover {
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
         transform: translateY(-1px);
     }
-
     .nav-content {
         display: flex;
         align-items: center;
@@ -70,14 +62,12 @@
         width: 100%;
         justify-content: center;
     }
-
     .step-indicator {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
     }
-
     .step-text {
         background: linear-gradient(135deg, #fff500 0%, #ffeb3b 100%);
         color: #333;
@@ -93,12 +83,10 @@
         transition: all 0.3s ease;
         white-space: nowrap;
     }
-
     .step-text:hover {
         transform: scale(1.05);
         box-shadow: 0 4px 12px rgba(255, 245, 0, 0.4);
     }
-
     .step-line {
         width: 60px;
         height: 3px;
@@ -106,23 +94,19 @@
         border-radius: 2px;
         box-shadow: 0 1px 3px rgba(255, 245, 0, 0.3);
     }
-
     @@media (max-width: 768px) {
         .nav-content {
             flex-direction: column;
             gap: 1rem;
         }
-        
         .step-text {
             font-size: 12px;
             padding: 6px 12px;
         }
-        
         .navigation-container {
             padding: 1rem;
         }
     }
-
     .search-input {
         border: 2px solid #e9ecef;
         border-radius: 8px;
@@ -131,13 +115,11 @@
         transition: all 0.3s ease;
         background-color: #ffffff;
     }
-
     .search-input:focus {
         border-color: #fff500;
         box-shadow: 0 0 0 3px rgba(255, 245, 0, 0.15);
         outline: none;
     }
-
     .btn-primary-custom {
         background-color: #fff500;
         color: #333;
@@ -148,13 +130,11 @@
         font-size: 16px;
         transition: all 0.3s ease;
     }
-
     .btn-primary-custom:hover {
         background-color: #e6dd00;
         color: #333;
         transform: translateY(-1px);
     }
-
     .btn-back {
         background-color: #333;
         color: white;
@@ -165,20 +145,17 @@
         font-size: 16px;
         transition: all 0.3s ease;
     }
-
     .btn-back:hover {
         background-color: #222;
         color: white;
         transform: translateY(-1px);
     }
-
     .becas-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
         margin-top: 2rem;
     }
-
     .beca-card {
         background: white;
         border-radius: 12px;
@@ -190,23 +167,19 @@
         cursor: pointer;
         user-select: none;
     }
-
     .beca-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         border-color: #fff500;
     }
-
     .beca-card.selected {
         border: 2px solid #fff500;
         background: linear-gradient(135deg, #fff500 0%, #f0f0f0 100%);
         transform: scale(1.02);
     }
-
     .beca-card.selected .beca-header {
         background: rgba(255, 245, 0, 0.1);
     }
-
     .beca-header {
         display: flex;
         align-items: center;
@@ -214,7 +187,6 @@
         background: #f8f9fa;
         border-bottom: 1px solid #e9ecef;
     }
-
     .beca-icon {
         width: 50px;
         height: 50px;
@@ -225,15 +197,13 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
     }
-
-    /* Estilos para la imagen cuando la card estÃ¡ seleccionada */
+    /* Estilos para la imagen cuando la card está seleccionada */
     .beca-card.selected .beca-icon {
         border: 3px solid #333;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         background: white;
         padding: 2px;
     }
-
     .beca-title {
         color: #333;
         font-size: 1.1rem;
@@ -241,7 +211,6 @@
         margin: 0;
         flex: 1;
     }
-
     .beca-actions {
         padding: 1.5rem;
         display: flex;
@@ -249,7 +218,6 @@
         align-items: center;
         justify-content: space-between;
     }
-
     .conoce-mas-btn {
         background-color: #fff500;
         color: #333;
@@ -262,34 +230,28 @@
         text-decoration: none;
         display: inline-block;
     }
-
     .conoce-mas-btn:hover {
         background-color: #e6dd00;
         color: #333;
         text-decoration: none;
     }
-
-    /* Estilos para el botÃ³n cuando la card estÃ¡ seleccionada */
+    /* Estilos para el botón cuando la card está seleccionada */
     .beca-card.selected .conoce-mas-btn {
         background-color: #333;
         color: white;
         border: 2px solid #fff500;
     }
-
     .beca-card.selected .conoce-mas-btn:hover {
         background-color: #222;
         color: white;
         transform: translateY(-1px);
     }
-
     .aplicar-section {
-        display: none; /* Ocultar la secciÃ³n del checkbox */
+        display: none; /* Ocultar la sección del checkbox */
     }
-
     .checkbox-custom {
         display: none; /* Ocultar completamente el checkbox */
     }
-
     .selection-indicator {
         position: absolute;
         top: 15px;
@@ -306,17 +268,14 @@
         font-size: 16px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
-
     .beca-card.selected .selection-indicator {
         display: flex;
     }
-
     .aplicar-text {
         font-size: 14px;
         color: #6c757d;
         margin: 0;
     }
-
     .status-indicator {
         width: 12px;
         height: 12px;
@@ -324,11 +283,9 @@
         background-color: #28a745;
         display: inline-block;
     }
-
     .status-indicator.inactive {
         background-color: #dc3545;
     }
-
     .checkbox-custom {
         position: relative;
         display: flex;
@@ -341,13 +298,11 @@
         background: #f8f9fa;
         border: 1px solid #e9ecef;
     }
-
     .checkbox-custom:hover {
         background: #fff500;
         border-color: #fff500;
         transform: scale(1.02);
     }
-
     .checkbox-custom input[type="checkbox"] {
         width: 18px;
         height: 18px;
@@ -359,14 +314,12 @@
         position: relative;
         appearance: none;
     }
-
     .checkbox-custom input[type="checkbox"]:checked {
         background-color: #fff500;
         border-color: #fff500;
     }
-
     .checkbox-custom input[type="checkbox"]:checked::after {
-        content: 'âœ“';
+        content: '?';
         position: absolute;
         top: 50%;
         left: 50%;
@@ -375,7 +328,6 @@
         font-weight: bold;
         font-size: 12px;
     }
-
     .checkbox-custom .checkbox-label {
         font-size: 13px;
         font-weight: 600;
@@ -384,7 +336,6 @@
         cursor: pointer;
         user-select: none;
     }
-
     .btn-advance {
         background-color: #333;
         color: white;
@@ -397,14 +348,12 @@
         margin-top: 2rem;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
-
     .btn-advance:hover {
         background-color: #fff500;
         color: #333;
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
-
     .no-becas-alert {
         background: #fff;
         border: 1px solid #ffc107;
@@ -415,7 +364,6 @@
         font-weight: 600;
         font-size: 16px;
     }
-
     .loading-spinner {
         position: fixed;
         top: 0;
@@ -429,7 +377,6 @@
         justify-content: center;
         backdrop-filter: blur(5px);
     }
-
     .spinner-custom {
         width: 50px;
         height: 50px;
@@ -438,62 +385,50 @@
         border-radius: 50%;
         animation: spin 1s linear infinite;
     }
-
     @@keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
-
     .fade-in {
         animation: fadeIn 0.6s ease-in;
     }
-
     @@keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
-
     /* Responsive */
     @@media (max-width: 768px) {
         .page-title {
             font-size: 1.5rem;
         }
-        
         .udem-logo {
             font-size: 1.2rem;
             padding: 6px 12px;
         }
-        
         .search-container {
             padding: 1rem;
         }
-        
         .becas-grid {
             grid-template-columns: 1fr;
             gap: 1rem;
         }
-        
         .beca-header {
             padding: 1rem;
         }
-        
         .beca-actions {
             padding: 1rem;
             flex-direction: column;
             gap: 1rem;
         }
-        
         .aplicar-section {
             align-self: stretch;
             justify-content: center;
         }
-        
         .btn-advance {
             font-size: 16px;
             padding: 12px 24px;
         }
     }
-
     .description-section {
         background: white;
         border-radius: 12px;
@@ -503,12 +438,10 @@
         border-left: 4px solid #fff500;
         transition: all 0.3s ease;
     }
-
     .description-section:hover {
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
         transform: translateY(-2px);
     }
-
     .description-text {
         color: #333;
         font-size: 1.1rem;
@@ -518,14 +451,12 @@
         text-align: center;
         position: relative;
     }
-
     .description-text::before {
-        content: "ðŸ’¡";
+        content: "??";
         display: inline-block;
         margin-right: 10px;
         font-size: 1.3rem;
     }
-
     .description-highlight {
         color: #333;
         font-weight: 600;
@@ -534,7 +465,6 @@
         border-radius: 4px;
         display: inline;
     }
-
     /* Estilos para el modal personalizado */
     .custom-modal-overlay {
         position: fixed;
@@ -552,12 +482,10 @@
         visibility: hidden;
         transition: all 0.3s ease;
     }
-
     .custom-modal-overlay.show {
         opacity: 1;
         visibility: visible;
     }
-
     .custom-modal {
         background: white;
         border-radius: 16px;
@@ -571,11 +499,9 @@
         position: relative;
         overflow: hidden;
     }
-
     .custom-modal-overlay.show .custom-modal {
         transform: scale(1) translateY(0);
     }
-
     .custom-modal::before {
         content: '';
         position: absolute;
@@ -585,19 +511,15 @@
         height: 4px;
         background: linear-gradient(90deg, #fff500 0%, #ffeb3b 100%);
     }
-
     .custom-modal.warning::before {
         background: linear-gradient(90deg, #ff9800 0%, #ff5722 100%);
     }
-
     .custom-modal.info::before {
         background: linear-gradient(90deg, #2196f3 0%, #03a9f4 100%);
     }
-
     .custom-modal.success::before {
         background: linear-gradient(90deg, #4caf50 0%, #8bc34a 100%);
     }
-
     .modal-header {
         display: flex;
         align-items: center;
@@ -606,7 +528,6 @@
         padding-bottom: 1rem;
         border-bottom: 2px solid #f0f0f0;
     }
-
     .modal-icon {
         width: 50px;
         height: 50px;
@@ -620,34 +541,28 @@
         background: linear-gradient(135deg, #fff500 0%, #ffeb3b 100%);
         box-shadow: 0 4px 12px rgba(255, 245, 0, 0.3);
     }
-
     .modal-icon.warning {
         background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
         box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
     }
-
     .modal-icon.info {
         background: linear-gradient(135deg, #2196f3 0%, #03a9f4 100%);
         box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
     }
-
     .modal-icon.success {
         background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
         box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
     }
-
-    /* Nuevos estilos para el modal de confirmaciÃ³n */
+    /* Nuevos estilos para el modal de confirmación */
     .modal-icon.confirm {
         background: linear-gradient(135deg, #6f42c1 0%, #007bff 100%);
         box-shadow: 0 4px 12px rgba(111, 66, 193, 0.3);
         border: 3px solid white;
         color: white;
     }
-
     .custom-modal.confirm::before {
         background: linear-gradient(90deg, #6f42c1 0%, #007bff 100%);
     }
-
     .modal-title {
         font-size: 1.4rem;
         font-weight: 700;
@@ -655,7 +570,6 @@
         margin: 0;
         flex: 1;
     }
-
     .modal-close {
         background: none;
         border: none;
@@ -671,17 +585,14 @@
         align-items: center;
         justify-content: center;
     }
-
     .modal-close:hover {
         background: #f0f0f0;
         color: #333;
         transform: scale(1.1);
     }
-
     .modal-body {
         margin-bottom: 2rem;
     }
-
     .modal-message {
         font-size: 1.1rem;
         line-height: 1.6;
@@ -689,13 +600,11 @@
         margin: 0;
         text-align: center;
     }
-
     .modal-footer {
         display: flex;
         justify-content: center;
         gap: 1rem;
     }
-
     .modal-btn {
         padding: 12px 24px;
         border: none;
@@ -707,66 +616,54 @@
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
-
     .modal-btn-primary {
         background: linear-gradient(135deg, #fff500 0%, #ffeb3b 100%);
         color: #333;
         box-shadow: 0 4px 12px rgba(255, 245, 0, 0.3);
     }
-
     .modal-btn-primary:hover {
         background: linear-gradient(135deg, #e6dd00 0%, #ffd600 100%);
         transform: translateY(-2px);
         box-shadow: 0 6px 16px rgba(255, 245, 0, 0.4);
     }
-
     .modal-btn-secondary {
         background: #f8f9fa;
         color: #333;
         border: 2px solid #e9ecef;
     }
-
     .modal-btn-secondary:hover {
         background: #e9ecef;
         border-color: #dee2e6;
         transform: translateY(-1px);
     }
-
     @@media (max-width: 768px) {
         .custom-modal {
             margin: 1rem;
             padding: 1.5rem;
         }
-        
         .modal-header {
             margin-bottom: 1rem;
         }
-        
         .modal-icon {
             width: 40px;
             height: 40px;
             font-size: 20px;
         }
-        
         .modal-title {
             font-size: 1.2rem;
         }
-        
         .modal-message {
             font-size: 1rem;
         }
-        
         .modal-footer {
             flex-direction: column;
         }
-        
         .modal-btn {
             width: 100%;
         }
     }
 </style>
 <div class="container-fluid">
-    <!-- Header de la pÃ¡gina -->
     <div class="page-header">
         <div class="container">
             <h1 class="page-title">
@@ -775,10 +672,7 @@
             </h1>
         </div>
     </div>
-
-    <!-- Contenedor principal -->
     <div class="container">
-        <!-- Barra de navegaciÃ³n centrada -->
         <div class="navigation-container fade-in">
             <div class="d-flex align-items-center justify-content-center">
                 <div class="nav-content">
@@ -789,42 +683,35 @@
                     <div class="step-indicator">
                         <span class="step-text">
                             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                            Paso 2 de 2 - SelecciÃ³n de Becas
+                            Paso 2 de 3 - Selección de Becas
                         </span>
                         <div class="step-line"></div>
                     </div>
                 </div>
             </div>
         </div>
-           <!-- BotÃ³n de generar solicitud - Solo mostrar si hay becas -->
         @if (ViewBag.becas != null && ViewBag.becas.Count > 0)
         {
-        <!-- SecciÃ³n descriptiva -->
         <div class="description-section fade-in">
             <h5 class="description-text">
-                A continuaciÃ³n te presentamos la oferta de <span class="description-highlight">becas y otras ayudas financieras</span> que se adaptan a tu perfil. Selecciona las opciones con las que deseas comenzar una solicitud:
+                A continuación te presentamos la oferta de <span class="description-highlight">becas y otras ayudas financieras</span> que se adaptan a tu perfil. Selecciona todas las opciones que te interesen:
             </h5>
         </div>
 }
-        <!-- Contenedor de becas -->
         <div class="becas-grid filterDiv">
             @if (ViewBag.becas != null && ViewBag.becas.Count > 0)
             {
                 foreach (var beca in ViewBag.becas)
                 {
                     <div class="beca-card filterDiv fade-in" data-beca-code="@beca.code">
-                        <!-- Indicador de selecciÃ³n -->
                         <div class="selection-indicator">
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </div>
-                        
-                        <!-- Checkbox oculto para mantener compatibilidad -->
                         <input type="checkbox" 
                                id="@beca.code" 
                                value="@beca.code" 
                                name="becasRadio"
                                style="display: none;">
-                        
                         <div class="beca-header">
                             <img class="beca-icon" 
                                  src="~/Content/Img/@beca.icon" 
@@ -834,43 +721,39 @@
                         </div>
                         <div class="beca-actions">
                             <button class="conoce-mas-btn" onclick="event.stopPropagation(); window.open('@beca.uri', '_blank')">
-                                <i class="fa fa-eye" aria-hidden="true"></i> Conoce mÃ¡s
+                                <i class="fa fa-eye" aria-hidden="true"></i> Conoce más
                             </button>
                         </div>
                     </div>
                 }
             }
         </div>
-
         @if (ViewBag.becas == null || ViewBag.becas.Count == 0)
         {
             <div class="no-becas-alert fade-in">
                 <i class="fa fa-exclamation-triangle fa-2x mb-3" aria-hidden="true"></i>
                 <h5>No hay becas disponibles</h5>
-                <p>Estimado alumno, actualmente no hay ninguna beca disponible que cumpla con los criterios de aplicaciÃ³n.</p>
+                <p>Estimado alumno, actualmente no hay ninguna beca disponible que cumpla con los criterios de aplicación.</p>
             </div>
         }
-
-        <!-- BotÃ³n de generar solicitud - Solo mostrar si hay becas -->
         @if (ViewBag.becas != null && ViewBag.becas.Count > 0)
         {
             <div class="text-center">
-                <button class="btn btn-advance" onclick="sendSelected()">
-                    <i class="fa fa-file-text" aria-hidden="true"></i>
-                    GENERAR SOLICITUD
+                <button class="btn btn-advance" onclick="proceedToStep3()">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    CONTINUAR AL SIGUIENTE PASO
                 </button>
             </div>
         }
     </div>
 </div>
-<!-- Modal personalizado para alertas -->
 <div id="customModal" class="custom-modal-overlay">
     <div class="custom-modal">
         <div class="modal-header">
             <div class="modal-icon">
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
             </div>
-            <h4 class="modal-title">InformaciÃ³n</h4>
+            <h4 class="modal-title">Información</h4>
             <button class="modal-close" onclick="closeModal()">
                 <i class="fa fa-times" aria-hidden="true"></i>
             </button>
@@ -891,52 +774,66 @@
         <h5 style="color: #333; margin-top: 1rem;">Cargando...</h5>
     </div>
 </div>
-
 <script>
-    // Mejorar la funciÃ³n de redireccionamiento
+    // Mejorar la función de redireccionamiento
     function redireccionar() {
         $('#loadingSpinner').show();
         setTimeout(function () {
             window.location.href = '/Form/Index';
         }, 500);
     }
-
-    // Mejorar la funciÃ³n de envÃ­o de selecciones
-    function sendSelected() {
+    // Nueva función para proceder al paso 3
+    function proceedToStep3() {
         const selectedCheckboxes = document.querySelectorAll('input[name="becasRadio"]:checked');
         const selectedValues = Array.from(selectedCheckboxes).map(checkbox => checkbox.value);
-
         if (selectedValues.length === 0) {
-            // Mostrar alerta mÃ¡s atractiva
             showAlert('Por favor, selecciona al menos una beca para continuar.', 'warning');
             return;
         }
-
-        // Agregar confirmaciÃ³n con modal elegante
+        // Mostrar modal de confirmación
         const becasText = selectedValues.length === 1 ? 'beca seleccionada' : `${selectedValues.length} becas seleccionadas`;
         showConfirmModal(
-            `Â¿EstÃ¡s seguro de que deseas aplicar a la ${becasText}? Se abrirÃ¡n las pÃ¡ginas correspondientes para completar tu solicitud.`,
+            `Has seleccionado ${selectedValues.length} beca(s). ¿Deseas continuar al siguiente paso para aplicar a cada una?`,
             function() {
-                // FunciÃ³n que se ejecuta al confirmar
+                // Enviar al controlador para ir al paso 3
+                $('#loadingSpinner').show();
+                // Crear formulario para enviar las becas seleccionadas
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/Becas/Step3';
+                // Agregar token anti-falsificación si está disponible
+                const token = $('input[name="__RequestVerificationToken"]').val();
+                if (token) {
+                    const tokenInput = document.createElement('input');
+                    tokenInput.type = 'hidden';
+                    tokenInput.name = '__RequestVerificationToken';
+                    tokenInput.value = token;
+                    form.appendChild(tokenInput);
+                }
                 selectedValues.forEach(value => {
-                    getUrl(value);
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'selectedBecas';
+                    input.value = value;
+                    form.appendChild(input);
                 });
-                // Mostrar mensaje de Ã©xito
-                setTimeout(() => {
-                    showAlert('Procesando tu solicitud. Se abrirÃ¡n las pÃ¡ginas de las becas seleccionadas.', 'success');
-                }, 500);
+                document.body.appendChild(form);
+                form.submit();
             }
         );
     }
-
-    // Mejorar la funciÃ³n de bÃºsqueda
+    // Mejorar la función de envío de selecciones (mantener para compatibilidad)
+    function sendSelected() {
+        // Esta función ahora redirige al paso 3
+        proceedToStep3();
+    }
+    // Mejorar la función de búsqueda
     function buscarBecas() {
         const $elementos = $('.filterDiv.beca-card');
         const $buscar = $('#buscarBeca');
         const valor = $buscar.val().toLowerCase().trim();
-
         if (valor === '') {
-            // Mostrar todos los elementos con animaciÃ³n
+            // Mostrar todos los elementos con animación
             $elementos.fadeIn(300);
         } else {
             // Filtrar elementos
@@ -949,17 +846,15 @@
                 }
             });
         }
-
         // Verificar si hay resultados
         setTimeout(function() {
             const elementosVisibles = $('.filterDiv.beca-card:visible');
             if (elementosVisibles.length === 0 && valor !== '') {
-                showAlert('No se encontraron becas que coincidan con tu bÃºsqueda.', 'info');
+                showAlert('No se encontraron becas que coincidan con tu búsqueda.', 'info');
             }
         }, 350);
     }
-
-    // FunciÃ³n para mostrar modal personalizado
+    // Función para mostrar modal personalizado
     function showAlert(message, type = 'info') {
         const modal = document.getElementById('customModal');
         const modalEl = modal.querySelector('.custom-modal');
@@ -967,22 +862,20 @@
         const titleEl = modal.querySelector('.modal-title');
         const messageEl = modal.querySelector('.modal-message');
         const iconContainer = modal.querySelector('.modal-icon');
-        
         // Limpiar clases anteriores
         modalEl.className = 'custom-modal';
         iconContainer.className = 'modal-icon';
-        
-        // Configurar segÃºn el tipo
+        // Configurar según el tipo
         let icon, title, modalClass;
         switch(type) {
             case 'warning':
                 icon = 'fa-exclamation-triangle';
-                title = 'AtenciÃ³n';
+                title = 'Atención';
                 modalClass = 'warning';
                 break;
             case 'success':
                 icon = 'fa-check-circle';
-                title = 'Ã‰xito';
+                title = 'Éxito';
                 modalClass = 'success';
                 break;
             case 'error':
@@ -992,54 +885,46 @@
                 break;
             default:
                 icon = 'fa-info-circle';
-                title = 'InformaciÃ³n';
+                title = 'Información';
                 modalClass = 'info';
         }
-        
-        // Aplicar configuraciÃ³n
+        // Aplicar configuración
         iconEl.className = `fa ${icon}`;
         titleEl.textContent = title;
         messageEl.textContent = message;
         modalEl.classList.add(modalClass);
         iconContainer.classList.add(modalClass);
-        
         // Mostrar modal
         modal.classList.add('show');
-        
-        // Auto-cerrar despuÃ©s de 8 segundos para dar tiempo a leer
+        // Auto-cerrar después de 8 segundos para dar tiempo a leer
         setTimeout(() => {
             if (modal.classList.contains('show')) {
                 closeModal();
             }
         }, 8000);
     }
-
-    // FunciÃ³n para cerrar el modal
+    // Función para cerrar el modal
     function closeModal() {
         const modal = document.getElementById('customModal');
         modal.classList.remove('show');
     }
-
-    // Cerrar modal al hacer click fuera de Ã©l
+    // Cerrar modal al hacer click fuera de él
     document.addEventListener('click', function(e) {
         const modal = document.getElementById('customModal');
         if (e.target === modal) {
             closeModal();
         }
     });
-
     // Cerrar modal con la tecla Escape
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeModal();
         }
     });
-
-    // Mejorar la funciÃ³n getUrl
+    // Mejorar la función getUrl
     function getUrl(id) {
         const code = id;
         $('#loadingSpinner').show();
-
         $.ajax({
             url: '/Becas/getUrlBeca',
             type: "post",
@@ -1058,12 +943,11 @@
             error: function (xhr, status, error) {
                 $('#loadingSpinner').hide();
                 console.error('Error:', error);
-                showAlert('OcurriÃ³ un error al procesar la solicitud. Por favor, intÃ©ntalo de nuevo.', 'warning');
+                showAlert('Ocurrió un error al procesar la solicitud. Por favor, inténtalo de nuevo.', 'warning');
             }
         });
     }
-
-    // FunciÃ³n para mostrar modal de confirmaciÃ³n
+    // Función para mostrar modal de confirmación
     function showConfirmModal(message, onConfirm, onCancel = null) {
         const modal = document.getElementById('customModal');
         const modalEl = modal.querySelector('.custom-modal');
@@ -1072,19 +956,16 @@
         const messageEl = modal.querySelector('.modal-message');
         const iconContainer = modal.querySelector('.modal-icon');
         const footerEl = modal.querySelector('.modal-footer');
-        
         // Limpiar clases anteriores
         modalEl.className = 'custom-modal';
         iconContainer.className = 'modal-icon';
-        
-        // Configurar para confirmaciÃ³n
+        // Configurar para confirmación
         iconEl.className = 'fa fa-question-circle';
-        titleEl.textContent = 'ConfirmaciÃ³n';
+        titleEl.textContent = 'Confirmación';
         messageEl.textContent = message;
         modalEl.classList.add('confirm');
         iconContainer.classList.add('confirm');
-        
-        // Crear botones de confirmaciÃ³n
+        // Crear botones de confirmación
         footerEl.innerHTML = `
             <button class="modal-btn modal-btn-secondary" onclick="handleConfirmCancel()">
                 <i class="fa fa-times" aria-hidden="true"></i> Cancelar
@@ -1093,16 +974,13 @@
                 <i class="fa fa-check" aria-hidden="true"></i> Confirmar
             </button>
         `;
-        
         // Guardar callbacks globalmente para acceso desde onclick
         window.currentConfirmCallback = onConfirm;
         window.currentCancelCallback = onCancel;
-        
         // Mostrar modal
         modal.classList.add('show');
     }
-
-    // Manejar confirmaciÃ³n
+    // Manejar confirmación
     function handleConfirmAccept() {
         closeModal();
         if (window.currentConfirmCallback) {
@@ -1114,8 +992,7 @@
         // Restaurar footer original
         restoreModalFooter();
     }
-
-    // Manejar cancelaciÃ³n
+    // Manejar cancelación
     function handleConfirmCancel() {
         closeModal();
         if (window.currentCancelCallback) {
@@ -1127,7 +1004,6 @@
         // Restaurar footer original
         restoreModalFooter();
     }
-
     // Restaurar footer original del modal
     function restoreModalFooter() {
         const footerEl = document.querySelector('#customModal .modal-footer');
@@ -1137,46 +1013,38 @@
             </button>
         `;
     }
-
     // Agregar efectos de sonido visual al modal (opcional)
     function addModalEffects() {
         const modal = document.getElementById('customModal');
         const modalEl = modal.querySelector('.custom-modal');
-        
-        // Efecto de entrada mÃ¡s suave
+        // Efecto de entrada más suave
         modalEl.style.transform = 'scale(0.8) rotate(1deg)';
         setTimeout(() => {
             modalEl.style.transform = 'scale(1) rotate(0deg)';
         }, 100);
     }
-
-    // Mejorar la funciÃ³n closeModal con efectos
+    // Mejorar la función closeModal con efectos
     const originalCloseModal = closeModal;
     closeModal = function() {
         const modal = document.getElementById('customModal');
         const modalEl = modal.querySelector('.custom-modal');
-        
         // Efecto de salida
         modalEl.style.transform = 'scale(0.9) translateY(20px)';
         modalEl.style.opacity = '0.7';
-        
         setTimeout(() => {
             modal.classList.remove('show');
-            // Restaurar para prÃ³xima vez
+            // Restaurar para próxima vez
             modalEl.style.transform = '';
             modalEl.style.opacity = '';
         }, 200);
     };
-
     // Efectos interactivos
     $(document).ready(function() {
-        // Manejar click en las cards para selecciÃ³n
+        // Manejar click en las cards para selección
         $('.beca-card').click(function(e) {
             e.preventDefault();
-            
             const card = $(this);
             const checkbox = card.find('input[name="becasRadio"]');
-            
             // Toggle selection
             if (card.hasClass('selected')) {
                 card.removeClass('selected');
@@ -1186,13 +1054,11 @@
                 checkbox.prop('checked', true);
             }
         });
-
-        // Prevenir que el botÃ³n "Conoce mÃ¡s" active la selecciÃ³n
+        // Prevenir que el botón "Conoce más" active la selección
         $('.conoce-mas-btn').click(function(e) {
             e.stopPropagation();
         });
-
-        // BÃºsqueda en tiempo real
+        // Búsqueda en tiempo real
         $('#buscarBeca').on('input', function() {
             clearTimeout($(this).data('timeout'));
             const searchTimeout = setTimeout(function() {
@@ -1200,7 +1066,6 @@
             }, 300);
             $(this).data('timeout', searchTimeout);
         });
-
         // Tooltips
         $('[title]').tooltip();
     });

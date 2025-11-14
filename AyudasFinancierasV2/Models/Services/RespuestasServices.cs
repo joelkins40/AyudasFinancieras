@@ -1,4 +1,4 @@
-ï»¿using AyudasFinancierasV2.Models.Entity;
+using AyudasFinancierasV2.Models.Entity;
 using System;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
@@ -10,13 +10,11 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Net.Http;
 using System.Web.Mvc;
-
 namespace AyudasFinancierasV2.Models.Services
 {
     public class RespuestasServices
     {
         private static readonly string _conString = ConfigurationManager.ConnectionStrings["BANNER"].ConnectionString;
-
         public static Evaluacion listarRespuestas(Evaluacion item)
         {
             List<Respuesta> respuestas = new List<Respuesta>();
@@ -34,7 +32,6 @@ namespace AyudasFinancierasV2.Models.Services
                         {
                             Direction = ParameterDirection.ReturnValue
                         });
-
                         comando.Parameters.Add(new OracleParameter("P_PIDM", OracleDbType.Int16)
                         {
                             Value = item.pid,
@@ -45,21 +42,15 @@ namespace AyudasFinancierasV2.Models.Services
                             Value = item.periodo.CODIGO,
                             Direction = System.Data.ParameterDirection.Input
                         });
-
-                        // Revisamos si se pudo ejecutar la consulta
                         cnx.Open();
                         try
                         {
                             OracleDataReader lector = comando.ExecuteReader();
-                            // Revisamos cada contacto
                             while (lector.Read())
                             {
-
-
                                 respuestas.Add(new Respuesta()
                                 {
                                     id = (lector.IsDBNull(4) ? 0 : lector.GetInt32(4)),
-                                    
                                     respuesta = (lector.IsDBNull(5) ? "" : lector.GetString(5)),
                                 });
                             }
@@ -69,17 +60,14 @@ namespace AyudasFinancierasV2.Models.Services
                             cnx.Close();
                         }
                     }
-                    //cnx.Close();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-
             }
             item.respuestas=respuestas;
             return item;
-
         }
         public static List<Pregunta> HomologarRespuestas(List<Pregunta> preguntas,Evaluacion item)
         {
@@ -95,14 +83,11 @@ namespace AyudasFinancierasV2.Models.Services
                             if (respuestaBanner.Equals("NA"))
                             {
                                 p.respuesta = i.respuesta;
-
                             }
                             else
                             {
                                 p.respuesta = respuestaBanner;
-
                             }
-
                         }
                     }
                 }
@@ -111,10 +96,7 @@ namespace AyudasFinancierasV2.Models.Services
             {
                 foreach (Pregunta p in preguntas)
                 {
-                   
                         p.respuesta = getRespuestas(  p.id, item.info);
-                    
-
                 }
             }
             return preguntas;
@@ -137,7 +119,6 @@ namespace AyudasFinancierasV2.Models.Services
             {
                 respuesta = info.ESTADO;
             }
-
             int[] idEscuela = { 4, 24, 49, 66 };
             if (idEscuela.Contains(pregunta))
             {
@@ -148,24 +129,18 @@ namespace AyudasFinancierasV2.Models.Services
             {
                 respuesta = info.PROMEDIO_ADMISION;
             }
-
             int[] idPAA = { 8, 28 };
             if (idPAA.Contains(pregunta))
             {
                 respuesta = info.PAA;
             }
-
             int[] idPrograma = { 9, 29,52,69 };
             if (idPrograma.Contains(pregunta))
             {
                 respuesta = info.PROGRAMA_INTERES;
             }
-           
-           
-        
             return respuesta;
         }
-
         public static String InsertRespuesta(Respuesta respuesta, int pidm,Periodo periodo)
         {
             try
@@ -178,7 +153,6 @@ namespace AyudasFinancierasV2.Models.Services
                         comando.CommandText = "SZ_BGA_SIAF.F_INSERT_RESPUESTAS";
                         comando.CommandType = CommandType.StoredProcedure;
                         comando.BindByName = true;
-
                         comando.Parameters.Add(new OracleParameter("P_PIDM", OracleDbType.Int16)
                         {
                             Value = pidm,
@@ -194,23 +168,19 @@ namespace AyudasFinancierasV2.Models.Services
                             Value = respuesta.id,
                             Direction = System.Data.ParameterDirection.Input
                         });
-
                         comando.Parameters.Add(new OracleParameter("P_RESPUESTA", OracleDbType.Varchar2)
                         {
                             Value = respuesta.respuesta,
                             Direction = System.Data.ParameterDirection.Input
                         });
-
                         comando.Parameters.Add(new OracleParameter("V_Salida", OracleDbType.Varchar2, 400)
                         {
                             Direction = ParameterDirection.ReturnValue
                         });
-
                         try
                         {
                             cnx.Open();
                             comando.ExecuteNonQuery();
-
                         }
                         finally
                         {
@@ -223,8 +193,7 @@ namespace AyudasFinancierasV2.Models.Services
             {
                 Console.WriteLine(ex.Message);
             }
-            return "Registro Ingresado Con Ã‰xito";
-
+            return "Registro Ingresado Con Éxito";
         }
         public static string guardarRespuestas(Evaluacion item)
         {
@@ -233,9 +202,8 @@ namespace AyudasFinancierasV2.Models.Services
             {
                 InsertRespuesta(i, item.pid, item.periodo);
             }
-            return "Datos guardados con Ã©xito";
+            return "Datos guardados con éxito";
         }
-
         public static string EliminarRespuesta(int pidm, Periodo term)
         {
             try
@@ -248,7 +216,6 @@ namespace AyudasFinancierasV2.Models.Services
                         comando.CommandText = "SZ_BGA_SIAF.F_ELIMINA_RESPUESTAS";
                         comando.CommandType = System.Data.CommandType.StoredProcedure;
                         comando.BindByName = true;
-
                         comando.Parameters.Add(new OracleParameter("P_PIDM", OracleDbType.Int32)
                         {
                             Value = pidm,
@@ -259,7 +226,6 @@ namespace AyudasFinancierasV2.Models.Services
                             Value = term.CODIGO,
                             Direction = System.Data.ParameterDirection.Input
                         });
-
                         comando.Parameters.Add(new OracleParameter("V_Salida", OracleDbType.Varchar2, 400)
                         {
                             Direction = ParameterDirection.ReturnValue
@@ -268,7 +234,6 @@ namespace AyudasFinancierasV2.Models.Services
                         try
                         {
                             comando.ExecuteNonQuery();
-
                         }
                         finally
                         {
@@ -281,9 +246,7 @@ namespace AyudasFinancierasV2.Models.Services
             {
                 Console.WriteLine(ex.Message);
             }
-            return "Registro Eliminado Con Ã‰xito";
-
+            return "Registro Eliminado Con Éxito";
         }
-
     }
 }

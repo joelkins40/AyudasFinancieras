@@ -85,7 +85,6 @@ jQuery(".form-valide").validate({
         "val-range": "Please enter a number between 1 and 5!",
         "val-terms": "You must agree to the service terms!"
     },
-
     ignore: [],
     errorClass: "invalid-feedback animated fadeInUp",
     errorElement: "div",
@@ -99,8 +98,6 @@ jQuery(".form-valide").validate({
         jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
     },
 });
-
-
 jQuery(".form-valide-with-icon").validate({
     rules: {
         "val-username": {
@@ -122,7 +119,6 @@ jQuery(".form-valide-with-icon").validate({
             minlength: "Your password must be at least 5 characters long"
         }
     },
-
     ignore: [],
     errorClass: "invalid-feedback animated fadeInUp",
     errorElement: "div",
@@ -135,8 +131,4 @@ jQuery(".form-valide-with-icon").validate({
     success: function(e) {
         jQuery(e).closest(".form-group").removeClass("is-invalid").addClass("is-valid")
     }
-
-
-
-
 });

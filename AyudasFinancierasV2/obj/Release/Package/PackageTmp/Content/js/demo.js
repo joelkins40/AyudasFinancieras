@@ -1,5 +1,4 @@
 "use strict"
-
 var themeOptionArr = {
 			typography: '',
 			version: '',
@@ -13,36 +12,25 @@ var themeOptionArr = {
 			headerPosition: '',
 			containerLayout: '',
 			direction: '',
-			
 		};
-		
-		
-/* Event Sidebar (This is only for tixia) */
 function setEventSidebar()
 	{
 		$( ".content-body" ).removeClass( "rightside-event" );
-		
 		var se = $('.schedule-event');
 		se.addClass("schedule-event-inner");
 		se.removeClass("schedule-event");
-		
 		$(".event-sidebar").removeClass("active");
-		
 		$(".schedule-event-inner").unbind().on('click',function(){
 			$('.event-sidebar').toggleClass('active');
 		});  
 	}
-/*Event Sidebar End*/
-
-/* Cookies Function */
 function setCookie(cname, cvalue, exhours) 
 	{
 		var d = new Date();
-		d.setTime(d.getTime() + (30*60*1000)); /* 30 Minutes */
+		d.setTime(d.getTime() + (30*60*1000)); 
 		var expires = "expires="+ d.toString();
 		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 	}
-
 function getCookie(cname) 
 	{
 		var name = cname + "=";
@@ -59,16 +47,13 @@ function getCookie(cname)
 		}
 		return "";
 	}
-
 function deleteCookie(cname) 
 	{
 		var d = new Date();
 		d.setTime(d.getTime() + (1)); // 1/1000 second
 		var expires = "expires="+ d.toString();
-		//document.cookie = cname + "=1;" + expires + ";path=/";
 		document.cookie = cname + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"+";path=/";
 	}
-
 function deleteAllCookie(reload = true)
 	{
 		jQuery.each(themeOptionArr, function(optionKey, optionValue) {
@@ -78,20 +63,11 @@ function deleteAllCookie(reload = true)
 			location.reload();
 		}
 	}
- 	
-/* Cookies Function END */	
- 	
-
 (function($) {
-	
 	"use strict"
-	
 	var direction =  getUrlParams('dir');
 	var theme =  getUrlParams('theme');
-	
-	/* Dz Theme Demo Settings  */
-	
-	var dezThemeSet0 = { /* Default Theme */
+	var dezThemeSet0 = { 
 		typography: "poppins",
 		version: "light",
 		layout: "vertical",
@@ -105,7 +81,6 @@ function deleteAllCookie(reload = true)
 		containerLayout: "full",
 		direction: direction
 	};
-	
 	var dezThemeSet1 = {
 		typography: "poppins",
 		version: "light",
@@ -120,7 +95,6 @@ function deleteAllCookie(reload = true)
 		containerLayout: "full",
 		direction: direction
 	};
-	
 	var dezThemeSet2 = {
 		typography: "poppins",
 		version: "light",
@@ -135,8 +109,6 @@ function deleteAllCookie(reload = true)
 		containerLayout: "full",
 		direction: direction
 	};
-	
-	
 	var dezThemeSet3 = {
 		typography: "poppins",
 		version: "dark",
@@ -151,7 +123,6 @@ function deleteAllCookie(reload = true)
 		containerLayout: "full",
 		direction: direction
 	};
-	
 	var dezThemeSet4 = {
 		typography: "poppins",
 		version: "light",
@@ -166,7 +137,6 @@ function deleteAllCookie(reload = true)
 		containerLayout: "full",
 		direction: direction
 	};
-	
 	var dezThemeSet5 = {
 		typography: "poppins",
 		version: "light",
@@ -181,7 +151,6 @@ function deleteAllCookie(reload = true)
 		containerLayout: "full",
 		direction: direction
 	};
-	
 	var dezThemeSet6 = {
 		typography: "poppins",
 		version: "light",
@@ -196,7 +165,6 @@ function deleteAllCookie(reload = true)
 		containerLayout: "full",
 		direction: direction
 	};
-	
 	var dezThemeSet7 = {
 		typography: "poppins",
 		version: "light",
@@ -211,7 +179,6 @@ function deleteAllCookie(reload = true)
 		containerLayout: "full",
 		direction: direction
 	};
-	
 	var dezThemeSet8 = {
 		typography: "poppins",
 		version: "light",
@@ -226,44 +193,33 @@ function deleteAllCookie(reload = true)
 		containerLayout: "full",
 		direction: direction
 	};
-	
-		
 	function themeChange(theme, direction){
 		var themeSettings = {};
 		themeSettings = eval('dezThemeSet'+theme);
 		themeSettings.direction = direction;
-		dezSettingsOptions = themeSettings; /* For Screen Resize */
+		dezSettingsOptions = themeSettings; 
 		new dezSettings(themeSettings);
-		
 		if(themeSettings.layout == 'horizontal'){
 			setEventSidebar();
 		}
-		
 		setThemeInCookie(themeSettings);
 	}
-	
 	function setThemeInCookie(themeSettings)
 	{
-		//console.log(themeSettings);
 		jQuery.each(themeSettings, function(optionKey, optionValue) {
 			setCookie(optionKey,optionValue);
 		});
 	}
-	
 	function setThemeLogo() {
 		var logo = getCookie('logo_src');
-		
 		var logo2 = getCookie('logo_src2');
-		
 		if(logo != ''){
 			jQuery('.nav-header .logo-abbr').attr("src", logo);
 		}
-		
 		if(logo2 != ''){
 			jQuery('.nav-header .logo-compact, .nav-header .brand-title').attr("src", logo2);
 		}
 	}
-	
 	function setThemeOptionOnPage()
 	{
 		if(getCookie('version') != '')
@@ -272,32 +228,22 @@ function deleteAllCookie(reload = true)
 				var optionData = getCookie(optionKey);
 				themeOptionArr[optionKey] = (optionData != '')?optionData:dezSettingsOptions[optionKey];
 			});
-			
-			
 			if(themeOptionArr.layout == 'horizontal'){
 				setEventSidebar();
 			}
-			
-			
 			dezSettingsOptions = themeOptionArr;
 			new dezSettings(dezSettingsOptions);
-			
 			setThemeLogo();
 		}
 	}
-	
 	jQuery(document).on('click', '.dz_theme_demo', function(){
 		var demoTheme = jQuery(this).data('theme');
 		themeChange(demoTheme, 'ltr');
 	});
-
-
 	jQuery(document).on('click', '.dz_theme_demo_rtl', function(){
 		var demoTheme = jQuery(this).data('theme');
 		themeChange(demoTheme, 'rtl');
 	});
-	
-	
 	jQuery(window).on('load', function(){
 		direction = (direction != undefined)?direction:'ltr';
 		if(theme != undefined){
@@ -307,10 +253,6 @@ function deleteAllCookie(reload = true)
 				themeChange(0, direction);
 			}
 		}
-		
-		/* Set Theme On Page From Cookie */
 		setThemeOptionOnPage();
 	});
-	
-
 })(jQuery);

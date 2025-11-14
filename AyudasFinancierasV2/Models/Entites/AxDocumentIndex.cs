@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -10,37 +11,31 @@ namespace AyudasFinancierasV2.Models.Entites
     {
         string id;
         string pdim;
-        string aidYear;
-        string aidPeriod;
-        string aidFond;
-        string treqCode;
-        string aplicationForm;
+        string docType;
+        string lastName;
+        string termCode;
         string activityDate;
+        
         string documentId;
 
-        public AxDocumentIndex(string documentId, string id, string pdim, string aidYear,
-                    string aidPeriod, string aidFond, string treqCode, string aplicationForm,
-                    string activityDate)
+        public AxDocumentIndex(string documentId, string id, string pdim, string docType, string lastName,
+                               string termCode, string activityDate)
         {
             this.DocumentId = documentId;
             this.id = id;
             this.pdim = pdim;
-            this.aidYear = aidYear;
-            this.aidPeriod = aidPeriod;
-            this.aidFond = aidFond;
-            this.treqCode = treqCode;
-            this.aplicationForm = aplicationForm;
+            this.docType = docType;
+            this.lastName = lastName;
+            this.termCode = termCode;
             this.activityDate = activityDate;
         }
 
         public string Id { get => id; set => id = value; }
         public string Pdim { get => pdim; set => pdim = value; }
-        public string AidYear { get => aidYear; set => aidYear = value; }
-        public string AidPeriod { get => aidPeriod; set => aidPeriod = value; }
-        public string AidFond { get => aidFond; set => aidFond = value; }
-        public string AplicationForm { get => aplicationForm; set => aplicationForm = value; }
+        public string DocType { get => docType; set => docType = value; }
+        public string LastName { get => lastName; set => lastName = value; }
+        public string TermCode { get => termCode; set => termCode = value; }
         public string ActivityDate { get => activityDate; set => activityDate = value; }
-        public string TreqCode { get => treqCode; set => treqCode = value; }
         public string DocumentId { get => documentId; set => documentId = value; }
 
         override public string ToString()
@@ -52,16 +47,18 @@ namespace AyudasFinancierasV2.Models.Entites
             stringBuilder.Append(" 	xmlns:ax=\"http://www.emc.com/ax\"> ");
             stringBuilder.Append(" 	<ax:Attributes /> ");
             stringBuilder.Append(" 	<ax:Fields> ");
-            stringBuilder.Append(" 		<ax:Field id=\"1\" value=\"" + this.Id + "\" isNull=\"false\" /> ");
-            stringBuilder.Append(" 		<ax:Field id=\"2\" value=\"" + this.Pdim + "\" isNull=\"false\" /> ");
-            stringBuilder.Append(" 		<ax:Field id=\"3\" value=\"" + this.AidYear + "\" isNull=\"false\" /> ");
-            stringBuilder.Append(" 		<ax:Field id=\"4\" value=\"" + this.AidPeriod + "\" isNull=\"false\" /> ");
-            stringBuilder.Append(" 		<ax:Field id=\"5\" value=\"" + this.TreqCode + "\" isNull=\"false\" /> ");
-            stringBuilder.Append(" 		<ax:Field id=\"6\" value=\"\" isNull=\"true\" /> ");
-            stringBuilder.Append(" 		<ax:Field id=\"7\" value=\"" + this.AidFond + "\" isNull=\"false\" /> ");
-            stringBuilder.Append(" 		<ax:Field id=\"8\" value=\"" + this.AplicationForm + "\" isNull=\"false\" /> ");
-            stringBuilder.Append(" 		<ax:Field id=\"9\" value=\"" + this.ActivityDate + "\" isNull=\"true\" /> ");
-            stringBuilder.Append(" 		<ax:Field id=\"10\" value=\"\" isNull=\"true\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"1\" value=\"" + this.Id + "\" isNull=\"false\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"2\" value=\"" + this.Pdim + "\" isNull=\"false\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"3\" value=\"" + this.DocType + "\" isNull=\"false\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"4\" value=\"" + this.LastName + "\" isNull=\"false\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"5\" value=\"\" isNull=\"true\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"6\" value=\"\" isNull=\"true\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"7\" value=\"\" isNull=\"true\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"8\" value=\"" + this.TermCode + "\" isNull=\"false\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"9\" value=\"\" isNull=\"true\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"10\" value=\"" + this.ActivityDate + "\" isNull=\"true\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"11\" value=\"\" isNull=\"true\" /> ");
+            stringBuilder.Append(" 	<ax:Field id=\"12\" value=\"\" isNull=\"true\" /> ");
             stringBuilder.Append(" 	</ax:Fields> ");
             stringBuilder.Append(" </ax:QueryItem> ");
             return stringBuilder.ToString();

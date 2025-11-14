@@ -2,33 +2,22 @@
 {
    var pluginName = "bootstrapMaterialDatePicker";
    var pluginDataName = "plugin_" + pluginName;
-
    moment.locale('en');
-
    function Plugin(element, options)
    {
       this.currentView = 0;
-
       this.minDate;
       this.maxDate;
-
       this._attachedEvents = [];
-
       this.element = element;
       this.$element = $(element);
-
-
       this.params = {date: true, time: true, format: 'YYYY-MM-DD', minDate: null, maxDate: null, currentDate: null, lang: 'en', weekStart: 0, disabledDays: [], shortTime: false, clearButton: false, nowButton: false, cancelText: 'Cancel', okText: 'OK', clearText: 'Clear', nowText: 'Now', switchOnClick: false, triggerEvent: 'focus', monthPicker: false, year:true};
       this.params = $.fn.extend(this.params, options);
-
       this.name = "dtp_" + this.setName();
       this.$element.attr("data-dtp", this.name);
-
       moment.locale(this.params.lang);
-
       this.init();
    }
-
    $.fn[pluginName] = function (options, p)
    {
       this.each(function ()
@@ -50,18 +39,14 @@
       });
       return this;
    };
-
    Plugin.prototype =
            {
               init: function ()
               {
                  this.initDays();
                  this.initDates();
-
                  this.initTemplate();
-
                  this.initButtons();
-
                  this._attachEvent($(window), 'resize', this._centerBox.bind(this));
                  this._attachEvent(this.$dtpElement.find('.dtp-content'), 'click', this._onElementClick.bind(this));
                  this._attachEvent(this.$dtpElement, 'click', this._onBackgroundClick.bind(this));
@@ -134,7 +119,6 @@
                           this.currentDate = moment();
                     }
                  }
-
                  if (typeof (this.params.minDate) !== 'undefined' && this.params.minDate !== null)
                  {
                     if (typeof (this.params.minDate) === 'string')
@@ -161,7 +145,6 @@
                  {
                     this.minDate = null;
                  }
-
                  if (typeof (this.params.maxDate) !== 'undefined' && this.params.maxDate !== null)
                  {
                     if (typeof (this.params.maxDate) === 'string')
@@ -188,7 +171,6 @@
                  {
                     this.maxDate = null;
                  }
-
                  if (!this.isAfterMinDate(this.currentDate))
                  {
                     this.currentDate = moment(this.minDate);
@@ -212,7 +194,6 @@
                       yearPicker +
                       '<div><a href="javascript:void(0);" class="btn btn-default dtp-select-year-range after" style="margin: 0;"><i class="material-icons">keyboard_arrow_down</i></a></div>' +
                       '</div>';
-
                  this.template = '<div class="dtp hidden" id="' + this.name + '">' +
                          '<div class="dtp-content">' +
                          '<div class="dtp-date-view">' +
@@ -274,11 +255,9 @@
                          '</div>' +
                          '</div>' +
                          '</div>';
-
                  if ($('body').find("#" + this.name).length <= 0)
                  {
                     $('body').append(this.template);
-
                     if (this)
                        this.dtpElement = $('body').find("#" + this.name);
                     this.$dtpElement = $(this.dtpElement);
@@ -296,19 +275,16 @@
                  this._attachEvent(this.$dtpElement.find('a.dtp-select-year-range.before'), 'click', this._onYearRangeBeforeClick.bind(this));
                  this._attachEvent(this.$dtpElement.find('a.dtp-select-year-range.after'), 'click', this._onYearRangeAfterClick.bind(this));
                  this._attachEvent(this.$dtpElement.find('div.year-picker-item'), 'click', this._onYearItemClick.bind(this));
-
                  if (this.params.clearButton === true)
                  {
                     this._attachEvent(this.$dtpElement.find('.dtp-btn-clear'), 'click', this._onClearClick.bind(this));
                     this.$dtpElement.find('.dtp-btn-clear').removeClass('hidden');
                  }
-
                  if (this.params.nowButton === true)
                  {
                     this._attachEvent(this.$dtpElement.find('.dtp-btn-now'), 'click', this._onNowClick.bind(this));
                     this.$dtpElement.find('.dtp-btn-now').removeClass('hidden');
                  }
-
                  if ((this.params.nowButton === true) && (this.params.clearButton === true))
                  {
                     this.$dtpElement.find('.dtp-btn-clear, .dtp-btn-now, .dtp-btn-cancel, .dtp-btn-ok').addClass('btn-xs');
@@ -325,39 +301,30 @@
               initDate: function (d)
               {
                  this.currentView = 0;
-
                  if (this.params.monthPicker === false)
                  {
                     this.$dtpElement.find('.dtp-picker-calendar').removeClass('hidden');
                  }
                  this.$dtpElement.find('.dtp-picker-datetime').addClass('hidden');
                  this.$dtpElement.find('.dtp-picker-year').addClass('hidden');
-
                  var _date = ((typeof (this.currentDate) !== 'undefined' && this.currentDate !== null) ? this.currentDate : null);
                  var _calendar = this.generateCalendar(this.currentDate);
-
                  if (typeof (_calendar.week) !== 'undefined' && typeof (_calendar.days) !== 'undefined')
                  {
                     var _template = this.constructHTMLCalendar(_date, _calendar);
-
                     this.$dtpElement.find('a.dtp-select-day').off('click');
                     this.$dtpElement.find('.dtp-picker-calendar').html(_template);
-
                     this.$dtpElement.find('a.dtp-select-day').on('click', this._onSelectDate.bind(this));
-
                     this.toggleButtons(_date);
                  }
-
                  this._centerBox();
                  this.showDate(_date);
               },
               initHours: function ()
               {
                  this.currentView = 1;
-
                  this.showTime(this.currentDate);
                  this.initMeridienButtons();
-
                  if (this.currentDate.hour() < 12)
                  {
                     this.$dtpElement.find('a.dtp-meridien-am').click();
@@ -365,28 +332,20 @@
                  {
                     this.$dtpElement.find('a.dtp-meridien-pm').click();
                  }
-
                  var hFormat = ((this.params.shortTime) ? 'h' : 'H');
-
                  this.$dtpElement.find('.dtp-picker-datetime').removeClass('hidden');
                  this.$dtpElement.find('.dtp-picker-calendar').addClass('hidden');
                  this.$dtpElement.find('.dtp-picker-year').addClass('hidden');
-
                  var svgClockElement = this.createSVGClock(true);
-
                  for (var i = 0; i < 12; i++)
                  {
                     var x = -(162 * (Math.sin(-Math.PI * 2 * (i / 12))));
                     var y = -(162 * (Math.cos(-Math.PI * 2 * (i / 12))));
-
                     var fill = ((this.currentDate.format(hFormat) == i) ? "#8BC34A" : 'transparent');
                     var color = ((this.currentDate.format(hFormat) == i) ? "#fff" : '#000');
-
                     var svgHourCircle = this.createSVGElement("circle", {'id': 'h-' + i, 'class': 'dtp-select-hour', 'style': 'cursor:pointer', r: '30', cx: x, cy: y, fill: fill, 'data-hour': i});
-
                     var svgHourText = this.createSVGElement("text", {'id': 'th-' + i, 'class': 'dtp-select-hour-text', 'text-anchor': 'middle', 'style': 'cursor:pointer', 'font-weight': 'bold', 'font-size': '20', x: x, y: y + 7, fill: color, 'data-hour': i});
                     svgHourText.textContent = ((i === 0) ? ((this.params.shortTime) ? 12 : i) : i);
-
                     if (!this.toggleTime(i, true))
                     {
                        svgHourCircle.className += " disabled";
@@ -397,26 +356,20 @@
                        svgHourCircle.addEventListener('click', this._onSelectHour.bind(this));
                        svgHourText.addEventListener('click', this._onSelectHour.bind(this));
                     }
-
                     svgClockElement.appendChild(svgHourCircle)
                     svgClockElement.appendChild(svgHourText)
                  }
-
                  if (!this.params.shortTime)
                  {
                     for (var i = 0; i < 12; i++)
                     {
                        var x = -(110 * (Math.sin(-Math.PI * 2 * (i / 12))));
                        var y = -(110 * (Math.cos(-Math.PI * 2 * (i / 12))));
-
                        var fill = ((this.currentDate.format(hFormat) == (i + 12)) ? "#8BC34A" : 'transparent');
                        var color = ((this.currentDate.format(hFormat) == (i + 12)) ? "#fff" : '#000');
-
                        var svgHourCircle = this.createSVGElement("circle", {'id': 'h-' + (i + 12), 'class': 'dtp-select-hour', 'style': 'cursor:pointer', r: '30', cx: x, cy: y, fill: fill, 'data-hour': (i + 12)});
-
                        var svgHourText = this.createSVGElement("text", {'id': 'th-' + (i + 12), 'class': 'dtp-select-hour-text', 'text-anchor': 'middle', 'style': 'cursor:pointer', 'font-weight': 'bold', 'font-size': '22', x: x, y: y + 7, fill: color, 'data-hour': (i + 12)});
                        svgHourText.textContent = i + 12;
-
                        if (!this.toggleTime(i + 12, true))
                        {
                           svgHourCircle.className += " disabled";
@@ -427,25 +380,19 @@
                           svgHourCircle.addEventListener('click', this._onSelectHour.bind(this));
                           svgHourText.addEventListener('click', this._onSelectHour.bind(this));
                        }
-
                        svgClockElement.appendChild(svgHourCircle)
                        svgClockElement.appendChild(svgHourText)
                     }
-
                     this.$dtpElement.find('a.dtp-meridien-am').addClass('hidden');
                     this.$dtpElement.find('a.dtp-meridien-pm').addClass('hidden');
                  }
-
                  this._centerBox();
               },
               initMinutes: function ()
               {
                  this.currentView = 2;
-
                  this.showTime(this.currentDate);
-
                  this.initMeridienButtons();
-
                  if (this.currentDate.hour() < 12)
                  {
                     this.$dtpElement.find('a.dtp-meridien-am').click();
@@ -453,25 +400,18 @@
                  {
                     this.$dtpElement.find('a.dtp-meridien-pm').click();
                  }
-
                  this.$dtpElement.find('.dtp-picker-year').addClass('hidden');
                  this.$dtpElement.find('.dtp-picker-calendar').addClass('hidden');
                  this.$dtpElement.find('.dtp-picker-datetime').removeClass('hidden');
-
                  var svgClockElement = this.createSVGClock(false);
-
                  for (var i = 0; i < 60; i++)
                  {
                     var s = ((i % 5 === 0) ? 162 : 158);
                     var r = ((i % 5 === 0) ? 30 : 20);
-
                     var x = -(s * (Math.sin(-Math.PI * 2 * (i / 60))));
                     var y = -(s * (Math.cos(-Math.PI * 2 * (i / 60))));
-
                     var color = ((this.currentDate.format("m") == i) ? "#8BC34A" : 'transparent');
-
                     var svgMinuteCircle = this.createSVGElement("circle", {'id': 'm-' + i, 'class': 'dtp-select-minute', 'style': 'cursor:pointer', r: r, cx: x, cy: y, fill: color, 'data-minute': i});
-
                     if (!this.toggleTime(i, false))
                     {
                        svgMinuteCircle.className += " disabled";
@@ -479,22 +419,17 @@
                     {
                        svgMinuteCircle.addEventListener('click', this._onSelectMinute.bind(this));
                     }
-
                     svgClockElement.appendChild(svgMinuteCircle)
                  }
-
                  for (var i = 0; i < 60; i++)
                  {
                     if ((i % 5) === 0)
                     {
                        var x = -(162 * (Math.sin(-Math.PI * 2 * (i / 60))));
                        var y = -(162 * (Math.cos(-Math.PI * 2 * (i / 60))));
-
                        var color = ((this.currentDate.format("m") == i) ? "#fff" : '#000');
-
                        var svgMinuteText = this.createSVGElement("text", {'id': 'tm-' + i, 'class': 'dtp-select-minute-text', 'text-anchor': 'middle', 'style': 'cursor:pointer', 'font-weight': 'bold', 'font-size': '20', x: x, y: y + 7, fill: color, 'data-minute': i});
                        svgMinuteText.textContent = i;
-
                        if (!this.toggleTime(i, false))
                        {
                           svgMinuteText.className += " disabled";
@@ -503,60 +438,46 @@
                        {
                           svgMinuteText.addEventListener('click', this._onSelectMinute.bind(this));
                        }
-
                        svgClockElement.appendChild(svgMinuteText)
                     }
                  }
-
                  this._centerBox();
               },
               animateHands: function ()
               {
                  var H = this.currentDate.hour();
                  var M = this.currentDate.minute();
-
                  var hh = this.$dtpElement.find('.hour-hand');
                  hh[0].setAttribute('transform', "rotate(" + 360 * H / 12 + ")");
-
                  var mh = this.$dtpElement.find('.minute-hand');
                  mh[0].setAttribute('transform', "rotate(" + 360 * M / 60 + ")");
               },
               createSVGClock: function (isHour)
               {
                  var hl = ((this.params.shortTime) ? -120 : -90);
-
                  var svgElement = this.createSVGElement("svg", {class: 'svg-clock', viewBox: '0,0,400,400'});
                  var svgGElement = this.createSVGElement("g", {transform: 'translate(200,200) '});
                  var svgClockFace = this.createSVGElement("circle", {r: '192', fill: '#eee', stroke: '#bdbdbd', 'stroke-width': 2});
                  var svgClockCenter = this.createSVGElement("circle", {r: '15', fill: '#757575'});
-
                  svgGElement.appendChild(svgClockFace)
-
                  if (isHour)
                  {
                     var svgMinuteHand = this.createSVGElement("line", {class: 'minute-hand', x1: 0, y1: 0, x2: 0, y2: -150, stroke: '#bdbdbd', 'stroke-width': 2});
                     var svgHourHand = this.createSVGElement("line", {class: 'hour-hand', x1: 0, y1: 0, x2: 0, y2: hl, stroke: '#8BC34A', 'stroke-width': 8});
-
                     svgGElement.appendChild(svgMinuteHand);
                     svgGElement.appendChild(svgHourHand);
                  } else
                  {
                     var svgMinuteHand = this.createSVGElement("line", {class: 'minute-hand', x1: 0, y1: 0, x2: 0, y2: -150, stroke: '#8BC34A', 'stroke-width': 2});
                     var svgHourHand = this.createSVGElement("line", {class: 'hour-hand', x1: 0, y1: 0, x2: 0, y2: hl, stroke: '#bdbdbd', 'stroke-width': 8});
-
                     svgGElement.appendChild(svgHourHand);
                     svgGElement.appendChild(svgMinuteHand);
                  }
-
                  svgGElement.appendChild(svgClockCenter)
-
                  svgElement.appendChild(svgGElement)
-
                  this.$dtpElement.find("#dtp-svg-clock").empty();
                  this.$dtpElement.find("#dtp-svg-clock")[0].appendChild(svgElement);
-
                  this.animateHands();
-
                  return svgGElement;
               },
               createSVGElement: function (tag, attrs)
@@ -571,75 +492,61 @@
               isAfterMinDate: function (date, checkHour, checkMinute)
               {
                  var _return = true;
-
                  if (typeof (this.minDate) !== 'undefined' && this.minDate !== null)
                  {
                     var _minDate = moment(this.minDate);
                     var _date = moment(date);
-
                     if (!checkHour && !checkMinute)
                     {
                        _minDate.hour(0);
                        _minDate.minute(0);
-
                        _date.hour(0);
                        _date.minute(0);
                     }
-
                     _minDate.second(0);
                     _date.second(0);
                     _minDate.millisecond(0);
                     _date.millisecond(0);
-
                     if (!checkMinute)
                     {
                        _date.minute(0);
                        _minDate.minute(0);
-
                        _return = (parseInt(_date.format("X")) >= parseInt(_minDate.format("X")));
                     } else
                     {
                        _return = (parseInt(_date.format("X")) >= parseInt(_minDate.format("X")));
                     }
                  }
-
                  return _return;
               },
               isBeforeMaxDate: function (date, checkTime, checkMinute)
               {
                  var _return = true;
-
                  if (typeof (this.maxDate) !== 'undefined' && this.maxDate !== null)
                  {
                     var _maxDate = moment(this.maxDate);
                     var _date = moment(date);
-
                     if (!checkTime && !checkMinute)
                     {
                        _maxDate.hour(0);
                        _maxDate.minute(0);
-
                        _date.hour(0);
                        _date.minute(0);
                     }
-
                     _maxDate.second(0);
                     _date.second(0);
                     _maxDate.millisecond(0);
                     _date.millisecond(0);
-
                     if (!checkMinute)
                     {
                        _date.minute(0);
                        _maxDate.minute(0);
-
                        _return = (parseInt(_date.format("X")) <= parseInt(_maxDate.format("X")));
                     } else
                     {
                        _return = (parseInt(_date.format("X")) <= parseInt(_maxDate.format("X")));
                     }
                  }
-
                  return _return;
               },
               rotateElement: function (el, deg)
@@ -666,7 +573,6 @@
                  {
                     var minutes = date.minute();
                     var content = ((this.params.shortTime) ? date.format('hh') : date.format('HH')) + ':' + ((minutes.toString().length == 2) ? minutes : '0' + minutes) + ((this.params.shortTime) ? ' ' + date.format('A') : '');
-
                     if (this.params.date)
                        this.$dtpElement.find('.dtp-actual-time').html(content);
                     else
@@ -675,7 +581,6 @@
                           this.$dtpElement.find('.dtp-actual-day').html(date.format('A'));
                        else
                           this.$dtpElement.find('.dtp-actual-day').html('&nbsp;');
-
                        this.$dtpElement.find('.dtp-actual-maxtime').html(content);
                     }
                  }
@@ -685,7 +590,6 @@
                  if (date)
                  {
                     this.currentDate.date(date);
-
                     this.showDate(this.currentDate);
                     this.$element.trigger('dateSelected', this.currentDate);
                  }
@@ -693,17 +597,13 @@
               generateCalendar: function (date)
               {
                  var _calendar = {};
-
                  if (date !== null)
                  {
                     var startOfMonth = moment(date).locale(this.params.lang).startOf('month');
                     var endOfMonth = moment(date).locale(this.params.lang).endOf('month');
-
                     var iNumDay = startOfMonth.format('d');
-
                     _calendar.week = this.days;
                     _calendar.days = [];
-
                     for (var i = startOfMonth.date(); i <= endOfMonth.date(); i++)
                     {
                        if (i === startOfMonth.date())
@@ -720,23 +620,19 @@
                        _calendar.days.push(moment(startOfMonth).locale(this.params.lang).date(i));
                     }
                  }
-
                  return _calendar;
               },
               constructHTMLCalendar: function (date, calendar)
               {
                  var _template = "";
-
                  _template += '<div class="dtp-picker-month">' + date.locale(this.params.lang).format('MMMM YYYY') + '</div>';
                  _template += '<table class="table dtp-picker-days"><thead>';
                  for (var i = 0; i < calendar.week.length; i++)
                  {
                     _template += '<th>' + moment(parseInt(calendar.week[i]), "d").locale(this.params.lang).format("dd").substring(0, 1) + '</th>';
                  }
-
                  _template += '</thead>';
                  _template += '<tbody><tr>';
-
                  for (var i = 0; i < calendar.days.length; i++)
                  {
                     if (i % 7 == 0)
@@ -759,24 +655,20 @@
                                 _template += '<a href="javascript:void(0);" class="dtp-select-day">' + moment(calendar.days[i]).locale(this.params.lang).format("DD") + '</a>';
                             }
                         }
-
                         _template += '</td>';
                     }
                  }
                  _template += '</tr></tbody></table>';
-
                  return _template;
               },
               setName: function ()
               {
                  var text = "";
                  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
                  for (var i = 0; i < 5; i++)
                  {
                     text += possible.charAt(Math.floor(Math.random() * possible.length));
                  }
-
                  return text;
               },
               isPM: function ()
@@ -799,7 +691,6 @@
                  {
                     var startOfMonth = moment(date).locale(this.params.lang).startOf('month');
                     var endOfMonth = moment(date).locale(this.params.lang).endOf('month');
-
                     if (!this.isAfterMinDate(startOfMonth, false, false))
                     {
                        this.$dtpElement.find('a.dtp-select-month-before').addClass('invisible');
@@ -807,7 +698,6 @@
                     {
                        this.$dtpElement.find('a.dtp-select-month-before').removeClass('invisible');
                     }
-
                     if (!this.isBeforeMaxDate(endOfMonth, false, false))
                     {
                        this.$dtpElement.find('a.dtp-select-month-after').addClass('invisible');
@@ -815,10 +705,8 @@
                     {
                        this.$dtpElement.find('a.dtp-select-month-after').removeClass('invisible');
                     }
-
                     var startOfYear = moment(date).locale(this.params.lang).startOf('year');
                     var endOfYear = moment(date).locale(this.params.lang).endOf('year');
-
                     if (!this.isAfterMinDate(startOfYear, false, false))
                     {
                        this.$dtpElement.find('a.dtp-select-year-before').addClass('invisible');
@@ -826,7 +714,6 @@
                     {
                        this.$dtpElement.find('a.dtp-select-year-before').removeClass('invisible');
                     }
-
                     if (!this.isBeforeMaxDate(endOfYear, false, false))
                     {
                        this.$dtpElement.find('a.dtp-select-year-after').addClass('invisible');
@@ -839,21 +726,17 @@
               toggleTime: function (value, isHours)
               {
                  var result = false;
-
                  if (isHours)
                  {
                     var _date = moment(this.currentDate);
                     _date.hour(this.convertHours(value)).minute(0).second(0);
-
                     result = !(this.isAfterMinDate(_date, true, false) === false || this.isBeforeMaxDate(_date, true, false) === false);
                  } else
                  {
                     var _date = moment(this.currentDate);
                     _date.minute(value).second(0);
-
                     result = !(this.isAfterMinDate(_date, true, true) === false || this.isBeforeMaxDate(_date, true, true) === false);
                  }
-
                  return result;
               },
               _attachEvent: function (el, ev, fn)
@@ -873,11 +756,8 @@
               {
                  this.currentView = 0;
                  this.$element.blur();
-
                  this.initDates();
-
                  this.show();
-
                  if (this.params.date)
                  {
                     this.$dtpElement.find('.dtp-date').removeClass('hidden');
@@ -926,21 +806,17 @@
               _onNowClick: function ()
               {
                  this.currentDate = moment();
-
                  if (this.params.date === true)
                  {
                     this.showDate(this.currentDate);
-
                     if (this.currentView === 0)
                     {
                        this.initDate();
                     }
                  }
-
                  if (this.params.time === true)
                  {
                     this.showTime(this.currentDate);
-
                     switch (this.currentView)
                     {
                        case 1 :
@@ -950,7 +826,6 @@
                           this.initMinutes();
                           break;
                     }
-
                     this.animateHands();
                  }
               },
@@ -1034,12 +909,10 @@
                    if (typeof (this.minDate) !== 'undefined' && this.minDate !== null){
                        minYear=moment(this.minDate).year();
                    }
-
                    var maxYear=2200;
                    if (typeof (this.maxDate) !== 'undefined' && this.maxDate !== null){
                        maxYear=moment(this.maxDate).year();
                    }
-
                    this.$dtpElement.find(".dtp-picker-year .invisible").removeClass("invisible");
                    this.$dtpElement.find(".year-picker-item").each(function (i, el) {
                        var newYear = midYear - 3 + i;
@@ -1059,7 +932,6 @@
                    if(maxYear<=midYear+3){
                        this.$dtpElement.find(".dtp-select-year-range.after").addClass('invisible');
                    }
-
                    this.$dtpElement.find(".dtp-select-year-range").data("mid", midYear);
                },
                _onActualYearClick:function(){
@@ -1089,7 +961,6 @@
                    var diff = newYear - oldYear;
                    this.currentDate.add(diff, 'years');
                    this.initDate(this.currentDate);
-
                    this._closeYearPicker();
                    this.$element.trigger("yearSelected",this.currentDate);
                },
@@ -1110,16 +981,12 @@
               {
                  this.$dtpElement.find('a.dtp-select-day').removeClass('selected');
                  $(e.currentTarget).addClass('selected');
-
                  this.selectDate($(e.currentTarget).parent().data("date"));
-
                  if (this.params.switchOnClick === true && this.params.time === true)
                     setTimeout(this.initHours.bind(this), 200);
-
                  if(this.params.switchOnClick === true && this.params.time === false) {
                     setTimeout(this._onOKClick.bind(this), 200);
                  }
-
               },
               _onSelectHour: function (e)
               {
@@ -1127,7 +994,6 @@
                  {
                     var value = $(e.target).data('hour');
                     var parent = $(e.target).parent();
-
                     var h = parent.find('.dtp-select-hour');
                     for (var i = 0; i < h.length; i++)
                     {
@@ -1138,21 +1004,15 @@
                     {
                        $(th[i]).attr('fill', '#000');
                     }
-
                     $(parent.find('#h-' + value)).attr('fill', '#8BC34A');
                     $(parent.find('#th-' + value)).attr('fill', '#fff');
-
                     this.currentDate.hour(parseInt(value));
-
                     if (this.params.shortTime === true && this.isPM())
                     {
                        this.currentDate.add(12, 'hours');
                     }
-
                     this.showTime(this.currentDate);
-
                     this.animateHands();
-
                     if (this.params.switchOnClick === true)
                        setTimeout(this.initMinutes.bind(this), 200);
                  }
@@ -1163,7 +1023,6 @@
                  {
                     var value = $(e.target).data('minute');
                     var parent = $(e.target).parent();
-
                     var m = parent.find('.dtp-select-minute');
                     for (var i = 0; i < m.length; i++)
                     {
@@ -1174,15 +1033,11 @@
                     {
                        $(tm[i]).attr('fill', '#000');
                     }
-
                     $(parent.find('#m-' + value)).attr('fill', '#8BC34A');
                     $(parent.find('#tm-' + value)).attr('fill', '#fff');
-
                     this.currentDate.minute(parseInt(value));
                     this.showTime(this.currentDate);
-
                     this.animateHands();
-
                     if (this.params.switchOnClick === true)
                        setTimeout(function ()
                        {
@@ -1195,7 +1050,6 @@
               {
                  $('.dtp-actual-meridien').find('a').removeClass('selected');
                  $(e.currentTarget).addClass('selected');
-
                  if (this.currentDate.hour() >= 12)
                  {
                     if (this.currentDate.subtract(12, 'hours'))
@@ -1207,7 +1061,6 @@
               {
                  $('.dtp-actual-meridien').find('a').removeClass('selected');
                  $(e.currentTarget).addClass('selected');
-
                  if (this.currentDate.hour() < 12)
                  {
                     if (this.currentDate.add(12, 'hours'))
@@ -1221,7 +1074,6 @@
               convertHours: function (h)
               {
                  var _return = h;
-
                  if (this.params.shortTime === true)
                  {
                     if ((h < 12) && this.isPM())
@@ -1229,7 +1081,6 @@
                        _return += 12;
                     }
                  }
-
                  return _return;
               },
               setDate: function (date)
@@ -1290,6 +1141,5 @@
                     });
                  }
               }
-
            };
 })(jQuery, moment);

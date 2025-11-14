@@ -1,28 +1,22 @@
-﻿using AyudasFinancierasV2.Models.Entity;
+using AyudasFinancierasV2.Models.Entity;
 using AyudasFinancierasV2.Models.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
 namespace AyudasFinancierasV2.Controllers
 {
     [Authorize]
-
     public class FormController : Controller
     {
-     
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
             {
-
                 Evaluacion item = new Evaluacion();
                 item.pid = InformacionServices.ObtenerPidm(User.Identity.Name);
-               
                 var matricula = InformacionServices.ObtenerMatricula(item.pid).Result;
-
                 item.periodo= InformacionServices.getPeriodoActivo(matricula);
                 item.info = InformacionServices.getInformacion(item.pid);
                 ViewBag.preguntas = PreguntasServices.listarPreguntas(item);
@@ -34,40 +28,28 @@ namespace AyudasFinancierasV2.Controllers
             {
                 return Redirect("https://www.udem.edu.mx/");
             }
-
-            
         }
         [HttpPost]
         public JsonResult guardarEvaluacion(Evaluacion item)
         {
             if (User.Identity.IsAuthenticated)
             {
-
                 item.pid = InformacionServices.ObtenerPidm(User.Identity.Name);
                 var matricula = InformacionServices.ObtenerMatricula(item.pid).Result;
                 item.periodo = InformacionServices.getPeriodoActivo(matricula); ;
                 item.pid = InformacionServices.ObtenerPidm(User.Identity.Name);
-
                 RespuestasServices.guardarRespuestas(item);
-
-
-              
-
             }
             return Json("", JsonRequestBehavior.AllowGet);
-
         }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

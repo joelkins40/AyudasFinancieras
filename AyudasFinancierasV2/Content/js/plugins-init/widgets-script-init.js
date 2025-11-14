@@ -1,7 +1,5 @@
-//#chart_widget_1
 (function($) {
     "use strict"
-/*======== 16. ANALYTICS - ACTIVITY CHART ========*/
     var activity = document.getElementById("activity");
     if (activity !== null) {
         var activityData = [{
@@ -18,7 +16,6 @@
             }
         ];
         activity.height = 300;
-		
         var config = {
             type: "bar",
             data: {
@@ -43,14 +40,12 @@
 						borderColor: 'rgba(26, 51, 213, 1)',
 						borderWidth: "0",
 						backgroundColor: 'rgba(34, 47, 185, 1)'
-						
 					}
 				]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-				
                 legend: {
                     display: false
                 },
@@ -94,10 +89,8 @@
                 }
             }
         };
-
         var ctx = document.getElementById("activity").getContext("2d");
         var myLine = new Chart(ctx, config);
-
         var items = document.querySelectorAll("#user-activity .nav-tabs .nav-item");
         items.forEach(function(item, index) {
             item.addEventListener("click", function() {
@@ -106,7 +99,6 @@
             });
         });
     }
-	
 if(jQuery('#activeUser').length > 0 ){
 	var data = {
         labels: ["0", "1", "2", "3", "4", "5", "6", "0", "1", "2", "3", "4", "5", "6"],
@@ -121,7 +113,6 @@ if(jQuery('#activeUser').length > 0 ){
             data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40]
         }]
     };
-
     var ctx = document.getElementById("activeUser").getContext("2d");
     var chart = new Chart(ctx, {
         type: "bar",
@@ -162,7 +153,6 @@ if(jQuery('#activeUser').length > 0 ){
             }
         }
     });
-	
 	setInterval(function() {
         chart.config.data.datasets[0].data.push(
             Math.floor(10 + Math.random() * 80)
@@ -170,18 +160,9 @@ if(jQuery('#activeUser').length > 0 ){
         chart.config.data.datasets[0].data.shift();
         chart.update();
     }, 2000);
-	
 }
 if(jQuery('#chart_widget_1').length > 0 ){
-	
     const chart_widget_1 = document.getElementById("chart_widget_1").getContext('2d');
-    //generate gradient
-    // const gradientStroke = chart_widget_1.createLinearGradient(0, 0, 0, 250);
-    // gradientStroke.addColorStop(0, "#00abc5");
-    // gradientStroke.addColorStop(1, "#000080");
-
-    // chart_widget_1.attr('height', '100');
-
     new Chart(chart_widget_1, {
         type: 'bar',
         data: {
@@ -231,20 +212,12 @@ if(jQuery('#chart_widget_1').length > 0 ){
             }
         }
     });
-
 }
-
-//#chart_widget_2
 if(jQuery('#chart_widget_2').length > 0 ){
-	
     const chart_widget_2 = document.getElementById("chart_widget_2").getContext('2d');
-    //generate gradient
     const chart_widget_2gradientStroke = chart_widget_2.createLinearGradient(250, 0, 0, 0);
     chart_widget_2gradientStroke.addColorStop(1, "#ff7a00");
     chart_widget_2gradientStroke.addColorStop(0, "#2130b8");
-
-    // chart_widget_2.attr('height', '100');
-
     new Chart(chart_widget_2, {
         type: 'bar',
         data: {
@@ -294,16 +267,9 @@ if(jQuery('#chart_widget_2').length > 0 ){
             }
         }
     });
-
 }
-
-//#chart_widget_3
-
 	if(jQuery('#chart_widget_3').length > 0 ){
     const chart_widget_3 = document.getElementById("chart_widget_3").getContext('2d');
-    
-    // chart_widget_3.height = 100;
-
     let barChartData = {
         defaultFontFamily: 'Poppins',
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -344,9 +310,7 @@ if(jQuery('#chart_widget_2').length > 0 ){
                 '16'
             ]
         }]
-
     };
-
     new Chart(chart_widget_3, {
         type: 'bar',
         data: barChartData,
@@ -391,17 +355,8 @@ if(jQuery('#chart_widget_2').length > 0 ){
         }
     });
 	}
-
-
-
-//#chart_widget_4
-
 	if(jQuery('#chart_widget_4').length > 0 ){
-
     const chart_widget_4 = document.getElementById("chart_widget_4").getContext('2d');
-    
-    // chart_widget_4.height = 100;
-
     let barChartData2 = {
         defaultFontFamily: 'Poppins',
         labels: ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'forteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'],
@@ -458,9 +413,7 @@ if(jQuery('#chart_widget_2').length > 0 ){
                 '33'
             ]
         }]
-
     };
-
     new Chart(chart_widget_4, {
         type: 'bar',
         data: barChartData2,
@@ -507,15 +460,8 @@ if(jQuery('#chart_widget_2').length > 0 ){
             }
         }
     });
-
 	}
-
-
-//#chart_widget_5
-
-
 if(jQuery('#chart_widget_5').length > 0 ){
-		
     new Chartist.Line("#chart_widget_5", {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
         series: [
@@ -546,14 +492,7 @@ if(jQuery('#chart_widget_5').length > 0 ){
         }
     });
 }
-
-
-
-//#chart_widget_6
-
-
 if(jQuery('#chart_widget_6').length > 0 ){
-	
     new Chartist.Line("#chart_widget_6", {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
         series: [
@@ -584,21 +523,11 @@ if(jQuery('#chart_widget_6').length > 0 ){
         }
     });
 }
-
-
-
-//#chart_widget_7
-
 	if(jQuery('#chart_widget_7').length > 0 ){
-
     const chart_widget_7 = document.getElementById("chart_widget_7").getContext('2d');
-    //generate gradient
     const chart_widget_7gradientStroke = chart_widget_7.createLinearGradient(0, 0, 0, 250);
     chart_widget_7gradientStroke.addColorStop(0, "#ff5c00");
     chart_widget_7gradientStroke.addColorStop(1, "#ff5c00");
-
-    // chart_widget_7.attr('height', '100');
-
     new Chart(chart_widget_7, {
         type: 'bar',
         data: {
@@ -648,15 +577,8 @@ if(jQuery('#chart_widget_6').length > 0 ){
             }
         }
     });
-
 	}
-
-
-
-//#chart_widget_8
-
 if(jQuery('#chart_widget_8').length > 0 ){
-	
     new Chartist.Line("#chart_widget_8", {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
         series: [
@@ -686,16 +608,9 @@ if(jQuery('#chart_widget_8').length > 0 ){
             offset: 0
         }
     });
-
 }
-
-
-//#chart_widget_9
-
 	if(jQuery('#chart_widget_9').length > 0 ){
-
     const chart_widget_9 = document.getElementById("chart_widget_9").getContext('2d');
-
     new Chart(chart_widget_9, {
         type: "line",
         data: {
@@ -770,18 +685,9 @@ if(jQuery('#chart_widget_8').length > 0 ){
             }
         }
     });
-
 	}
-
-
-
-//#chart_widget_10
-
-
 	if(jQuery('#chart_widget_10').length > 0 ){
-
     const chart_widget_10 = document.getElementById("chart_widget_10").getContext('2d');
-
     new Chart(chart_widget_10, {
         type: "line",
         data: {
@@ -857,17 +763,9 @@ if(jQuery('#chart_widget_8').length > 0 ){
             }
         }
     });
-
 	}
-
-
-
-//#chart_widget_11
-
 	if(jQuery('#chart_widget_11').length > 0 ){
-	
     const chart_widget_11 = document.getElementById("chart_widget_11").getContext('2d');
-
     new Chart(chart_widget_11, {
         type: "line",
         data: {
@@ -946,17 +844,10 @@ if(jQuery('#chart_widget_8').length > 0 ){
             }
         }
     });
-
 	}
-
-//#chart_widget_14
-
 	if(jQuery('#chart_widget_14').length > 0 ){
-
     const chart_widget_14 = document.getElementById("chart_widget_14");
-    
     chart_widget_14.height = 200;
-
     new Chart(chart_widget_14, {
         type: 'line',
         data: {
@@ -1008,18 +899,10 @@ if(jQuery('#chart_widget_8').length > 0 ){
             }
         }
     });
-
-
 	}
-
-//#chart_widget_15
-
 	if(jQuery('#chart_widget_15').length > 0 ){
-
     const chart_widget_15 = document.getElementById("chart_widget_15");
-    
     chart_widget_15.height = 200;
-
     new Chart(chart_widget_15, {
         type: 'line',
         data: {
@@ -1071,18 +954,10 @@ if(jQuery('#chart_widget_8').length > 0 ){
             }
         }
     });
-
 	}
-
-
-//#chart_widget_16
-
 if(jQuery('#chart_widget_16').length > 0 ){
-
     const chart_widget_16 = document.getElementById("chart_widget_16");
-    
     chart_widget_16.height = 345;
-
     new Chart(chart_widget_16, {
         type: 'line',
         data: {
@@ -1142,16 +1017,10 @@ if(jQuery('#chart_widget_16').length > 0 ){
             }
         }
     });
-
 		}
-
-
-//#chart_widget_17
 if(jQuery('#chart_widget_17').length > 0 ){
-
     let data = [];
     const totalPoints = 50;
-
 	function getRandomData() {
 		if (data.length > 0)
 			data = data.slice(1);
@@ -1171,12 +1040,8 @@ if(jQuery('#chart_widget_17').length > 0 ){
 		}
 		return res;
 	}
-
-	// Set up the control widget
 	const updateInterval = 1000;
-
 		if(jQuery('#chart_widget_17').length > 0 ){
-	
 	const chart = $.plot('#chart_widget_17', [getRandomData()], {
 		colors: ['#222fb9'],
 		series: {
@@ -1209,19 +1074,14 @@ if(jQuery('#chart_widget_17').length > 0 ){
             }
 		}
 	});
-
 		function update_chart() {
 		chart.setData([getRandomData()]);
 		chart.draw();
 		setTimeout(update_chart, updateInterval);
 		}
-    
 		update_chart();
-		
 	}
-	
 }
-/* Widget */
 if(jQuery('#widget_sparklinedash').length > 0 ){	 
 	 $("#widget_sparklinedash").sparkline([10, 15, 26, 27, 28, 31, 34, 40, 41, 44, 49, 64, 68, 69, 72], {
 		type: "bar",
@@ -1258,7 +1118,6 @@ if(jQuery('#widget_StackedBarChart').length > 0 ){
 }
 })(jQuery);
 if(jQuery('#widget_tristate').length > 0 ){	
-
     $("#widget_tristate").sparkline([1, 1, 0, 1, -1, -1, 1, -1, 0, 0, 1, 1], {
         type: 'tristate',
         height: "40",
@@ -1268,14 +1127,12 @@ if(jQuery('#widget_tristate').length > 0 ){
         negBarColor: 'rgba(245, 60, 121, .8)'
     });
 }
-    // Composite
 if(jQuery('#widget_composite-bar').length > 0 ){
     $("#widget_composite-bar").sparkline([73, 53, 50, 67, 3, 56, 19, 59, 37, 32, 40, 26, 71, 19, 4, 53, 55, 31, 37, 67, 10, 21], {
         type: "bar",
         height: "40",
         barWidth: "3",
         resize: !0,
-        // barSpacing: "7",
         barColor: "rgb(68, 11, 89)", 
         width: '100%'
     });

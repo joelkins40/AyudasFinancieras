@@ -1,5 +1,4 @@
-Ôªø@model AyudasFinancierasV2.Models.Entity.Documento
-
+@model AyudasFinancierasV2.Models.Entity.Documento
 @{
     ViewBag.Title = "SAF - Carga de Documentos";
 }
@@ -19,14 +18,12 @@
             width: 100%;
             height: 100%;
         }
-
         .documento {
             width: 100%;
             height: 800px;
             display: flex;
             flex-direction: column;
         }
-
             .documento object {
                 flex: 1;
             }
@@ -34,18 +31,17 @@
 </head>
 <body class="bodydoc">
     <div class="documento">
-        
         @if (Model.fileInfo == null || string.IsNullOrEmpty(Model.fileInfo.FileType) || string.IsNullOrEmpty(Model.fileInfo.FileContent))
         {
             <h3 style="padding-top: 20%;margin-bottom: 20%;">
-                Por el momento no est√° disponible, puedes dirigirte a CIAA para consultarlo.
+                Por el momento no est· disponible, puedes dirigirte a CIAA para consultarlo.
             </h3>
         }
         else if (Model.fileInfo.FileType == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || Convert.ToSingle(Model.fileInfo.FileContentSize) > 1500)
         {
             <h3 style="padding-top: 20%;margin-bottom: 20%;">
                 "El archivo se encuentra subido exitosamente pero en este momento no es posible
-                su visualizaci√≥n, pero si lo deseas puedes descargarlo."
+                su visualizaciÛn, pero si lo deseas puedes descargarlo."
             </h3>
         }
         else

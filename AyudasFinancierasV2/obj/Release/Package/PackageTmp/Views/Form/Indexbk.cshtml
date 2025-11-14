@@ -1,7 +1,6 @@
 @{
     ViewBag.Title = "About";
 }
-
 <style>
     /* Asegurar codificación correcta de caracteres */
     html {
@@ -13,7 +12,6 @@
         font-kerning: normal;
         text-rendering: optimizeLegibility;
     }
-
     body {
         font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
         font-optical-sizing: auto;
@@ -28,8 +26,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    
-
     .btn-primaryYellow {
         background-color: #fff500;
         color: #333;
@@ -55,7 +51,6 @@
         transform: translateY(0);
         box-shadow: 0 2px 6px rgba(255, 245, 0, 0.3);
     }
-    
     .btn-secondary {
         background-color: #6c757d;
         color: white;
@@ -79,7 +74,6 @@
         transform: translateY(0);
         box-shadow: 0 2px 6px rgba(108, 117, 125, 0.2);
     }
- 
     .btn {
         border-radius: 12px;
         font-weight: 500;
@@ -103,11 +97,9 @@
     .card-body {
         margin: 20px;
     }
-    
     .popover-header {
         background-color: #333;
     }
-    
     /* Estilos mejorados para inputs y formularios */
     .form-control,
     .form-select {
@@ -123,7 +115,6 @@
         color: #495057;
         line-height: 1.5;
     }
-    
     .form-control:focus,
     .form-select:focus {
         border-color: #fff500;
@@ -132,19 +123,16 @@
         outline: none;
         transform: translateY(-1px);
     }
-    
     .form-control:hover:not(:focus),
     .form-select:hover:not(:focus) {
         border-color: #dee2e6;
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
     }
-    
     .form-control::placeholder {
         color: #adb5bd;
         font-weight: 300;
         letter-spacing: 0.2px;
     }
-    
     .form-label {
         font-weight: 600;
         color: #495057;
@@ -152,24 +140,20 @@
         font-size: 0.95rem;
         letter-spacing: 0.3px;
     }
-    
     /* Textarea específico */
     .form-control[rows] {
         min-height: 120px;
         resize: vertical;
     }
-    
     /* Form groups */
     .mb-3,
     .mb-4 {
         position: relative;
     }
-    
     /* Input group improvements */
     .input-group .form-control {
         border-radius: 0 12px 12px 0;
     }
-    
     .input-group .input-group-text {
         border: 2px solid #e9ecef;
         border-right: none;
@@ -179,12 +163,10 @@
         font-weight: 500;
         transition: all 0.3s ease;
     }
-    
     .input-group:focus-within .input-group-text {
         border-color: #fff500;
         background-color: #fffef8;
     }
-    
     /* Checkboxes y radios mejorados */
     .form-check-input {
         width: 1.2em;
@@ -195,24 +177,20 @@
         cursor: pointer;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
     }
-    
     .form-check-input:focus {
         border-color: #fff500;
         box-shadow: 0 0 0 3px rgba(255, 245, 0, 0.15);
         outline: none;
     }
-    
     .form-check-input:checked {
         background-color: #fff500;
         border-color: #fff500;
         box-shadow: 0 2px 8px rgba(255, 245, 0, 0.3);
     }
-    
     .form-check-input:hover:not(:checked) {
         border-color: #adb5bd;
         transform: scale(1.05);
     }
-    
     .form-check-label {
         font-weight: 400;
         color: #495057;
@@ -220,12 +198,10 @@
         margin-left: 8px;
         line-height: 1.6;
     }
-    
     /* Radio buttons específicos */
     .form-check-input[type="radio"] {
         border-radius: 50%;
     }
-    
     /* Select mejorado */
     .form-select {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23495057' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
@@ -234,17 +210,14 @@
         background-size: 16px 12px;
         cursor: pointer;
     }
-    
     .form-select:focus {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
     }
-    
     .btn-left{
         border-color: #333;
         background-color: white;
         color: #333;
     }
-
     .btn-left .fa {
             color: #333
     }
@@ -255,7 +228,6 @@
         line-height: 1.3;
         margin-bottom: 1.2rem;
     }
-    
     h1, .h1 {
         font-size: 2.5rem;
         font-weight: 700;
@@ -264,7 +236,6 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    
     h2, .h2 {
         font-size: 2rem;
         font-weight: 600;
@@ -273,41 +244,34 @@
         padding-bottom: 8px;
         margin-bottom: 1.5rem;
     }
-    
     h3, .h3 {
         font-size: 1.5rem;
         font-weight: 600;
         color: #495057;
     }
-    
     h4, .h4 {
         font-size: 1.25rem;
         font-weight: 500;
         color: #495057;
     }
-    
     p {
         line-height: 1.7;
         color: #6c757d;
         margin-bottom: 1rem;
     }
-  
     /* Asegurar tipografía consistente en navegación */
     .nav-wizard li .nav-link span {
         font-weight: 500;
         letter-spacing: 0.3px;
     }
-    
     /* Asegurar que botones tengan tipografía consistente */
     .btn, button, input[type="button"], input[type="submit"] {
         font-weight: 500;
         letter-spacing: 0.3px;
     }
-    
     /* Modal headers y contenido */
     .modal-header, .modal-body, .modal-footer {
     }
-    
     .iconos {
         color: #fff500;
     }
@@ -325,11 +289,9 @@
         cursor: pointer;
         transition: all 0.3s ease;
     }
-    
     .input-radio-lg:hover {
         transform: scale(1.3);
     }
-    
     /* Card improvements */
     .card {
         border: none;
@@ -341,7 +303,6 @@
         overflow: hidden;
         position: relative;
     }
-    
     .card::before {
         content: '';
         position: absolute;
@@ -352,12 +313,10 @@
         background: linear-gradient(90deg, #fff500 0%, #e6dd00 100%);
         z-index: 1;
     }
-    
     .card:hover {
         transform: translateY(-2px);
         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
     }
-    
     .card-body {
         margin: 20px;
         padding: 2rem;
@@ -417,12 +376,10 @@
         opacity: 1 !important;
         visibility: visible !important;
     }
-    
     .nav-wizard li .nav-link:hover i {
         background: rgba(255, 245, 0, 0.2);
         transform: scale(1.05);
     }
-    
     .nav-wizard li .nav-link span {
         font-size: 1.1em;
         font-weight: 500;
@@ -431,7 +388,6 @@
         opacity: 1 !important;
         visibility: visible !important;
     }
-    
     .nav-wizard li .nav-link:hover span {
         color: #333;
     }
@@ -510,7 +466,6 @@
         visibility: visible !important;
         display: flex !important;
     }
-    
     .form-wizard .nav-wizard li .nav-link span {
         display: inline !important;
     }
@@ -530,29 +485,24 @@
         visibility: visible !important;
     }
     }
-    
     /* Animación suave para las transiciones de pasos */
     .tab-content {
         position: relative;
         overflow: hidden;
     }
-    
     .tab-pane {
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
     .tab-pane.active {
         opacity: 1;
         transform: translateX(0);
     }
-    
     /* Loading effect para botones */
     .btn.loading {
         position: relative;
         color: transparent !important;
         pointer-events: none;
     }
-    
     .btn.loading::after {
         content: '';
         position: absolute;
@@ -567,12 +517,10 @@
         border-radius: 50%;
         animation: spin 1s linear infinite;
     }
-    
     @@keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
-    
     /* Efecto de focus visible mejorado */
     .btn:focus-visible,
     .form-control:focus-visible,
@@ -581,12 +529,10 @@
         outline: 2px solid #fff500;
         outline-offset: 2px;
     }
-    
     /* Smooth scrolling */
     html {
         scroll-behavior: smooth;
     }
-    
     /* Mejoras para elementos disabled */
     .btn:disabled,
     .form-control:disabled,
@@ -595,7 +541,6 @@
         cursor: not-allowed;
         transform: none !important;
     }
-    
     /* Alert mejorado */
     .alert {
         border: none;
@@ -605,25 +550,21 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
     }
-    
     .alert-warning {
         background: linear-gradient(135deg, rgba(255, 245, 0, 0.15) 0%, rgba(255, 193, 7, 0.1) 100%);
         border-left: 4px solid #fff500;
         color: #856404;
     }
-    
     .alert-success {
         background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(25, 135, 84, 0.05) 100%);
         border-left: 4px solid #198754;
         color: #0f5132;
     }
-    
     .alert-danger {
         background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(214, 51, 132, 0.05) 100%);
         border-left: 4px solid #dc3545;
         color: #721c24;
     }
-    
     /* Ocultar completamente los botones por defecto del SmartWizard */
     .sw-toolbar,
     .sw-btn-next,
@@ -685,7 +626,6 @@
             font-size: 0.9rem;
         }
     }
-    
     @@media (max-width: 576px) {
         body {
             font-size: 14px;
@@ -773,7 +713,6 @@
             font-size: 0.85rem;
         }
     }
-    
     /* Media queries para pantallas medianas y grandes */
     @@media (min-width: 992px) {
         .card-body {
@@ -803,7 +742,6 @@
             font-size: 1rem;
         }
     }
-    
     @@media (min-width: 1200px) {
         .container-fluid {
             max-width: 1400px;
@@ -819,7 +757,6 @@
             padding: 20px 25px;
         }
     }
-    
     /* Animaciones para entrada de elementos */
     @@keyframes fadeInUp {
         from {
@@ -831,7 +768,6 @@
             transform: translateY(0);
         }
     }
-    
     @@keyframes slideInRight {
         from {
             opacity: 0;
@@ -842,25 +778,20 @@
             transform: translateX(0);
         }
     }
-    
     .card {
         animation: fadeInUp 0.6s ease-out;
     }
-    
     /* Removed animation from nav-wizard li to ensure immediate visibility */
     .nav-wizard li {
         opacity: 1 !important;
         visibility: visible !important;
         transform: none !important;
     }
-    
     .form-control:focus,
     .form-select:focus {
         animation: none; /* Evita conflictos con animaciones de focus */
     }
-    
     /* Continuación de media queries existentes */
-    
     @@media (min-width: 576px) and (max-width: 768px) {
         .form-wizard .nav-wizard {
             padding: 18px;
@@ -879,7 +810,6 @@
             padding: 12px 24px;
         }
     }
-    
     @@media (min-width: 769px) and (max-width: 1024px) {
         .form-wizard .nav-wizard {
             padding: 18px;
@@ -900,7 +830,6 @@
             margin: 15px;
         }
     }
-    
     @@media (min-width: 1200px) {
         .form-wizard .nav-wizard {
             justify-content: center;
@@ -912,7 +841,6 @@
             margin: 0 auto;
         }
     }
-    
     /* Mejoras generales de responsividad */
     @@media (max-width: 991px) {
         .col-lg-6 {
@@ -935,23 +863,19 @@
             margin-left: 1rem !important;
         }
     }
-    
     /* Mejoras para formularios en todos los tamaños */
     .form-group {
         margin-bottom: 1rem;
     }
-    
     .default-select, .form-select {
         min-height: 44px;
         font-size: 1rem;
         width: 100%;
     }
-    
     .form-control {
         min-height: 44px;
         font-size: 1rem;
     }
-    
     /* Botones con mejor accesibilidad táctil */
     .btn {
         min-height: 44px;
@@ -961,29 +885,24 @@
         font-weight: normal;
         text-transform: none;
     }
-    
     /* Radio buttons y checkboxes más grandes para móvil */
     .form-check-input {
         margin-top: 0.25em;
         margin-right: 0.75rem;
     }
-    
     .form-check-label {
         cursor: pointer;
         user-select: none;
     }
-    
     /* Mejor espaciado en contenedores de formularios */
     .tab-pane .row {
         margin-left: 0;
         margin-right: 0;
     }
-    
     .tab-pane .col-12 {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
-    
     @@media (min-width: 768px) {
         .tab-pane .col-12 {
             padding-left: 1rem;
@@ -995,11 +914,9 @@
     <div class="d-flex align-items-center justify-content-center p-3" style="background-color:#333; min-height: 80px;">
         <img class="img-fluid" style="max-width: 200px; height: auto;" src="/Content/Img/Logo.png" alt="Logo" />
     </div>
-    <!-- row -->
     <div class="row g-0">
         <div class="col-12">
             <div class="card border-0" style="height:auto">
-
                 <div class="card-body p-3 p-md-4">
                     <div id="smartwizard" class="form-wizard order-create">
                         <ul class="nav nav-wizard yellow"> 
@@ -1037,13 +954,10 @@
                                     <div class="col-12">
                                         <h1 class="h2 mb-3 mb-md-4 pb-2 pb-md-3 fw-bold text-black ms-2 ms-md-3">Información General</h1>
                                     </div>
-
                                     @foreach (var item1 in ViewBag.preguntas)
                                     {
                                         if (item1.categoria.Equals("1"))
                                         {
-
-
                                             <div class="col-lg-12 mb-2">
                                                 <div class="form-group">
                                                     @if (item1.posicion.Contains("."))
@@ -1077,49 +991,36 @@
                                                     }
                                                 </h4>
                                                     }
-
                                                     <div class="mb-3">
                                                         @if (item1.tipo.Equals("RD"))
                                                         {
-
                                                             foreach (var opt in item1.opciones)
                                                             {
-
                                                                 <div class="form-check form-check-inline ms-3">
                                                                     <label class="form-check-label">
                                                                         <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
                                                                         @opt.descripcion
                                                                     </label>
                                                                 </div>
-
-
                                                             }
-
-
                                                             if (item1.otro.Equals("SI"))
                                                             {
                                                                 <div class="form-check form-check-inline ms-3 disabled">
                                                                     <input type="text" name="firstName" class="form-control" placeholder="Nacionalidad" required>
-
                                                                 </div>
                                                             }
-
                                                         }
                                                         @if (item1.tipo.Equals("CB"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-group">
                                                                     <div class="dropdown bootstrap-select default-select form-control wide">
                                                                         <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
                                                                             <option>Seleccionar opción</option>
-
                                                                             @foreach (var opt in item1.opciones)
                                                                             {
                                                                                 <option value="@opt.valor" @(item1.respuesta != null && item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
-
                                                                             }
-
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1128,15 +1029,12 @@
                                                         @if (item1.tipo.Equals("CBM"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-group">
                                                                     <div class="dropdown bootstrap-select default-select form-control wide">
                                                                         <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
-
                                                                             @{
                                                                                 var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
                                                                             }
-
                                                                             @foreach (var opt in item1.opciones)
                                                                             {
                                                                                 <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
@@ -1167,17 +1065,11 @@
                                                                 </label>
                                                             </div>
                                                         }
-
-
-
-
                                                     </div>
                                                 </div>
                                                     </div>
                                         }
                                     }
-
-
                                     <div class="row g-2 justify-content-center">
                                         <div class="col-auto">
                                             <a href="#datos2" type="button" class="btn btn-square btn-primaryYellow px-4">
@@ -1185,7 +1077,6 @@
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div id="datos2" class="tab-pane" role="tabpanel">
@@ -1197,8 +1088,6 @@
                                     {
                                         if (item1.categoria.Equals("2"))
                                         {
-
-
                                             <div class="col-lg-12 mb-2">
                                                 <div class="form-group">
                                                     @if (item1.posicion.Contains("."))
@@ -1213,7 +1102,6 @@
                                                                      data-bs-placement="top"
                                                                      title="@item1.comentario"
                                                                      style="cursor:pointer; font-size: 1.2em; margin-right: 0.4em;"></i>
-
                                                               }
                                                           </span>
                                                       </div>
@@ -1233,50 +1121,36 @@
                                                     }
                                                 </h4>
                                                     }
-
                                                     <div class="mb-3">
                                                         @if (item1.tipo.Equals("RD"))
                                                         {
-
                                                             foreach (var opt in item1.opciones)
                                                             {
-
                                                                 <div class="form-check form-check-inline ms-3">
                                                                     <label class="form-check-label">
                                                                         <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
                                                                         @opt.descripcion
                                                                     </label>
                                                                 </div>
-
-
-
                                                             }
-
-
                                                             if (item1.otro.Equals("SI"))
                                                             {
                                                                 <div class="form-check form-check-inline ms-3 disabled">
                                                                     <input type="text" name="firstName" class="form-control" placeholder="Nacionalidad" required>
-
                                                                 </div>
                                                             }
-
                                                         }
                                                         @if (item1.tipo.Equals("CB"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-group">
                                                                     <div class="dropdown bootstrap-select default-select form-control wide">
                                                                         <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
                                                                             <option>Seleccionar opción</option>
-
                                                                             @foreach (var opt in item1.opciones)
                                                                             {
                                                                                 <option value="@opt.valor" @(item1.respuesta != null && item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
-
                                                                             }
-
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1285,15 +1159,12 @@
                                                         @if (item1.tipo.Equals("CBM"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-group">
                                                                     <div class="dropdown bootstrap-select default-select form-control wide">
                                                                         <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
-
                                                                             @{
                                                                                 var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
                                                                             }
-
                                                                             @foreach (var opt in item1.opciones)
                                                                             {
                                                                                 <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
@@ -1314,7 +1185,6 @@
                                                         @if (item1.tipo.Equals("SN"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-check form-check-inline ms-3">
                                                                     <label class="form-check-label">
                                                                         <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
@@ -1327,17 +1197,11 @@
                                                                 </div>
                                                             </div>
                                                         }
-
-
-
-
                                                     </div>
                                                 </div>
                                             </div>
                                         }
                                     }
-
-
                                     <div class="row g-2 justify-content-center">
                                         <div class="col-auto">
                                             <a href="#datos1" type="button" class="btn btn-square btn-primaryYellow px-4 me-2">
@@ -1350,7 +1214,6 @@
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div id="datos3" class="tab-pane" role="tabpanel">
@@ -1362,8 +1225,6 @@
                                     {
                                         if (item1.categoria.Equals("3"))
                                         {
-
-
                                             <div class="col-lg-12 mb-2">
                                                 <div class="form-group">
                                                     @if (item1.posicion.Contains("."))
@@ -1397,50 +1258,36 @@
                                                     }
                                                 </h4>
                                                     }
-
                                                     <div class="mb-3">
                                                         @if (item1.tipo.Equals("RD"))
                                                         {
-
                                                             foreach (var opt in item1.opciones)
                                                             {
-
                                                                 <div class="form-check form-check-inline ms-3">
                                                                     <label class="form-check-label">
                                                                         <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
                                                                         @opt.descripcion
                                                                     </label>
                                                                 </div>
-
-
-
                                                             }
-
-
                                                             if (item1.otro.Equals("SI"))
                                                             {
                                                                 <div class="form-check form-check-inline ms-3 disabled">
                                                                     <input type="text" name="firstName" class="form-control" placeholder="Nacionalidad" required>
-
                                                                 </div>
                                                             }
-
                                                         }
                                                         @if (item1.tipo.Equals("CB"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-group">
                                                                     <div class="dropdown bootstrap-select default-select form-control wide">
                                                                         <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
                                                                             <option>Seleccionar opción</option>
-
                                                                             @foreach (var opt in item1.opciones)
                                                                             {
                                                                                 <option value="@opt.valor" @(item1.respuesta != null && item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
-
                                                                             }
-
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1449,14 +1296,12 @@
                                                         @if (item1.tipo.Equals("CBM"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-group">
                                                                     <div class="dropdown bootstrap-select default-select form-control wide">
                                                                         <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null" multiple data-none-selected-text="Seleccione una opción">
                                                                             @{
                                                                                 var respuestasSeleccionadas = item1.respuesta != null ? item1.respuesta.Split(',') : new string[] { };
                                                                             }
-
                                                                             @foreach (var opt in item1.opciones)
                                                                             {
                                                                                 <option value="@opt.valor" @(Array.IndexOf(respuestasSeleccionadas, opt.valor) >= 0 ? "selected" : "")>@opt.descripcion</option>
@@ -1477,7 +1322,6 @@
                                                         @if (item1.tipo.Equals("SN"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-check form-check-inline ms-3">
                                                                     <label class="form-check-label">
                                                                         <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
@@ -1490,18 +1334,11 @@
                                                                 </div>
                                                             </div>
                                                         }
-
-
-
-
                                                     </div>
                                                 </div>
                                             </div>
                                         }
                                     }
-
-
-
                                     <div class="row g-2 justify-content-center">
                                         <div class="col-auto">
                                             <a href="#datos2" type="button" class="btn btn-square btn-primaryYellow px-4 me-2">
@@ -1514,8 +1351,6 @@
                                             </a>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                             <div id="datos4" class="tab-pane" role="tabpanel">
@@ -1527,13 +1362,10 @@
                                     {
                                         if (item1.categoria.Equals("4"))
                                         {
-
-
                                             <div class="col-lg-12 mb-2">
                                                 <div class="form-group">
                                                     @if (item1.posicion.Contains("."))
                                                     {
-
                                                         <div class="ms-3">
                                                             <span class="@(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
                                                                 @item1.posicion. @item1.pregunta
@@ -1563,50 +1395,36 @@
                                                     }
                                                 </h4>
                                                     }
-
                                                     <div class="mb-3">
                                                         @if (item1.tipo.Equals("RD"))
                                                         {
-
                                                             foreach (var opt in item1.opciones)
                                                             {
-
                                                                 <div class="form-check form-check-inline ms-3">
                                                                     <label class="form-check-label">
                                                                         <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "checked" : "")>
                                                                         @opt.descripcion
                                                                     </label>
                                                                 </div>
-
-
-
                                                             }
-
-
                                                             if (item1.otro.Equals("SI"))
                                                             {
                                                                 <div class="form-check form-check-inline ms-3 disabled">
                                                                     <input type="text" name="firstName" class="form-control" placeholder="Nacionalidad" required>
-
                                                                 </div>
                                                             }
-
                                                         }
                                                         @if (item1.tipo.Equals("CB"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-group">
                                                                     <div class="dropdown bootstrap-select default-select form-control wide">
                                                                         <select name="CB_@item1.tipo@item1.id" id="@item1.tipo@item1.id" class="default-select form-control wide" tabindex="null">
                                                                             <option>Seleccionar opción</option>
-
                                                                             @foreach (var opt in item1.opciones)
                                                                             {
                                                                                 <option value="@opt.valor" @(item1.respuesta.Equals(opt.valor) ? "selected" : "")>@opt.descripcion</option>
-
                                                                             }
-
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1641,7 +1459,6 @@
                                                         @if (item1.tipo.Equals("SN"))
                                                         {
                                                             <div class="col-lg-6 mb-2  @(item1.oculta.Equals("") ? "ms-1" : "ms-5") @(!item1.oculta.Equals("") ? "V" + item1.oculta.Replace(".", "") + "" : "")" @(!item1.oculta.Equals("") ? " hidden " : "")>
-
                                                                 <div class="form-check form-check-inline ms-3">
                                                                     <label class="form-check-label">
                                                                         <input type="radio" name="@item1.tipo@item1.id" class="form-check-input input-radio-lg" value="SI" @(item1.respuesta != null && item1.respuesta.Equals("SI") ? "checked" : "") onchange="mostrarDiv(@item1.categoria@item1.posicion)">SÍ
@@ -1654,10 +1471,6 @@
                                                                 </div>
                                                             </div>
                                                         }
-
-
-
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -1677,7 +1490,6 @@
                                             </button>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -1722,7 +1534,6 @@
         </div>
     </div>
 </div>
-
 <div id="loadingSpinner" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.9); z-index:9999; text-align:center;">
     <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-center">
@@ -1755,7 +1566,6 @@
                 enableAnchorOnDoneStep: true
             }
         });
-
         // Handle navigation button clicks
         $('a[href="#datos1"], a[href="#datos2"], a[href="#datos3"], a[href="#datos4"]').on('click', function(e) {
             e.preventDefault();
@@ -1763,7 +1573,6 @@
             var stepIndex = parseInt(targetStep) - 1;
             $('#smartwizard').smartWizard("goToStep", stepIndex);
         });
-
         // Handle custom navigation buttons
         $('.btn[href="#datos1"], .btn[href="#datos2"], .btn[href="#datos3"], .btn[href="#datos4"]').on('click', function(e) {
             e.preventDefault();
@@ -1772,12 +1581,9 @@
             $('#smartwizard').smartWizard("goToStep", stepIndex);
         });
     });
-
     function mostrarDiv(id) {
         id = String(id); // Asegurarse de que id sea una cadena
-
         id = id.replace('.', ''); // Eliminar el punto del id si existe
-
         var iteme = $('.V' + id);
         iteme.removeAttr('hidden');
         // Buscar el radio button con value="SI" dentro del div identificado por iteme
@@ -1785,33 +1591,24 @@
         if (radioButton.length) {
             radioButton.prop('checked', true); // Seleccionar el radio button con value "SI"
             radioButton.trigger('change'); // Lanzar el evento change
-
         }
-
         var smart = $('#smartwizard');
         smart.find('.tab-content').css('height', 'auto');
     }
-
     function ocultarDiv(id) {
         id = String(id); // Asegurarse de que id sea una cadena
-
         id = id.replace('.', ''); // Eliminar el punto del id si existe
-
         var iteme = $('.V' + id);
         iteme.attr('hidden', true);
-
         // Buscar el radio button con value="NO" dentro del div identificado por iteme
         var radioButton = iteme.find('input[type="radio"][value="NO"]');
         if (radioButton.length) {
             radioButton.prop('checked', true); // Seleccionar el radio button con value "NO"
             radioButton.trigger('change'); // Lanzar el evento change
-
         }
-
         var smart = $('#smartwizard');
         smart.smartWizard('resetHeight');
     }
-
        $(document).ready(function() {
         @foreach (var item1 in ViewBag.preguntas)
         {
@@ -1833,8 +1630,6 @@
         var lista = [];
         for (var i = 1; i <= 500; i++) {
             var ite = $('input:radio[name=SN' + i + ']:checked').val();
-
-
             if (ite != undefined) {
                 lista.push({
                     'id': i,
@@ -1847,7 +1642,6 @@
                         'id': i,
                         'respuesta': ite2
                     });
-
                 } else {
                     var ite3 = $('#TX' + i).val();
                     if (ite3 != undefined) {
@@ -1855,16 +1649,13 @@
                             'id': i,
                             'respuesta': ite3
                         });
-
                     } else {
                         var ite4 = $('#CB' + i).val();
                         if (ite4 != undefined) {
                             lista.push({
                                 'id': i,
                                 'respuesta': ite4
-
                             });
-
                         } else {
                             var ite5 = $('#CBM' + i).val();
                             if (ite5 != undefined) {
@@ -1884,19 +1675,13 @@
                     }
                 }
             }
-
         }
-
-
-
         var mensaje = JSON.stringify(
             {
                 'pidm': '0013246',
                 'nivel': '202010',
                 'respuestas': lista
             });
-
-
         $.ajax({
             url: '/Form/guardarEvaluacion',
             type: "post",
@@ -1919,7 +1704,6 @@
     function redireccionar() {
         // Mostrar el spinner
     $('#loadingSpinner').show();
-
     // Redireccionar después de un breve retraso para asegurar que el spinner se muestre
     setTimeout(function() {
         window.location.href = '/Becas/Index';

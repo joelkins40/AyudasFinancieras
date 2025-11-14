@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace AyudasFinancierasV2.Models.Entity
 {
     public class Regla
@@ -16,8 +15,6 @@ namespace AyudasFinancierasV2.Models.Entity
         public double min { get; set; }
         public double max { get; set; }
         public bool isValid  { get; set; }
-
         public bool udemPrepa { get; set; }
-
     }
 }

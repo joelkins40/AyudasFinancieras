@@ -1,6 +1,3 @@
-/*
- * Styling for DataTables with Semantic UI
- */
 table.dataTable.table {
   margin: 0;
 }
@@ -51,7 +48,6 @@ table.dataTable.table.nowrap th,
 table.dataTable.table.nowrap td {
   white-space: nowrap;
 }
-
 div.dataTables_wrapper div.dataTables_length select {
   vertical-align: middle;
   min-height: 2.7142em;

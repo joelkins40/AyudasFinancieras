@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace AyudasFinancierasV2.Models.Entity
 {
     public class Renovacion
@@ -18,9 +17,6 @@ namespace AyudasFinancierasV2.Models.Entity
         public string CONDICION_ANT { get; set; }
         public string FECHA { get; set; }
         public string DESCRIPCION { get; set; }
-
         public string PERIODO { get; set; }
-
-
     }
 }

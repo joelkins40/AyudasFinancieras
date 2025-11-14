@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es-MX">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
@@ -12,13 +12,10 @@
     <link rel="stylesheet" href="~/Content/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" type="text/css" />
     <link rel="stylesheet" href="~/Content/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" type="text/css" />
     <link href="~/Content/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&subset=latin,latin-ext&display=swap" rel="stylesheet">
-    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <style>
         /* Mejoras para tooltips en dispositivos móviles */
         @@media (max-width: 768px) {
@@ -26,13 +23,11 @@
                 font-size: 0.875rem !important;
                 max-width: 280px !important;
             }
-            
             .tooltip-inner {
                 padding: 8px 12px !important;
                 text-align: left !important;
                 line-height: 1.4 !important;
             }
-            
             /* Mejora el área táctil para los iconos de tooltip */
             .info-tooltip-wrapper {
                 min-width: 44px !important;
@@ -42,67 +37,54 @@
                 justify-content: center !important;
             }
         }
-
         /* Mejoras generales para tooltips */
         .tooltip {
             z-index: 1070 !important;
         }
-        
         .tooltip-inner {
             background-color: #2c3e50 !important;
             color: white !important;
             border-radius: 6px !important;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
         }
-        
         .tooltip.bs-tooltip-top .tooltip-arrow::before {
             border-top-color: #2c3e50 !important;
         }
-        
         .tooltip.bs-tooltip-bottom .tooltip-arrow::before {
             border-bottom-color: #2c3e50 !important;
         }
-        
         .tooltip.bs-tooltip-start .tooltip-arrow::before {
             border-left-color: #2c3e50 !important;
         }
-        
         .tooltip.bs-tooltip-end .tooltip-arrow::before {
             border-right-color: #2c3e50 !important;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         @RenderBody()
         <hr />
         <footer>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     <script src="~/Content/vendor/global/global.min.js"></script>
     <script src="~/Content/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <script src="~/Content/vendor/bootstrap-datetimepicker/js/moment.js"></script>
     <script src="~/Content/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-
     <script src="~/Content/vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js"></script>
     <script src="~/Content/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <!-- Form validate init -->
     <script src="~/Content/js/plugins-init/jquery.validate-init.js"></script>
     <script src="~/Content/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="~/Content/js/plugins-init/datatables.init.js"></script>
     <script src="~/Content/js/custom.min.js"></script>
     <script src="~/Content/js/deznav-init.js"></script>
     <script src="~/Content/js/demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <script language="javascript" type="text/javascript">
-
         $(document).ready(function () {
-
-
-
             $('#lista2').DataTable({
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ registros por página",
@@ -157,13 +139,11 @@
                 "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "Todos"]],
                 "pageLength": 5
             });
-
         });
         // Función para validar campos requeridos en un paso
         function validateStep(stepNumber) {
             var isValid = true;
             var stepId = '';
-            
             // Determinar el ID del paso actual
             switch(stepNumber) {
                 case 0: stepId = '#datos1'; break;
@@ -171,7 +151,6 @@
                 case 2: stepId = '#datos3'; break;
                 case 3: stepId = '#datos4'; break;
             }
-            
             // Validar inputs de texto requeridos
             $(stepId + ' input[type="text"][required]').each(function() {
                 if ($(this).val().trim() === '' && !$(this).hasClass('solo-visible')) {
@@ -181,7 +160,6 @@
                     $(this).removeClass('is-invalid');
                 }
             });
-            
             // Validar selects requeridos
             $(stepId + ' select[required]').each(function() {
                 if ($(this).val() === '' || $(this).val() === null || $(this).val() === 'Seleccionar opción') {
@@ -191,7 +169,6 @@
                     $(this).removeClass('is-invalid');
                 }
             });
-            
             // Validar radio buttons agrupados
             var radioGroups = {};
             $(stepId + ' input[type="radio"]').each(function() {
@@ -200,12 +177,10 @@
                     radioGroups[name] = $(stepId + ' input[name="' + name + '"]');
                 }
             });
-            
             // Verificar que cada grupo de radio tenga al menos una opción seleccionada
             for (var groupName in radioGroups) {
                 var group = radioGroups[groupName];
                 var hasSelection = group.filter(':checked').length > 0;
-                
                 if (!hasSelection) {
                     // Agregar clase de error al contenedor del grupo
                     group.closest('.form-group, .mb-3').addClass('has-error');
@@ -214,15 +189,12 @@
                     group.closest('.form-group, .mb-3').removeClass('has-error');
                 }
             }
-            
             return isValid;
         }
-        
         // Función para mostrar mensaje de error
         function showValidationMessage(stepNumber) {
             // Remover mensajes previos
             $('.validation-message').remove();
-            
             var stepName = '';
             switch(stepNumber) {
                 case 0: stepName = 'Información General'; break;
@@ -230,14 +202,11 @@
                 case 2: stepName = 'Información Formativa'; break;
                 case 3: stepName = 'Información Económica'; break;
             }
-            
             var message = '<div class="alert alert-danger validation-message mt-3" role="alert">' +
                          '<i class="fas fa-exclamation-triangle me-2"></i>' +
                          'Por favor complete todos los campos requeridos en la sección: <strong>' + stepName + '</strong>' +
                          '</div>';
-            
             $('#smartwizard .tab-content').prepend(message);
-            
             // Auto-ocultar el mensaje después de 5 segundos
             setTimeout(function() {
                 $('.validation-message').fadeOut(500, function() {
@@ -245,7 +214,6 @@
                 });
             }, 5000);
         }
-
         // Inicializa SmartWizard
         $('#smartwizard').smartWizard({
             // Configuración de SmartWizard
@@ -258,20 +226,17 @@
             hideButtonsOnDisabled: true,
             autoAdjustHeight: false
         });
-
         // Evento onLeaveStep de SmartWizard
         $('#smartwizard').on('leaveStep', function (e, anchorObject, stepNumber, stepDirection) {
             // Solo validar si se está avanzando (no retrocediendo)
             if (stepDirection === 'forward') {
                 var isValid = validateStep(stepNumber);
-                
                 if (!isValid) {
                     showValidationMessage(stepNumber);
                     e.preventDefault(); // Prevenir el cambio de paso
                     return false;
                 }
             }
-            
             // Cierra todos los popovers abiertos
             const popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
             popovers.forEach(popover => {
@@ -280,17 +245,13 @@
                     instance.hide(); // Cierra el popover sin destruirlo
                 }
             });
-            
             // Limpiar mensajes de validación al cambiar de paso exitosamente
             $('.validation-message').remove();
         });
-
-      
         // Inicializa los tooltips de Bootstrap con comportamiento personalizado
         $('[data-bs-toggle="tooltip"]').each(function () {
             var $el = $(this);
             var hideTimeout;
-            
             // Configuración del tooltip con delay personalizado
             var tooltip = new bootstrap.Tooltip(this, {
                 trigger: 'manual', // Control manual para mejor comportamiento
@@ -298,7 +259,6 @@
                 placement: 'top',
                 html: true
             });
-
             // Eventos para desktop (mouse)
             $el.on('mouseenter', function () {
                 // Limpia cualquier timeout pendiente
@@ -306,7 +266,6 @@
                     clearTimeout(hideTimeout);
                     hideTimeout = null;
                 }
-                
                 // Cierra otros tooltips antes de mostrar uno nuevo
                 $('[data-bs-toggle="tooltip"]').each(function () {
                     if (this !== $el[0]) {
@@ -314,11 +273,9 @@
                         if (otherTooltip) otherTooltip.hide();
                     }
                 });
-                
                 // Muestra el tooltip actual
                 tooltip.show();
             });
-
             $el.on('mouseleave', function () {
                 // Inicia el timeout de 2 segundos para ocultar
                 hideTimeout = setTimeout(function () {
@@ -326,18 +283,15 @@
                     hideTimeout = null;
                 }, 2000);
             });
-
             // Eventos para dispositivos táctiles (móviles)
             $el.on('touchstart', function (e) {
                 e.preventDefault();
-                
                 // Si el tooltip ya está visible, lo oculta
                 var tooltipElement = document.querySelector('.tooltip');
                 if (tooltipElement && tooltipElement.style.display !== 'none') {
                     tooltip.hide();
                     return;
                 }
-                
                 // Cierra otros tooltips
                 $('[data-bs-toggle="tooltip"]').each(function () {
                     if (this !== $el[0]) {
@@ -345,22 +299,18 @@
                         if (otherTooltip) otherTooltip.hide();
                     }
                 });
-                
                 // Muestra el tooltip
                 tooltip.show();
-                
                 // Auto-ocultar después de 4 segundos en móvil
                 setTimeout(function () {
                     tooltip.hide();
                 }, 4000);
             });
-
             // Prevenir el comportamiento por defecto en dispositivos táctiles
             $el.on('touchend', function (e) {
                 e.preventDefault();
             });
         });
-
         // Cerrar tooltips al hacer scroll o redimensionar (útil para móviles)
         $(window).on('scroll resize', function() {
             $('[data-bs-toggle="tooltip"]').each(function () {

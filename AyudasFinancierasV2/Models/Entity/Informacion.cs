@@ -1,15 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace AyudasFinancierasV2.Models.Entity
 {
     public class Informacion
     {
         public string PERIODO_ADMISION { get; set; }
-      
         public string NIVEL { get; set; }
         public string Periodo { get; set; }
         public string STYP_CODE { get; set; }
@@ -32,8 +30,5 @@ namespace AyudasFinancierasV2.Models.Entity
          public string PROM_SEM_ANT { get; set; }
          public string PROM_GLOBAL { get; set; }
         public string CARGA_ACADEMICA { get; set; }
-
     }
-
-
 }

@@ -51,7 +51,6 @@ div.dt-button-info h2 {
 div.dt-button-info > div {
   padding: 1em;
 }
-
 ul.dt-button-collection.dropdown-menu {
   display: block;
   z-index: 2002;
@@ -108,7 +107,6 @@ ul.dt-button-collection.dropdown-menu.four-column {
   -o-column-count: 4;
   column-count: 4;
 }
-
 div.dt-button-background {
   position: fixed;
   top: 0;
@@ -117,7 +115,6 @@ div.dt-button-background {
   height: 100%;
   z-index: 2001;
 }
-
 @media screen and (max-width: 767px) {
   div.dt-buttons {
     float: none;

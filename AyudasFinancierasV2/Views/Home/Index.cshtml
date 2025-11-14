@@ -108,6 +108,61 @@
         cursor: pointer;
     }
 
+    /* Estilos para los botones del modal de becas */
+    .btn-beca-action {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        border: none;
+        margin: 0 4px;
+        padding: 0;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-sizing: border-box;
+        flex-shrink: 0;
+    }
+
+    .btn-beca-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-beca-action.btn-aceptar {
+        background-color: #333333;
+        color: #fff500;
+        border: 2px solid #fff500;
+    }
+
+    .btn-beca-action.btn-aceptar:hover {
+        background-color: #fff500;
+        color: #333333;
+        border: 2px solid #333333;
+    }
+
+    .btn-beca-action.btn-rechazar {
+        background-color: #6c757d;
+        color: white;
+        border: 2px solid #6c757d;
+    }
+
+    .btn-beca-action.btn-rechazar:hover {
+        background-color: #dc3545;
+        color: white;
+        border: 2px solid #dc3545;
+    }
+
+    /* Espaciado en la celda de opciones */
+    .opciones-cell {
+        text-align: center;
+        white-space: nowrap;
+    }
+
     .iconos {
         color: #fff500;
         text-align: right
@@ -987,6 +1042,154 @@ else
             </div>
         </div>
     </div>
+
+    <!-- Modal para mostrar becas disponibles -->
+    <div class="modal fade" id="modalBecasDisponibles" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="border-radius: 25px; border: none;">
+                <div class="modal-header" style="background-color: #333333; color: white; border-radius: 25px 25px 0 0; border: none;">
+                    <h5 class="modal-title" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: white;">
+                        <i class="fa fa-graduation-cap" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>
+                        Ofrecimientos de becas - @ViewBag.periodo.NOMBRE
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="background-color: white; padding: 30px;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div style="background-color: #fff500; color: #333; padding: 15px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
+                                <h6 id="mensajeBecasDisponibles" style="font-family: 'Montserrat', sans-serif; font-weight: 600; margin: 0; font-size: 18px;">
+                                    ¡Felicidades! Actualmente tienes becas disponibles.
+                                </h6>
+                            </div>
+
+                            <div class="accordion-item2" style="background-color: #ebebeb; border-radius: 15px; padding: 20px;">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless tableItem">
+                                        <thead>
+                                            <tr style="border-bottom: 2px solid #333;">
+                                                <th scope="col" style="color: #333; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px;">Tipo de beca</th>
+                                                <th scope="col" style="color: #333; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px;">%</th>
+                                                <th scope="col" style="color: #333; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px;">Fecha ofrecimiento</th>
+                                                <th scope="col" style="color: #333; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px;">Aceptación</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tablaBecasDisponibles" style="background-color: white;">
+                                            <!-- Las filas se llenarán dinámicamente con JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: white; border: none; border-radius: 0 0 25px 25px; padding: 20px 30px;">
+                    <button type="button" class="btn" style="background-color: #333333; color: white; border: none; border-radius: 25px; padding: 10px 30px; font-family: 'Montserrat', sans-serif; font-weight: 600;" data-bs-dismiss="modal">
+                        <i class="fa fa-times" aria-hidden="true" style="color: #fff500; margin-right: 5px;"></i> Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación para aceptar beca -->
+    <div class="modal fade" id="modalConfirmacionAceptar" style="display: none;">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content" style="border-radius: 25px; border: none;">
+                <div class="modal-header" style="background-color: #333333; color: white; border-radius: 25px 25px 0 0; border: none;">
+                    <h5 class="modal-title" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: white;">
+                        <i class="fa fa-check-circle" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>
+                        Confirmar Aceptación
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="background-color: white; padding: 30px; text-align: center;">
+                    <div style="background-color: #fff500; color: #333; padding: 15px; border-radius: 15px; margin-bottom: 20px;">
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; margin: 0;">
+                            ¿Estás seguro(a) de que deseas aceptar la <strong id="nombreBecaAceptar"></strong>?
+                        </p>
+                    </div>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666;">
+                        Al confirmar, serás redirigido(a) a una nueva pestaña para completar el proceso.
+                    </p>
+                </div>
+                <div class="modal-footer" style="background-color: white; border: none; border-radius: 0 0 25px 25px; padding: 20px 30px; justify-content: center;">
+                    <button type="button" class="btn" style="background-color: #6c757d; color: white; border: none; border-radius: 25px; padding: 10px 20px; font-family: 'Montserrat', sans-serif; font-weight: 600; margin-right: 10px;" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn" id="btnConfirmarAceptar" style="background-color: #333333; color: white; border: none; border-radius: 25px; padding: 10px 20px; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                        <i class="fa fa-check" aria-hidden="true" style="color: #fff500;"></i> Confirmar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación para rechazar beca -->
+    <div class="modal fade" id="modalConfirmacionRechazar" style="display: none;">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content" style="border-radius: 25px; border: none;">
+                <div class="modal-header" style="background-color: #333333; color: white; border-radius: 25px 25px 0 0; border: none;">
+                    <h5 class="modal-title" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: white;">
+                        <i class="fa fa-times-circle" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>
+                        Confirmar Rechazo
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="background-color: white; padding: 30px; text-align: center;">
+                    <div style="background-color: #f8f9fa; border-left: 4px solid #dc3545; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 16px; color: #333; font-weight: 600; margin: 0;">
+                            ¿Estás seguro de que deseas rechazar la <strong id="nombreBecaRechazar"></strong>?
+                        </p>
+                    </div>
+                  
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666;">
+                        Esta acción no se puede deshacer una vez confirmada.
+                    </p>
+                </div>
+                <div class="modal-footer" style="background-color: white; border: none; border-radius: 0 0 25px 25px; padding: 20px 30px; justify-content: center;">
+                    <button type="button" class="btn" style="background-color: #6c757d; color: white; border: none; border-radius: 25px; padding: 10px 20px; font-family: 'Montserrat', sans-serif; font-weight: 600; margin-right: 10px;" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn" id="btnConfirmarRechazar" style="background-color: #dc3545; color: white; border: none; border-radius: 25px; padding: 10px 20px; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                        <i class="fa fa-times" aria-hidden="true"></i> Rechazar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de éxito para operaciones de beca -->
+    <div class="modal fade" id="modalExitoBeca" style="display: none;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" style="border-radius: 25px; border: none;">
+                <div class="modal-header" style="background-color: #333333; color: white; border-radius: 25px 25px 0 0; border: none;">
+                    <h5 class="modal-title" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: white;">
+                        <i class="fa fa-check-circle" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>
+                        <span id="tituloExito">¡Éxito!</span>
+                    </h5>
+                </div>
+                <div class="modal-body" style="background-color: white; padding: 30px; text-align: center;">
+                    <div id="contenidoExito" style="background-color: #fff500; color: #333; padding: 15px; border-radius: 15px; margin-bottom: 20px;">
+                        <p id="mensajeExito" style="font-family: 'Montserrat', sans-serif; font-size: 16px; color: #333; font-weight: 600; margin: 0;">
+                            Operación completada exitosamente
+                        </p>
+                    </div>
+                    <p id="detalleExito" style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; margin-bottom: 15px;">
+                        La operación se ha procesado correctamente.
+                    </p>
+                </div>
+                <div class="modal-footer" style="background-color: white; border: none; border-radius: 0 0 25px 25px; padding: 20px 30px; justify-content: center;">
+                    <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #333333; color: white; border: none; border-radius: 25px; padding: 10px 20px; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                        <i class="fa fa-check" aria-hidden="true" style="color: #fff500; margin-right: 5px;"></i> Continuar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
 
 
@@ -1075,6 +1278,62 @@ function getIconByDocumento(documento) {
 
     // Funcionalidad para los botones "Más" del historial de renovaciones
     $(document).ready(function() {
+        // Verificar si hay becas disponibles y mostrar el modal
+        var becasDisponibles = null;
+        
+        @if(ViewBag.becas != null) 
+        {
+            @:becasDisponibles = @Html.Raw(Json.Encode(ViewBag.becas));
+        }
+        
+        if (becasDisponibles && becasDisponibles.length > 0) {
+            // Limpiar la tabla antes de llenarla
+            $('#tablaBecasDisponibles').empty();
+            
+            // Actualizar el mensaje dinámicamente según la cantidad de becas
+            var cantidadBecas = becasDisponibles.length;
+            var mensajeDinamico = '';
+            
+            if (cantidadBecas === 1) {
+                mensajeDinamico = '¡Felicidades! Actualmente tienes 1 ofrecimiento de beca.';
+            } else {
+                mensajeDinamico = '¡Felicidades! Actualmente tienes ' + cantidadBecas + ' ofrecimientos de beca.';
+            }
+            
+            $('#mensajeBecasDisponibles').text(mensajeDinamico);
+            
+                // Llenar la tabla con los datos de las becas
+                for (var i = 0; i < becasDisponibles.length; i++) {
+                    var beca = becasDisponibles[i];
+                    var fila = '<tr style="border-bottom: 1px solid #dee2e6;">' +
+                        '<td style="color: #333; font-family: \'Montserrat\', sans-serif; padding: 15px;">' + (beca.nombre || beca.descripcion || 'Beca Disponible') + '</td>' +
+                        '<td style="color: #333; font-family: \'Montserrat\', sans-serif; padding: 15px;">' + (beca.porcentaje || '') + '</td>' +
+                        '<td style="color: #333; font-family: \'Montserrat\', sans-serif; padding: 15px;">' + (beca.fecha || '') + '</td>' +
+                        '<td class="opciones-cell" style="color: #333; font-family: \'Montserrat\', sans-serif; padding: 15px;">' +
+                            '<button type="button" class="btn btn-beca-action btn-aceptar" onclick="confirmarAceptarBeca(\'' + (beca.code || '') + '\', \'' + (beca.nombre || beca.descripcion || 'Beca Disponible') + '\', \'' + (beca.anio || '') + '\')" data-bs-toggle="tooltip" data-bs-placement="top" title="Aceptar">' +
+                                '<i class="fa fa-check" aria-hidden="true"></i>' +
+                            '</button>' +
+                            '<button type="button" class="btn btn-beca-action btn-rechazar" onclick="confirmarRechazarBeca(\'' + (beca.code || '') + '\', \'' + (beca.nombre || beca.descripcion || 'Beca Disponible') + '\', \'' + (beca.anio || '') + '\')" data-bs-toggle="tooltip" data-bs-placement="top" title="Rechazar">' +
+                                '<i class="fa fa-times" aria-hidden="true"></i>' +
+                            '</button>' +
+                        '</td>' +
+                        '</tr>';
+                    $('#tablaBecasDisponibles').append(fila);
+                }            
+            // Mostrar el modal automáticamente después de que la página se haya cargado completamente
+            setTimeout(function() {
+                $('#modalBecasDisponibles').modal('show');
+                
+                // Inicializar tooltips después de que se muestre el modal
+                setTimeout(function() {
+                    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                        return new bootstrap.Tooltip(tooltipTriggerEl);
+                    });
+                }, 100);
+            }, 500);
+        }
+
         // Escuchar eventos de colapso para cambiar el ícono del botón
         $('[id^="detalleRenovacion"]').on('show.bs.collapse', function () {
             var currentId = this.id;
@@ -1095,4 +1354,177 @@ function getIconByDocumento(documento) {
             button.find('i').removeClass('fa-minus').addClass('fa-plus');
         });
     });
+
+    // Funciones para manejar los modales de confirmación
+    function confirmarAceptarBeca(codigoBeca, nombreBeca, anioBeca) {
+        // Ocultar todos los tooltips activos
+        $('[data-bs-toggle="tooltip"]').tooltip('hide');
+        
+        $('#nombreBecaAceptar').text(nombreBeca);
+        $('#modalConfirmacionAceptar').modal('show');
+        
+        // Configurar el botón de confirmar
+        $('#btnConfirmarAceptar').off('click').on('click', function() {
+            aceptarBeca(codigoBeca, nombreBeca, anioBeca);
+        });
+    }
+
+    function confirmarRechazarBeca(codigoBeca, nombreBeca, anioBeca) {
+        // Ocultar todos los tooltips activos
+        $('[data-bs-toggle="tooltip"]').tooltip('hide');
+        
+        $('#nombreBecaRechazar').text(nombreBeca);
+        $('#modalConfirmacionRechazar').modal('show');
+        
+        // Configurar el botón de confirmar
+        $('#btnConfirmarRechazar').off('click').on('click', function() {
+            rechazarBeca(codigoBeca, nombreBeca, anioBeca);
+        });
+    }
+
+    function aceptarBeca(codigoBeca, nombreBeca, anioBeca) {
+        // Cerrar el modal de confirmación
+        $('#modalConfirmacionAceptar').modal('hide');
+        
+        // Aquí puedes agregar la lógica para procesar la aceptación de la beca
+        // Por ejemplo, hacer una llamada AJAX al servidor
+        
+        // Redirigir a la página de aceptación de beca en la misma ventana
+        var url = '@Url.Action("AceptarBeca", "Home")' + '?codigo=' + encodeURIComponent(codigoBeca) + '&anio=' + encodeURIComponent(anioBeca || '');
+        window.location.href = url;
+    }
+
+    function rechazarBeca(codigoBeca, nombreBeca, anioBeca) {
+        // Cerrar el modal de confirmación
+        $('#modalConfirmacionRechazar').modal('hide');
+        
+        // Mostrar indicador de procesamiento
+        $('button[onclick*="' + codigoBeca + '"]').prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i>');
+        
+        // Enviar petición AJAX al servidor para rechazar la beca usando el procedimiento Oracle
+        $.post('@Url.Action("RechazarBeca", "Home")', { 
+            codigo: codigoBeca,
+            nombre: nombreBeca,
+            anio: anioBeca || new Date().getFullYear()
+        }, function(response) {
+            if (response.success) {
+                // Mostrar mensaje de éxito con mejor UX - sin auto-cerrar
+                mostrarNotificacionExitoSinAutoCerrar('¡Beca Rechazada!', response.message);
+                
+                // Remover la fila de la tabla con animación
+                $('button[onclick*="' + codigoBeca + '"]').closest('tr').fadeOut(500, function() {
+                    $(this).remove();
+                    
+                    // Si no quedan más becas, cerrar el modal sin mostrar notificación adicional
+                    if ($('#tablaBecasDisponibles tr').length === 0) {
+                        $('#modalBecasDisponibles').modal('hide');
+                    }
+                });
+            } else {
+                // Mostrar error detallado
+                mostrarNotificacionError('Error al rechazar beca', response.message + (response.detalle ? '<br><small>' + response.detalle + '</small>' : ''));
+                
+                // Restaurar botón
+                $('button[onclick*="' + codigoBeca + '"]').prop('disabled', false).html('<i class="fa fa-times" aria-hidden="true"></i>');
+            }
+        }).fail(function() {
+            mostrarNotificacionError('Error de conexión', 'No se pudo conectar al servidor. Por favor, intenta nuevamente.');
+            
+            // Restaurar botón
+            $('button[onclick*="' + codigoBeca + '"]').prop('disabled', false).html('<i class="fa fa-times" aria-hidden="true"></i>');
+        });
+    }
+
+    // Función auxiliar para mostrar notificaciones de éxito
+    function mostrarNotificacionExito(titulo, mensaje) {
+        // Colores consistentes con el esquema negro y amarillo existente
+        $('#modalExitoBeca .modal-header').css('background-color', '#333333');
+        $('#tituloExito').html('<i class="fa fa-check-circle" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>' + titulo);
+        $('#contenidoExito').css({'background-color': '#fff500', 'color': '#333', 'border-left': 'none'});
+        $('#mensajeExito').html(mensaje).css('color', '#333');
+        $('#detalleExito').text('La operación se ha procesado correctamente.');
+        $('#modalExitoBeca .btn').css('background-color', '#333333');
+        $('#modalExitoBeca .btn i').css('color', '#fff500');
+        
+        $('#modalExitoBeca').modal('show');
+        
+        // Auto cerrar después de 4 segundos (tiempo estándar para éxito)
+        setTimeout(function() {
+            $('#modalExitoBeca').modal('hide');
+        }, 4000);
+    }
+
+    // Función auxiliar para mostrar notificaciones de éxito sin auto-cerrar
+    function mostrarNotificacionExitoSinAutoCerrar(titulo, mensaje) {
+        // Colores consistentes con el esquema negro y amarillo existente
+        $('#modalExitoBeca .modal-header').css('background-color', '#333333');
+        $('#tituloExito').html('<i class="fa fa-check-circle" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>' + titulo);
+        $('#contenidoExito').css({'background-color': '#fff500', 'color': '#333', 'border-left': 'none'});
+        $('#mensajeExito').html(mensaje).css('color', '#333');
+        $('#detalleExito').text('Tu decisión ha sido registrada exitosamente.');
+        $('#modalExitoBeca .btn').css('background-color', '#333333');
+        $('#modalExitoBeca .btn i').css('color', '#fff500');
+        
+        $('#modalExitoBeca').modal('show');
+        
+        // No auto-cerrar - solo se cierra cuando el usuario haga clic en el botón
+    }
+
+    // Función auxiliar para mostrar notificaciones de error
+    function mostrarNotificacionError(titulo, mensaje) {
+        // Mantener el esquema negro y amarillo, pero usando rojo para indicar error
+        $('#modalExitoBeca .modal-header').css('background-color', '#dc3545');
+        $('#tituloExito').html('<i class="fa fa-times-circle" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>' + titulo);
+        $('#contenidoExito').css({'background-color': '#f8d7da', 'color': '#721c24', 'border-left': '4px solid #dc3545'});
+        $('#mensajeExito').html(mensaje).css('color', '#721c24');
+        $('#detalleExito').text('Por favor, verifica la información e intenta nuevamente.');
+        $('#modalExitoBeca .btn').css('background-color', '#dc3545');
+        $('#modalExitoBeca .btn i').css('color', '#fff500');
+        
+        $('#modalExitoBeca').modal('show');
+        
+        // Auto cerrar después de 5 segundos (más tiempo para leer el mensaje)
+        setTimeout(function() {
+            $('#modalExitoBeca').modal('hide');
+        }, 5000);
+        
+        // Restaurar colores originales después de cerrar
+        $('#modalExitoBeca').on('hidden.bs.modal', function() {
+            $('#modalExitoBeca .modal-header').css('background-color', '#333333');
+            $('#contenidoExito').css({'background-color': '#fff500', 'color': '#333', 'border-left': 'none'});
+            $('#mensajeExito').css('color', '#333');
+            $('#modalExitoBeca .btn').css('background-color', '#333333');
+            $('#modalExitoBeca .btn i').css('color', '#fff500');
+            $(this).off('hidden.bs.modal');
+        });
+    }
+
+    // Función auxiliar para mostrar notificaciones informativas
+    function mostrarNotificacionInfo(titulo, mensaje) {
+        // Usar azul para información manteniendo iconos amarillos consistentes
+        $('#modalExitoBeca .modal-header').css('background-color', '#007bff');
+        $('#tituloExito').html('<i class="fa fa-info-circle" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>' + titulo);
+        $('#contenidoExito').css({'background-color': '#d1ecf1', 'color': '#0c5460', 'border-left': '4px solid #007bff'});
+        $('#mensajeExito').html(mensaje).css('color', '#0c5460');
+        $('#detalleExito').text('Esta es información importante para tu proceso de becas.');
+        $('#modalExitoBeca .btn').css('background-color', '#007bff');
+        $('#modalExitoBeca .btn i').css('color', '#fff500');
+        
+        $('#modalExitoBeca').modal('show');
+        
+        // Auto cerrar después de 4.5 segundos (más tiempo para leer información)
+        setTimeout(function() {
+            $('#modalExitoBeca').modal('hide');
+        }, 4500);
+        
+        // Restaurar colores originales después de cerrar
+        $('#modalExitoBeca').on('hidden.bs.modal', function() {
+            $('#modalExitoBeca .modal-header').css('background-color', '#333333');
+            $('#contenidoExito').css({'background-color': '#fff500', 'color': '#333', 'border-left': 'none'});
+            $('#mensajeExito').css('color', '#333');
+            $('#modalExitoBeca .btn').css('background-color', '#333333');
+            $('#modalExitoBeca .btn i').css('color', '#fff500');
+            $(this).off('hidden.bs.modal');
+        });
+    }
     </script>

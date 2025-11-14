@@ -52,7 +52,6 @@ div.dt-button-info h2 {
 div.dt-button-info > div {
   padding: 1em;
 }
-
 div.dt-button-collection {
   position: absolute;
   top: 0;
@@ -114,13 +113,11 @@ div.dt-button-collection.four-column {
   -o-column-count: 4;
   column-count: 4;
 }
-
 button.buttons-collection.ui.button span:after {
   display: inline-block;
   content: "▾";
   padding-left: 0.5em;
 }
-
 div.dt-button-background {
   position: fixed;
   top: 0;
@@ -129,7 +126,6 @@ div.dt-button-background {
   height: 100%;
   z-index: 2001;
 }
-
 @media screen and (max-width: 767px) {
   div.dt-buttons {
     float: none;

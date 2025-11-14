@@ -1,0 +1,1124 @@
+﻿@model AyudasFinancierasV2.Models.Entity.AceptacionBeca
+@{
+    ViewBag.Title = "Ayuda Financiera -  Aceptación de Beca";
+}
+<style>
+    /* SISTEMA DE TIPOGRAFÍA HOMOLOGADO */
+    body {
+        font-family: Arial, sans-serif !important;
+        background-color: #ffffff;
+        color: #000;
+        margin: 0;
+        padding: 20px;
+        font-size: 14px; /* Tamaño base estandarizado */
+        line-height: 1.5; /* Interlineado consistente */
+    }
+    
+    /* JERARQUÍA DE TEXTOS ESTANDARIZADA */
+    .texto-titulo-principal {
+        font-size: 18px; /* Tamaño principal para títulos */
+        font-weight: bold;
+        line-height: 1.3;
+    }
+    
+    .texto-subtitulo {
+        font-size: 16px; /* Subtítulos y secciones principales */
+        font-weight: bold;
+        line-height: 1.4;
+    }
+    
+    .texto-normal {
+        font-size: 14px; /* Texto del cuerpo del documento */
+        font-weight: normal;
+        line-height: 1.5;
+    }
+    
+    .texto-pequeno {
+        font-size: 12px; /* Texto auxiliar y notas */
+        font-weight: normal;
+        line-height: 1.4;
+    }
+    
+    .texto-destacado {
+        font-size: 14px; /* Igual al normal pero con peso visual */
+        font-weight: 600;
+        line-height: 1.5;
+    }
+
+    .documento-container {
+        max-width: 850px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        font-size: 14px; /* Tamaño base del contenedor */
+    }
+    
+    .header-udem {
+        text-align: right;
+        margin-bottom: 15px;
+    }
+    
+    .logo-udem {
+        background-color: #4a4a4a;
+        color: white;
+        padding: 15px 25px;
+        font-weight: bold;
+        font-size: 18px; /* Homologado con titulo-principal */
+        letter-spacing: 2px;
+    }
+    
+    .titulo-principal {
+        text-align: center;
+        margin: 15px 0;
+    }
+    
+    .titulo-principal h1 {
+        font-size: 18px; /* Homologado - titulo principal */
+        font-weight: bold;
+        margin: 5px 0;
+        line-height: 1.3;
+    }
+    
+    .beca-tipo {
+        background-color: transparent;
+        padding: 8px 15px;
+        font-weight: bold;
+        display: inline-block;
+        margin: 10px 0;
+        font-size: 16px; /* Homologado - subtítulo */
+        line-height: 1.4;
+    }
+    
+    .datos-estudiante {
+        margin: 15px 0;
+        background-color: #f8f9fa;
+        padding: 15px 20px;
+        border-radius: 8px;
+        border-left: 3px solid #333333;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .highlight-yellow {
+        background-color: transparent;
+        padding: 1px 2px;
+        font-weight: 600;
+        color: #333;
+        font-size: 14px; /* Homologado - texto destacado */
+    }
+    
+    .datos-tabla {
+        width: 100%;
+        margin: 0;
+        border-collapse: collapse;
+    }
+    
+    .datos-tabla td {
+        padding: 4px 8px;
+        vertical-align: top;
+        border-bottom: 1px solid #e9ecef;
+        line-height: 1.5; /* Homologado */
+    }
+    
+    .datos-tabla tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .datos-tabla .label {
+        font-weight: 600;
+        width: 200px;
+        color: #495057;
+        text-align: left;
+        font-size: 14px; /* Homologado - texto normal */
+    }
+    
+    .datos-tabla .valor {
+        text-align: left;
+        font-size: 14px; /* Homologado - texto normal */
+        color: #333;
+    }
+    
+    .parrafo-aceptacion {
+        margin: 15px 0;
+        text-align: justify;
+        font-size: 14px; /* Homologado - texto normal */
+        line-height: 1.5;
+    }
+    
+    .politicas-section {
+        margin: 15px 0;
+    }
+    
+    .politicas-titulo {
+        font-weight: bold;
+        margin: 15px 0 8px 0;
+        font-size: 16px; /* Homologado - subtítulo */
+        line-height: 1.4;
+    }
+    
+    .politicas-lista {
+        margin: 5px 0;
+        padding-left: 20px;
+    }
+    
+    .politicas-lista li {
+        margin-bottom: 5px;
+        text-align: justify;
+        font-size: 14px; /* Homologado - texto normal */
+        line-height: 1.5;
+    }
+    
+    .nota-importante {
+        margin: 20px 0;
+        font-size: 12px; /* Homologado - texto pequeño para notas */
+        text-align: justify;
+        line-height: 1.4;
+        background-color: #f8f9fa;
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid #6c757d;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .nota-importante strong {
+        color: #495057;
+        font-weight: 600;
+        font-size: 13px; /* Ligeramente más grande para el énfasis */
+    }
+    
+    .nota-importante p {
+        margin: 8px 0;
+        color: #495057;
+    }
+    
+    .compromisos-section {
+        margin: 20px 0;
+    }
+    
+    .compromiso-item {
+        margin: 10px 0;
+        text-align: justify;
+        font-size: 14px; /* Homologado - texto normal */
+        line-height: 1.5;
+    }
+    
+    .compromiso-numero {
+        font-weight: bold;
+        font-size: 14px; /* Homologado - texto destacado */
+    }
+    
+    .compromiso-inciso {
+        margin: 5px 0;
+        padding-left: 20px;
+        text-align: justify;
+        font-size: 14px; /* Homologado - texto normal */
+        line-height: 1.5;
+    }
+    
+    .firma-section {
+        margin-top: 30px;
+        text-align: center;
+    }
+    
+    .firma-section p {
+        font-size: 14px; /* Homologado - texto normal */
+        line-height: 1.5;
+    }
+    
+    .firma-linea {
+        border-bottom: 2px solid #000;
+        width: 300px;
+        margin: 30px auto 10px auto;
+    }
+    
+    .checkbox-section {
+        margin: 30px 0;
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    
+    .checkbox-section h4 {
+        font-size: 16px; /* Homologado - subtítulo */
+        font-weight: bold;
+        line-height: 1.4;
+        margin: 0 0 15px 0;
+    }
+    
+    .checkbox-item {
+        margin: 10px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .checkbox-item input[type="checkbox"] {
+        margin-right: 10px;
+        margin-top: 3px;
+    }
+    
+    .checkbox-item label {
+        font-size: 14px; /* Homologado - texto normal */
+        line-height: 1.5;
+    }
+    
+    .checkbox-item label a {
+        color: #007bff;
+        text-decoration: underline;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    
+    .checkbox-item label a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+    
+    .checkbox-item label a:visited {
+        color: #6f42c1;
+    }
+    
+    .botones-accion {
+        text-align: center;
+        margin: 30px 0;
+    }
+    
+    .btn-aceptar {
+        background-color: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px; /* Homologado - texto normal */
+        font-weight: bold;
+        cursor: pointer;
+        margin: 0 10px;
+    }
+    
+    .btn-cancelar {
+        background-color: #6c757d;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px; /* Homologado - texto normal */
+        font-weight: bold;
+        cursor: pointer;
+        margin: 0 10px;
+    }
+    
+    .btn-aceptar:hover {
+        background-color: #218838;
+    }
+    
+    .btn-cancelar:hover {
+        background-color: #545b62;
+    }
+    
+    /* Estilos para el código QR */
+    #qrcode {
+        border: 2px solid #333;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: white;
+        display: inline-block;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-top: 15px;
+    }
+    
+    .firma-datos {
+        font-size: 12px; /* Homologado - texto pequeño */
+        line-height: 1.4;
+    }
+    
+    .firma-datos strong {
+        color: #333;
+        font-weight: 600;
+    }
+    
+    /* HOMOLOGACIÓN GLOBAL DE ELEMENTOS */
+    p {
+        font-size: 14px; /* Homologado - texto normal por defecto */
+        line-height: 1.5;
+        margin: 8px 0;
+    }
+    
+    strong, b {
+        font-weight: 600; /* Peso consistente para texto destacado */
+    }
+    
+    /* Asegurar que todos los textos en listas tengan el tamaño correcto */
+    ul, ol {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* Homologar spans destacados */
+    span.highlight-yellow {
+        font-size: inherit; /* Hereda el tamaño del elemento padre */
+        font-weight: 600;
+    }
+    
+    /* ESTILOS DE PAGINACIÓN PARA PDF */
+    .page-break-avoid {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    
+    .page-break-before {
+        page-break-before: always;
+        break-before: page;
+    }
+    
+    .page-break-after {
+        page-break-after: always;
+        break-after: page;
+    }
+    
+    .seccion-critica {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    
+    /* Estilos para impresión */
+    @@media print {
+        #qrcode {
+            display: block !important;
+            border: 2px solid #000 !important;
+            background-color: #f9f9f9 !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .botones-accion {
+            display: none !important;
+        }
+        .checkbox-section {
+            display: none !important;
+        }
+        .page-break-avoid {
+            page-break-inside: avoid !important;
+        }
+        .page-break-before {
+            page-break-before: always !important;
+        }
+        .page-break-after {
+            page-break-after: always !important;
+        }
+    }
+</style>
+
+<!-- Librería QRious para generar códigos QR -->
+<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+
+<!-- Librerías para generar PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<div class="documento-container">
+    <div class="header-udem">
+        <div class="logo-udem">UDEM</div>
+    </div>
+    <div class="titulo-principal">
+        <h1>Ayuda Financiera</h1>
+        <div class="beca-tipo">@Model.NombreAyudaFinanciera | @ViewBag.PeriodoActivo.NOMBRE</div>
+    </div>
+    <div class="datos-estudiante">
+        <table class="datos-tabla">
+            <tr>
+                <td class="label">Nombre:</td>
+                <td class="valor"><span class="highlight-yellow">@Model.Nombre</span></td>
+            </tr>
+            <tr>
+                <td class="label">Matrícula:</td>
+                <td class="valor"><span class="highlight-yellow">@Model.Matricula</span></td>
+            </tr>
+            <tr>
+                <td class="label">Escuela de Procedencia:</td>
+                <td class="valor"><span class="highlight-yellow">@Model.EscuelaProcedencia</span></td>
+            </tr>
+            <tr>
+                <td class="label">Ayuda Financiera:</td>
+                <td class="valor"><span class="highlight-yellow">@Model.PorcentajeAyudaFinanciera</span></td>
+            </tr>
+            <tr>
+                <td class="label">Fecha de ofrecimiento:</td>
+                <td class="valor"><span class="highlight-yellow">@Model.FechaOfrecimiento.ToString("dd-MMM-yyyy")</span></td>
+            </tr>
+            <tr>
+                <td class="label">Programa:</td>
+                <td class="valor"><span class="highlight-yellow">@Model.Programa</span></td>
+            </tr>
+            <tr>
+                <td class="label">Campus:</td>
+                <td class="valor"><span class="highlight-yellow">@Model.Campus</span></td>
+            </tr>
+        </table>
+    </div>
+<br/>
+<div class="parrafo-aceptacion">
+    Por medio de la presente, acepto la ayuda financiera que me otorga la Universidad de Monterrey, la cual consiste en el
+    <span class="highlight-yellow">@Model.PorcentajeAyudaFinanciera de descuento</span> sobre el valor total de la colegiatura @Model.Tiempo durante mis estudios de
+    <span class="highlight-yellow">@Model.TipoAdmision</span>.
+</div>
+    <div class="politicas-section page-break-avoid">
+        <div class="politicas-titulo">Políticas para la asignación de la ayuda financiera</div>
+        <ul class="politicas-lista">
+            <li>• A la fecha, tener un promedio general igual o superior a <span class="highlight-yellow">@Model.PoliticasAsignacion.PromedioMinimoRequerido</span>  en los estudios de @Model.NIVEL_ANTERIOR, y conservarlo hasta concluir estos.</li>
+            <li>• A la fecha, haber aprobado todas las materias cursadas en el nivel inmediato anterior y tener todas las materias en el mismo estatus al terminar los estudios de dicho nivel.</li>
+            <li>• Cumplir con el proceso de admisión a <span class="highlight-yellow">@Model.PoliticasAsignacion.ConsultarProcesoAdmision</span>, obteniendo mínimo <span class="highlight-yellow">@Model.PoliticasAsignacion.PuntosMinimosExamen puntos</span> en el examen de admisión.</li>
+            <li>• Completar la solicitud de ayuda financiera UDEM según corresponda al tipo de beca.</li>
+        </ul>
+        <p>*Favor de consultar el proceso de admisión a <span class="highlight-yellow">@Model.PoliticasAsignacion.ConsultarProcesoAdmision</span> con el/ la asesor(a) que le atiende.</p>
+    </div>
+    <div class="politicas-section page-break-before">
+        <div class="politicas-titulo">Políticas para la renovación de la ayuda financiera</div>
+        <ul class="politicas-lista">
+            <li>• Obtener un promedio igual o superior a <span class="highlight-yellow">@Model.PoliticasRenovacion.PromedioMinimoRenovacion</span> en el período cursado (el promedio válido para la renovación de la ayuda financiera es el promedio integral).</li>
+         
+            <li>• Aprobar todas las materias cursadas en el semestre.</li>
+            @if (Model.Talento == "Y")
+            {
+                <li>• Participar, en tiempo y forma, en el programa de Talento Becario semestralmente con un total de @Model.Horas horas.</li>
+            }
+
+            
+        </ul>
+        <div class="">
+            <p><strong>Nota: De incumplir con alguna de las políticas mencionadas, el ofrecimiento de ayuda financiera será retirado.</strong></p>
+           @if (!string.IsNullOrEmpty(Model.TipoAdmision) && !Model.TipoAdmision.ToUpper().Contains("BACHILLERATO"))
+            {
+                <ul class="politicas-lista">
+                    <li>De igual forma, consto que estoy enterado(a) de las siguiente consideración:</li>
+                    <li>• @Model.PoliticasRenovacion.ConsideracionesAdicionales</li>
+                </ul>
+            }
+            </div>
+    </div>
+    <!-- Marcador invisible para salto de página 2 -->
+    <div id="page-break-marker" style="height: 2px; width: 100%; visibility: hidden; margin: 0; padding: 0; display: block;"></div>
+    <div class="compromisos-section page-break-before" id="seccion-asimismo">
+        <p class="texto-destacado" id="texto-asimismo">Asimismo, manifiesto que:</p>
+        @foreach (var compromiso in Model.Compromisos)
+        {
+            <div class="compromiso-item">
+                <div class="compromiso-numero">@compromiso.Numero. @compromiso.Titulo @compromiso.Descripcion</div>
+                @if (compromiso.Incisos != null && compromiso.Incisos.Any())
+                {
+                    foreach (var inciso in compromiso.Incisos)
+                    {
+                        <div class="compromiso-inciso">@inciso</div>
+                    }
+                }
+            </div>
+        }
+    </div>
+    <form id="formAceptarBeca" method="post" action="@Url.Action("AceptarBecaConfirmar", "Home")">
+        <input type="hidden" name="matricula" value="@Model.Matricula" />
+        <input type="hidden" name="firmaBeneficiario" value="@Model.FirmaBeneficiario" />
+        <input type="hidden" name="codigoBeca" value="@ViewBag.CodigoBeca" />
+        <input type="hidden" name="anioBeca" value="@ViewBag.AnioBeca" />
+        <div class="checkbox-section">
+            <h4>Confirmación de Aceptación</h4>
+            <div class="checkbox-item">
+                <input type="checkbox" id="aceptoTerminos" name="aceptoTerminos" required />
+                <label for="aceptoTerminos">
+                    Acepto todos los términos, condiciones y compromisos establecidos en este documento de ayuda financiera.
+                </label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="confirmoInformacion" name="confirmoInformacion" required />
+                <label for="confirmoInformacion">
+                    Confirmo que toda la información proporcionada es correcta y estoy de acuerdo con las 
+                    <a href="https://drive.google.com/file/d/1MwiRLzuQ0RUcirOCnqH3mT1N31OkwXeu/view?usp=drivesdk" 
+                       target="_blank" 
+                       style="color: #007bff; text-decoration: underline; font-weight: 600;">
+                        políticas de asignación y renovación
+                    </a>.
+                </label>
+            </div>
+        </div>
+        <div class="firma-section">
+            <p>En <span class="highlight-yellow">@Model.LugarFirma</span>, <span class="highlight-yellow">@Model.FechaFirma.ToString("dd/MM/yyyy")</span></p>
+            <br/>
+            <p><strong>Firma del beneficiado(a)</strong></p>
+           
+            
+            <div id="qrcode" style="display: none; margin-top: 20px; text-align: center;"></div>
+            <div class="firma-linea"></div>
+            <p><span class="highlight-yellow">@Model.FirmaBeneficiario</span></p>
+             
+        </div>
+        <div class="botones-accion">
+            <button type="button" class="btn-cancelar" onclick="window.location.href='@Url.Action("Index", "Home")';">
+                Cancelar
+            </button>
+            <button type="submit" class="btn-aceptar">
+                Confirmar Aceptación de Beca
+            </button>
+        </div>
+    </form>
+</div>
+<div class="modal fade" id="modalConfirmacionAceptarBeca" style="display: none;">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content" style="border-radius: 25px; border: none;">
+            <div class="modal-header" style="background-color: #333333; color: white; border-radius: 25px 25px 0 0; border: none;">
+                <h5 class="modal-title" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: white;">
+                    <i class="fa fa-check-circle" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>
+                    Confirmar Aceptación de Beca
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="background-color: white; padding: 30px; text-align: center;">
+                <div style="background-color: #fff500; color: #333; padding: 20px; border-radius: 15px; margin-bottom: 25px;">
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; margin: 0;">
+                        ¿Estás seguro(a) de que deseas confirmar la aceptación de esta beca?
+                    </p>
+                </div>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 16px; color: #666; margin-bottom: 25px;">
+                 <br>De contar con otra beca, la actual será cancelada de inmediato.
+                </p>
+            </div>
+            <div class="modal-footer" style="background-color: white; border: none; border-radius: 0 0 25px 25px; padding: 20px 30px; justify-content: center;">
+                <button type="button" class="btn" style="background-color: #6c757d; color: white; border: none; border-radius: 25px; padding: 10px 20px; font-family: 'Montserrat', sans-serif; font-weight: 600; margin-right: 10px;" data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+                <button type="button" class="btn" id="btnProcederAceptacion" style="background-color: #28a745; color: white; border: none; border-radius: 25px; padding: 10px 20px; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                    <i class="fa fa-check" aria-hidden="true" style="color: white; margin-right: 5px;"></i> Confirmar Aceptación
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        // Función para generar hash simple
+        function generarHash(texto) {
+            var hash = 0;
+            if (texto.length == 0) return hash.toString(16);
+            for (var i = 0; i < texto.length; i++) {
+                var char = texto.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash; // Convertir a 32bit integer
+            }
+            return Math.abs(hash).toString(16).toUpperCase().padStart(8, '0');
+        }
+
+        // Función para limpiar caracteres especiales (especialmente para nombres mexicanos)
+        function limpiarCaracteresEspeciales(texto) {
+            if (!texto) return '';
+
+            // Primero, intentar arreglar caracteres mal codificados comunes
+            texto = texto
+                // Arreglar caracteres mal codificados que aparecen como números
+                .replace(/233/g, 'e')  // 233 es a menudo 'é' mal codificado
+                .replace(/241/g, 'n')  // 241 es 'ñ' mal codificado
+                .replace(/225/g, 'a')  // 225 es 'á' mal codificado
+                .replace(/237/g, 'i')  // 237 es 'í' mal codificado
+                .replace(/243/g, 'o')  // 243 es 'ó' mal codificado
+                .replace(/250/g, 'u'); // 250 es 'ú' mal codificado
+
+            // Crear un mapeo completo de caracteres especiales
+            var mapaCaracteres = {
+                'á': 'a', 'à': 'a', 'ä': 'a', 'â': 'a', 'ā': 'a', 'ă': 'a', 'ą': 'a',
+                'Á': 'A', 'À': 'A', 'Ä': 'A', 'Â': 'A', 'Ā': 'A', 'Ă': 'A', 'Ą': 'A',
+                'é': 'e', 'è': 'e', 'ë': 'e', 'ê': 'e', 'ē': 'e', 'ĕ': 'e', 'ę': 'e',
+                'É': 'E', 'È': 'E', 'Ë': 'E', 'Ê': 'E', 'Ē': 'E', 'Ĕ': 'E', 'Ę': 'E',
+                'í': 'i', 'ì': 'i', 'ï': 'i', 'î': 'i', 'ī': 'i', 'ĭ': 'i', 'į': 'i',
+                'Í': 'I', 'Ì': 'I', 'Ï': 'I', 'Î': 'I', 'Ī': 'I', 'Ĭ': 'I', 'Į': 'I',
+                'ó': 'o', 'ò': 'o', 'ö': 'o', 'ô': 'o', 'ō': 'o', 'ŏ': 'o', 'ő': 'o',
+                'Ó': 'O', 'Ò': 'O', 'Ö': 'O', 'Ô': 'O', 'Ō': 'O', 'Ŏ': 'O', 'Ő': 'O',
+                'ú': 'u', 'ù': 'u', 'ü': 'u', 'û': 'u', 'ū': 'u', 'ŭ': 'u', 'ű': 'u',
+                'Ú': 'U', 'Ù': 'U', 'Ü': 'U', 'Û': 'U', 'Ū': 'U', 'Ŭ': 'U', 'Ű': 'U',
+                'ñ': 'n', 'Ñ': 'N',
+                'ç': 'c', 'Ç': 'C',
+                'ý': 'y', 'Ý': 'Y'
+            };
+
+            var resultado = '';
+            for (var i = 0; i < texto.length; i++) {
+                var char = texto.charAt(i);
+                if (mapaCaracteres[char]) {
+                    resultado += mapaCaracteres[char];
+                } else {
+                    resultado += char;
+                }
+            }
+
+            // Limpiar caracteres problemáticos de puntuación y mantener solo alfanuméricos básicos
+            resultado = resultado
+                .replace(/['']/g, "'")
+                .replace(/[""]/g, '"')
+                .replace(/[^\w\s\-'.]/g, '')
+                .replace(/\s+/g, ' ')  // Normalizar espacios múltiples
+                .trim();  // Eliminar espacios al inicio y final
+
+            return resultado;
+        }
+
+        // Funcion para generar la firma electronica
+        function generarFirmaElectronica() {
+            try {
+                var ahora = new Date();
+                var fechaAceptacion = ahora.toLocaleDateString('es-MX');
+                var horaAceptacion = ahora.toLocaleTimeString('es-MX');
+                var fechaHoraCompleta = fechaAceptacion + ' a las ' + horaAceptacion;
+                // Datos para el QR - Solo información esencial con caracteres especiales limpios
+                var datosQR = {
+                    matricula: '@Model.Matricula',
+                    nombre: limpiarCaracteresEspeciales('@Model.Nombre'),
+                    codigoBeca: '@ViewBag.CodigoBeca',
+                    porcentaje: '@Model.PorcentajeAyudaFinanciera',
+                    fechaAceptacion: fechaAceptacion
+                };
+                // Crear texto para el hash (solo datos esenciales)
+                var textoParaHash = datosQR.matricula + datosQR.nombre + datosQR.codigoBeca +
+                                   datosQR.porcentaje + datosQR.fechaAceptacion;
+                var hashVerificacion = generarHash(textoParaHash);
+
+                // Crear texto completo para el QR (solo información esencial sin caracteres especiales)
+                var textoQR = `UDEM-BECA|${datosQR.matricula}|${datosQR.nombre}|${datosQR.codigoBeca}|${datosQR.porcentaje}|${datosQR.fechaAceptacion}|${hashVerificacion}`;
+                // Crear elemento canvas para el QR
+                var qrContainer = document.getElementById('qrcode');
+                if (!qrContainer) {
+                    return;
+                }
+
+                qrContainer.innerHTML = ''; // Limpiar contenido previo
+
+                // Función auxiliar para generar QR con API externa
+                function generarQRFallback(container, texto) {
+                    var qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(texto)}`;
+                    container.innerHTML = `<img src="${qrUrl}" alt="Código QR" style="border: 2px solid #333; border-radius: 8px; padding: 5px; background-color: white;">`;
+                }
+
+                // Generar QR Code usando QRious
+                if (typeof QRious !== 'undefined') {
+                    try {
+                        var canvas = document.createElement('canvas');
+                        qrContainer.appendChild(canvas);
+
+                        var qr = new QRious({
+                            element: canvas,
+                            value: textoQR,
+                            size: 150,
+                            foreground: '#333333',
+                            background: '#FFFFFF',
+                            level: 'M'
+                        });
+                    } catch (qrError) {
+                        // Fallback a API externa en caso de error
+                        generarQRFallback(qrContainer, textoQR);
+                    }
+                } else {
+                    generarQRFallback(qrContainer, textoQR);
+                }
+
+                // Mostrar el QR inmediatamente después de generarlo
+                $('#qrcode').slideDown(300);
+
+                // Esperar un momento para que el QR se renderice completamente, luego generar PDF
+                setTimeout(() => {
+                    generarYGuardarPDF();
+                }, 1000);
+            } catch (error) {
+                // Mostrar mensaje de éxito sin QR en caso de error
+                mostrarMensajeExito();
+                document.getElementById('qrcode').innerHTML = '<p style="color: #666; font-size: 12px;">QR no disponible</p>';
+            }
+        }
+        // Función para generar y guardar PDF del documento con paginación inteligente
+        function generarYGuardarPDF() {
+            console.log('📄 Iniciando generación de PDF con paginación inteligente...');
+
+            // Ocultar temporalmente los botones de acción para que no aparezcan en el PDF
+            $('.botones-accion').hide();
+            
+            // Esperar un momento para que se oculten completamente, luego generar el canvas
+            setTimeout(() => {
+                // Configurar opciones para html2canvas (alta calidad con márgenes)
+                const container = document.querySelector('.documento-container');
+                const options = {
+                    scale: 2, // Mejor calidad
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: '#ffffff',
+                    width: container.offsetWidth,
+                    height: container.offsetHeight,
+                    scrollX: 0,
+                    scrollY: 0,
+                    x: 0,
+                    y: 0
+                };
+
+                // Generar canvas desde el HTML (sin botones)
+                html2canvas(container, options)
+                .then(canvas => {
+                    console.log('✅ Canvas generado exitosamente para paginación');
+
+                    // Mostrar mensaje de procesamiento ahora que ya se capturó el contenido
+                    $('.botones-accion').show().html(`
+                        <div style="text-align: center; padding: 20px;">
+                            <i class="fa fa-file-pdf-o" style="font-size: 24px; color: #dc3545; margin-right: 10px;"></i>
+                     </div>
+                    `);
+
+                    // Crear PDF usando jsPDF con márgenes apropiados
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF({
+                        orientation: 'portrait',
+                        unit: 'mm',
+                        format: 'a4',
+                        compress: true
+                    });
+
+                    const imgData = canvas.toDataURL('image/jpeg', 0.98);
+                    
+                    // Dimensiones del PDF A4 con márgenes
+                    const pdfWidth = pdf.internal.pageSize.getWidth();  // 210mm
+                    const pdfHeight = pdf.internal.pageSize.getHeight(); // 297mm
+                    const margin = 15; // 15mm de margen
+                    const contentWidth = pdfWidth - (margin * 2);  // 180mm
+                    const contentHeight = pdfHeight - (margin * 2); // 267mm
+
+                    // Calcular escala para ajustar el contenido al ancho disponible
+                    const scale = contentWidth / (canvas.width / 2); // Dividir por 2 debido al scale del canvas
+                    const scaledHeight = (canvas.height / 2) * scale; // Altura escalada
+
+                    console.log(`📊 Dimensiones PDF: ${pdfWidth}x${pdfHeight}mm, Contenido: ${contentWidth}x${contentHeight}mm`);
+                    console.log(`📊 Canvas: ${canvas.width}x${canvas.height}px, Escalado: ${contentWidth}x${scaledHeight.toFixed(2)}mm`);
+
+                    // Determinar si necesita múltiples páginas
+                    if (scaledHeight <= contentHeight) {
+                        console.log('📄 Contenido cabe en una página con márgenes');
+                        pdf.addImage(imgData, 'JPEG', margin, margin, contentWidth, scaledHeight);
+                    } else {
+                        console.log('📄 Dividiendo en múltiples páginas con márgenes...');
+                        
+                        // Buscar el marcador invisible específico para el salto de página
+                        const pageBreakMarker = container.querySelector('#page-break-marker');
+                        let optimalBreakPoint = contentHeight * 0.50; // Valor por defecto más conservador
+                        
+                        if (pageBreakMarker) {
+                            // Usar offsetTop para obtener la posición real en el flujo del documento
+                            const markerPosition = pageBreakMarker.offsetTop;
+                            const containerOffsetTop = container.offsetTop || 0;
+                            const relativePosition = markerPosition - containerOffsetTop;
+                            const markerPositionMM = (relativePosition / (canvas.height / 2)) * scaledHeight;
+                            
+                            console.log(`🎯 Marcador de salto de página encontrado en posición: ${markerPositionMM.toFixed(2)}mm (offsetTop: ${markerPosition}px)`);
+                            
+                            // Usar la posición exacta del marcador con un pequeño margen de seguridad
+                            if (markerPositionMM > 0 && markerPositionMM < contentHeight * 0.85) {
+                                optimalBreakPoint = markerPositionMM - 3; // Pequeño margen de seguridad
+                                console.log(`📍 Punto de corte exacto en: ${optimalBreakPoint.toFixed(2)}mm basado en marcador invisible`);
+                            } else {
+                                console.log(`⚠️ Posición del marcador fuera del rango válido, usando 50% por defecto`);
+                            }
+                        } else {
+                            console.log(`⚠️ Marcador de salto de página no encontrado, usando 50% por defecto`);
+                        }
+                        
+                        console.log(`� División basada en marcador: ${optimalBreakPoint.toFixed(2)}mm de ${contentHeight.toFixed(2)}mm`);
+                        console.log(`� Salto de página preciso garantizado por marcador invisible`);
+
+                        let currentY = 0;
+                        let pageNumber = 0;
+
+                        while (currentY < scaledHeight) {
+                            if (pageNumber > 0) {
+                                pdf.addPage();
+                                console.log(`➕ Agregada página ${pageNumber + 1}`);
+                            }
+
+                            // Calcular altura de contenido para esta página
+                            let pageContentHeight;
+                            const remainingContent = scaledHeight - currentY;
+                            
+                            if (pageNumber === 0) {
+                                // Primera página: usar punto de corte calculado dinámicamente
+                                // para asegurar que "Asimismo, manifiesto que:" aparezca al inicio de página 2
+                                pageContentHeight = optimalBreakPoint;
+                                console.log(`📄 Primera página usando marcador en: ${pageContentHeight.toFixed(2)}mm de ${contentHeight.toFixed(2)}mm total`);
+                            } else {
+                                // Páginas siguientes: usar todo el espacio disponible
+                                pageContentHeight = Math.min(contentHeight, remainingContent);
+                                console.log(`📄 Página ${pageNumber + 1}, usando ${pageContentHeight.toFixed(2)}mm de ${remainingContent.toFixed(2)}mm restante`);
+                            }
+
+                            // Calcular coordenadas en el canvas original
+                            const sourceY = (currentY / scaledHeight) * canvas.height;
+                            const sourceHeight = (pageContentHeight / scaledHeight) * canvas.height;
+
+                            console.log(`📄 Página ${pageNumber + 1}: Y=${currentY.toFixed(2)}mm, Altura=${pageContentHeight.toFixed(2)}mm (${((pageContentHeight/contentHeight)*100).toFixed(1)}% de la página)`);
+
+                            // Crear canvas temporal para esta porción
+                            const tempCanvas = document.createElement('canvas');
+                            tempCanvas.width = canvas.width;
+                            tempCanvas.height = sourceHeight;
+                            const tempCtx = tempCanvas.getContext('2d');
+                            
+                            // Copiar la porción del canvas original
+                            tempCtx.drawImage(canvas, 0, sourceY, canvas.width, sourceHeight, 0, 0, canvas.width, sourceHeight);
+                            
+                            // Agregar imagen al PDF con márgenes
+                            const tempImgData = tempCanvas.toDataURL('image/jpeg', 0.98);
+                            pdf.addImage(tempImgData, 'JPEG', margin, margin, contentWidth, pageContentHeight);
+
+                            currentY += pageContentHeight;
+                            pageNumber++;
+
+                            // Prevenir bucle infinito
+                            if (pageNumber > 5) {
+                                console.warn('⚠️ Límite de páginas alcanzado (5), deteniendo división');
+                                break;
+                            }
+                        }
+
+                        console.log(`✅ PDF dividido en ${pageNumber} páginas optimizando espacio`);
+                    }
+
+                    // Convertir PDF a blob
+                    const pdfBlob = pdf.output('blob');
+
+                    console.log('📄 PDF multipágina generado, tamaño:', (pdfBlob.size / 1024).toFixed(2), 'KB');
+
+                    // Subir PDF al servidor
+                    subirPDFAlServidor(pdfBlob);
+                })
+                .catch(error => {
+                    console.error('❌ Error generando PDF multipágina:', error);
+                    // Restaurar botones en caso de error
+                    $('.botones-accion').show();
+                    mostrarMensajeExito(); // Mostrar mensaje normal aunque falle el PDF
+                });
+            }, 100); // Cerrar el setTimeout - esperar 100ms para que se oculten los botones
+        }
+
+        // Función para subir el PDF al servidor usando AJAX
+        function subirPDFAlServidor(pdfBlob) {
+            // Crear overlay de pantalla completa con spinner
+            const overlayHTML = `
+                <div id="loading-overlay" style="
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    z-index: 9999;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                ">
+                    <div style="
+                        background-color: white;
+                        padding: 40px;
+                        border-radius: 15px;
+                        text-align: center;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                        max-width: 400px;
+                        width: 90%;
+                    ">
+                        <i class="fa fa-spinner fa-spin" style="
+                            font-size: 48px; 
+                            color: #007bff; 
+                            margin-bottom: 20px;
+                            display: block;
+                        "></i>
+                        <h3 style="
+                            font-size: 18px; 
+                            color: #007bff; 
+                            margin: 0 0 10px 0;
+                            font-weight: 600;
+                        ">Guardando documento PDF...</h3>
+                        <p style="
+                            color: #6c757d; 
+                            margin: 0;
+                            font-size: 14px;
+                            line-height: 1.5;
+                        ">Por favor espere, no cierre esta ventana.<br>
+                        El proceso puede tardar unos momentos.</p>
+                    </div>
+                </div>
+            `;
+            
+            // Agregar overlay al body
+            $('body').append(overlayHTML);
+            
+            // Crear FormData con el PDF y datos necesarios
+            const formData = new FormData();
+            formData.append('file', pdfBlob, `beca-aceptada-@Model.Matricula-${Date.now()}.pdf`);
+            formData.append('matricula', '@Model.Matricula');
+            formData.append('codigoBeca', '@ViewBag.CodigoBeca');
+            formData.append('tipoDocumento', 'BECA_ACEPTADA');
+            formData.append('periodo', '@Model.Periodo');
+
+            // Enviar PDF al servidor
+            $.ajax({
+                url: '@Url.Action("GuardarPDFBeca", "Home")',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    // Remover overlay de carga
+                    $('#loading-overlay').fadeOut(300, function() {
+                        $(this).remove();
+                    });
+                    
+                    if (response && response.success) {
+                        mostrarMensajeExitoConPDF(response);
+                    } else {
+                        mostrarMensajeExito(); // Mostrar mensaje normal aunque falle
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Remover overlay de carga
+                    $('#loading-overlay').fadeOut(300, function() {
+                        $(this).remove();
+                    });
+                    
+                    mostrarMensajeExito(); // Mostrar mensaje normal aunque falle
+                }
+            });
+        }
+
+        // Función para mostrar mensaje de éxito incluyendo información del PDF
+        function mostrarMensajeExitoConPDF(pdfResponse) {
+            $('.botones-accion').html(`
+                <div style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                    <h4 style="margin: 0 0 10px 0;">
+                        <i class="fa fa-check-circle" style="color: #28a745;"></i>
+                        Beca Aceptada Exitosamente
+                    </h4>
+                    <p style="margin: 0;">Tu aceptación ha sido registrada con firma electrónica y guardada como documento oficial.</p>
+                    <small style="color: #28a745;">
+                        <i class="fa fa-file-pdf-o"></i> Documento PDF guardado correctamente
+                    </small>
+                </div>
+                
+                <button type="button" class="btn-cancelar" onclick="window.location.href='@Url.Action("Index", "Home")';">
+                    Cerrar
+                </button>
+            `);
+        }
+
+        // Función separada para mostrar mensaje de éxito (sin PDF)
+        function mostrarMensajeExito() {
+            $('.botones-accion').html(`
+                <div style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                    <h4 style="margin: 0 0 10px 0;">
+                        <i class="fa fa-check-circle" style="color: #28a745;"></i>
+                        Beca Aceptada Exitosamente!
+                    </h4>
+                    <p style="margin: 0;">Tu aceptación ha sido registrada con firma electrónica. Puedes imprimir este documento como comprobante.</p>
+                </div>
+                <button type="button" class="btn-aceptar" onclick="window.print();" style="background-color: #007bff;">
+                    <i class="fa fa-print"></i> Imprimir Comprobante
+                </button>
+                <button type="button" class="btn-cancelar" onclick="window.location.href='@Url.Action("Index", "Home")';">
+                    Cerrar
+                </button>
+            `);
+        }
+        // Función para restaurar botones originales en caso de error
+        function restaurarBotonesOriginales() {
+            $('.botones-accion').html(`
+                <button type="button" class="btn-cancelar" onclick="window.location.href='@Url.Action("Index", "Home")';">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-aceptar">
+                    Confirmar Aceptacion de Beca
+                </button>
+            `);
+        }
+        $('#formAceptarBeca').on('submit', function(e) {
+            e.preventDefault();
+            // Validar que ambos checkboxes esten marcados
+            if (!$('#aceptoTerminos').is(':checked') || !$('#confirmoInformacion').is(':checked')) {
+                alert('Debes aceptar todos los terminos y condiciones para continuar.');
+                return false;
+            }
+            // Mostrar modal de confirmacion
+            $('#modalConfirmacionAceptarBeca').modal('show');
+        });
+        // Funcion para procesar la aceptacion
+        function procesarAceptacionBeca() {
+            // Cerrar el modal
+            $('#modalConfirmacionAceptarBeca').modal('hide');
+            // Mostrar mensaje de procesamiento
+            $('.botones-accion').html(`
+                <div style="text-align: center; padding: 20px;">
+                    <i class="fa fa-spinner fa-spin" style="font-size: 24px; color: #007bff;"></i>
+                    <p style="margin: 10px 0;">Procesando aceptacion de beca...</p>
+                </div>
+            `);
+            // Enviar el formulario via AJAX
+            $.ajax({
+                url: '@Url.Action("AceptarBecaConfirmar", "Home")',
+                type: 'POST',
+                data: $('#formAceptarBeca').serialize(),
+                success: function(response) {
+                    if (response && response.success) {
+                        // Ir directo a generar la firma electronica
+                        generarFirmaElectronica();
+                    } else {
+                        var mensajeError = 'Error desconocido';
+                        var detalleError = '';
+
+                        if (response) {
+                            mensajeError = response.message || response.Message || 'Error al procesar la aceptación';
+                            detalleError = response.detalle || response.Detalle || '';
+                        }
+
+                        // Mostrar error con SweetAlert2 si esta disponible, sino usar alert
+                        if (typeof Swal !== 'undefined') {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error al procesar la aceptación',
+                                text: mensajeError + (detalleError ? '\n\nDetalle: ' + detalleError : ''),
+                                confirmButtonColor: '#dc3545',
+                                footer: '<small>Si el error persiste, contacta al administrador del sistema.</small>'
+                            });
+                        } else {
+                            alert('Error al procesar la aceptación: ' + mensajeError + (detalleError ? '\n\nDetalle: ' + detalleError : ''));
+                        }
+                        restaurarBotonesOriginales();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Para producción: mostrar error real
+                    var mensajeError = 'Error de conexión con el servidor';
+                    if (xhr.responseText) {
+                        try {
+                            var errorResponse = JSON.parse(xhr.responseText);
+                            mensajeError = errorResponse.message || errorResponse.Message || mensajeError;
+                        } catch (e) {
+                            // Si no es JSON, usar el texto de respuesta directamente
+                            if (xhr.responseText.length < 200) {
+                                mensajeError = xhr.responseText;
+                            }
+                        }
+                    }
+
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error de conexión',
+                            text: mensajeError,
+                            confirmButtonColor: '#dc3545',
+                            footer: '<small>Código de error: ' + xhr.status + ' - ' + error + '</small>'
+                        });
+                    } else {
+                        alert('Error de conexión: ' + mensajeError + '\nCódigo: ' + xhr.status);
+                    }
+                    restaurarBotonesOriginales();
+                }
+            });
+        }
+        // Evento del boton de confirmacion en el modal
+        $('#btnProcederAceptacion').on('click', function() {
+            procesarAceptacionBeca();
+        });
+    });
+</script>

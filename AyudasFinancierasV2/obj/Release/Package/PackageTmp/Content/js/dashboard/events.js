@@ -1,11 +1,6 @@
 (function($) {
-    /* "use strict" */
-
-
  var dzChartlist = function(){
-	
 	var screenWidth = $(window).width();
-		
 	var polarAreaCharts = function(){
 		var options = {
 			series: [42, 47, 52, 58],
@@ -46,21 +41,16 @@
 				}
 			}
 		};
-
         var chart = new ApexCharts(document.querySelector("#polarAreaCharts"), options);
         chart.render();
 	}
-	
-	
 	var chartDonut = function(){
 		$("span.donut").peity("donut", {
 			width: "80",
 			height: "80",
 			radius: 8,
 		});
-		
 	}
-	
 	var updatingChart = function(){
 		 var t = $(".updating-chart").peity("line", {
 			fill: ['rgba(255, 38, 38, .04)'],
@@ -77,15 +67,10 @@
 	}
 	var chartBar = function(){
 		if(jQuery('#chart_widget_2').length > 0 ){
-	
 			const chart_widget_2 = document.getElementById("chart_widget_2").getContext('2d');
-			//generate gradient
 			const chart_widget_2gradientStroke = chart_widget_2.createLinearGradient(250, 0, 0, 0);
 			chart_widget_2gradientStroke.addColorStop(1, "#ff7a00");
 			chart_widget_2gradientStroke.addColorStop(0, "#2130b8");
-
-			// chart_widget_2.attr('height', '100');
-
 			new Chart(chart_widget_2, {
 				type: 'bar',
 				data: {
@@ -135,16 +120,11 @@
 					}
 				}
 			});
-
 		}
-		
-		
 	}
-	
 	var revenueChart = function(){
 		if(jQuery('#revenueChart').length > 0 ){
 			const chart_widget_9 = document.getElementById("revenueChart").getContext('2d');
-
 			new Chart(chart_widget_9, {
 				type: "line",
 				data: {
@@ -220,17 +200,11 @@
 					}
 				}
 			});
-
 		}
 	}
-	
-	
 		return {
 			init:function(){
 			},
-			
-			
-			
 			load:function(){
 				polarAreaCharts();
 				chartBar();
@@ -238,26 +212,17 @@
 				revenueChart();
 				chartDonut();
 			},
-			
 			resize:function(){
 			}
 		}
-	
 	}();
-
 	jQuery(document).ready(function(){
 	});
-		
 	jQuery(window).on('load',function(){
 		setTimeout(function(){
 			dzChartlist.load();
 		}, 1000); 
-		
 	});
-
 	jQuery(window).on('resize',function(){
-		
-		
 	});     
-
 })(jQuery);

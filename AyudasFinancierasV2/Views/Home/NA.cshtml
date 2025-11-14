@@ -1,0 +1,170 @@
+@{
+    ViewBag.Title = "Aceptar Beca";
+}
+<style>
+    body {
+        font-family: "Montserrat", sans-serif !important;
+        font-optical-sizing: auto;
+        font-style: normal;
+        background-color: #f8f9fa;
+    }
+    .container-beca {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: white;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    .header-beca {
+        background: linear-gradient(135deg, #333333, #555555);
+        color: white;
+        padding: 30px;
+        text-align: center;
+    }
+    .body-beca {
+        padding: 40px;
+    }
+    .card-info {
+        background-color: #fff500;
+        color: #333;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .form-section {
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+    .btn-custom {
+        border-radius: 25px;
+        padding: 12px 30px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .form-control {
+        border-radius: 10px;
+        border: 2px solid #e9ecef;
+        padding: 12px 15px;
+        transition: all 0.3s ease;
+    }
+    .form-control:focus {
+        border-color: #fff500;
+        box-shadow: 0 0 0 0.2rem rgba(255, 245, 0, 0.25);
+    }
+    .alert-custom {
+        border: none;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+</style>
+<div class="container-beca">
+    <div class="header-beca">
+        <h1 style="margin: 0; font-size: 2.5rem;">
+            <i class="fa fa-graduation-cap" aria-hidden="true" style="color: #fff500; margin-right: 15px;"></i>
+            Aceptación de Beca
+        </h1>
+        <p style="margin: 10px 0 0 0; font-size: 1.1rem; opacity: 0.9;">
+            Completa la información para procesar tu beca
+        </p>
+    </div>
+    <div class="body-beca">
+        <div class="card-info">
+            <h4 style="margin: 0; font-weight: 600;">
+                ¡Felicidades! Estás aceptando tu beca
+            </h4>
+            <p style="margin: 10px 0 0 0; font-size: 16px;">
+                Código de Beca: <strong>@ViewBag.CodigoBeca</strong>
+            </p>
+        </div>
+        <div class="alert alert-info alert-custom">
+            <i class="fa fa-info-circle" aria-hidden="true" style="margin-right: 10px;"></i>
+            <strong>Información importante:</strong> Al aceptar esta beca, te comprometes a cumplir con todos los requisitos académicos y administrativos establecidos por la institución.
+        </div>
+        <form id="formAceptarBeca" method="post" action="@Url.Action("ProcesarAceptacionBeca", "Home")">
+            <input type="hidden" name="codigoBeca" value="@ViewBag.CodigoBeca" />
+            <input type="hidden" name="matricula" value="@ViewBag.Matricula" />
+            <input type="hidden" name="pidm" value="@ViewBag.Pidm" />
+            <div class="form-section">
+                <h5 style="color: #333; margin-bottom: 20px;">
+                    <i class="fa fa-user" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>
+                    Confirmación de Datos
+                </h5>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="matriculaConfirm" class="form-label" style="font-weight: 600; color: #333;">Matrícula:</label>
+                        <input type="text" class="form-control" id="matriculaConfirm" value="@ViewBag.Matricula" readonly style="background-color: #e9ecef;">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="fechaAceptacion" class="form-label" style="font-weight: 600; color: #333;">Fecha de Aceptación:</label>
+                        <input type="text" class="form-control" id="fechaAceptacion" value="@DateTime.Now.ToString("dd/MM/yyyy")" readonly style="background-color: #e9ecef;">
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h5 style="color: #333; margin-bottom: 20px;">
+                    <i class="fa fa-file-text" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>
+                    Términos y Condiciones
+                </h5>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="aceptoTerminos" name="aceptoTerminos" required style="transform: scale(1.2);">
+                    <label class="form-check-label" for="aceptoTerminos" style="margin-left: 10px; color: #333;">
+                        Acepto los términos y condiciones de la beca, incluyendo mantener el promedio académico requerido y cumplir con las actividades complementarias establecidas.
+                    </label>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="aceptoCompromisos" name="aceptoCompromisos" required style="transform: scale(1.2);">
+                    <label class="form-check-label" for="aceptoCompromisos" style="margin-left: 10px; color: #333;">
+                        Me comprometo a notificar cualquier cambio en mi situación académica que pueda afectar mi elegibilidad para esta beca.
+                    </label>
+                </div>
+            </div>
+            <div class="form-section">
+                <h5 style="color: #333; margin-bottom: 20px;">
+                    <i class="fa fa-comment" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>
+                    Comentarios Adicionales (Opcional)
+                </h5>
+                <textarea class="form-control" id="comentarios" name="comentarios" rows="4" placeholder="Escribe aquí cualquier comentario o pregunta adicional..."></textarea>
+            </div>
+            <div class="text-center mt-4">
+                <button type="button" class="btn btn-secondary btn-custom me-3" onclick="window.close();" style="min-width: 150px;">
+                    <i class="fa fa-times" aria-hidden="true"></i> Cancelar
+                </button>
+                <button type="submit" class="btn btn-success btn-custom" style="background-color: #28a745; min-width: 150px;">
+                    <i class="fa fa-check" aria-hidden="true"></i> Confirmar Aceptación
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#formAceptarBeca').on('submit', function(e) {
+            e.preventDefault();
+            // Validar que ambos checkboxes estén marcados
+            if (!$('#aceptoTerminos').is(':checked') || !$('#aceptoCompromisos').is(':checked')) {
+                alert('Debes aceptar todos los términos y condiciones para continuar.');
+                return false;
+            }
+            // Mostrar confirmación final
+            if (confirm('¿Estás seguro de que deseas confirmar la aceptación de esta beca?')) {
+                // Aquí puedes agregar la lógica para enviar el formulario
+                // Por ahora, mostraremos un mensaje de éxito
+                alert('¡Beca aceptada exitosamente! Recibirás una confirmación por correo electrónico.');
+                // Opcional: cerrar la ventana después de la confirmación
+                setTimeout(function() {
+                    window.close();
+                }, 2000);
+            }
+        });
+    });
+</script>

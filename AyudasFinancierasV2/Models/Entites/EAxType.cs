@@ -51,5 +51,51 @@ namespace AyudasFinancierasV2.Models.Entites
         Text
     }
 
+    /// <summary>
+    /// This enumeration provides all file types supported by ApplicationXtender.
+    /// </summary>
+    public enum EAxFileType
+    {
+        /// <summary>
+        /// File type is unknown
+        /// </summary>
+        FT_UNKNOWN = 0,
+        /// <summary>
+        /// Text file type
+        /// </summary>
+        FT_Text = 1,
+        /// <summary>
+        /// Compressed file type
+        /// </summary>
+        FT_CompressedText = 2,
+        /// <summary>
+        /// Foreign file type
+        /// </summary>
+        FT_ForeignFile = 3,
+        /// <summary>
+        /// OLE file type
+        /// </summary>
+        FT_OLE = 4,
+        /// <summary>
+        /// Rich text format file type
+        /// </summary>
+        FT_RTF = 5,
+        /// <summary>
+        /// HTML file type
+        /// </summary>
+        FT_HTML = 6,
+        /// <summary>
+        /// PDF file type
+        /// </summary>
+        FT_PDF = 7,
+        /// <summary>
+        /// Image file type
+        /// </summary>
+        FT_IMAGE = 8,
+        /// <summary>
+        /// Annotation file type
+        /// </summary>
+        FT_Annotation = 255
+    }
 
 }

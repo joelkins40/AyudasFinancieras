@@ -193,6 +193,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entites\AxDocument.cs" />
+    <Compile Include="Models\Entites\AxDocumentCreationData.cs" />
     <Compile Include="Models\Entites\AxDocumentExportData.cs" />
     <Compile Include="Models\Entites\AxDocumentIndex.cs" />
     <Compile Include="Models\Entites\AxDocumentIndexQueryData.cs" />
@@ -202,11 +204,14 @@
     <Compile Include="Models\Entites\AxStreamResult.cs" />
     <Compile Include="Models\Entites\AxStringArray.cs" />
     <Compile Include="Models\Entites\DataBase.cs" />
+    <Compile Include="Models\Entites\Document.cs" />
     <Compile Include="Models\Entites\EAxType.cs" />
     <Compile Include="Models\Entites\FileInfoFtp.cs" />
     <Compile Include="Models\Entites\GlobalVariables.cs" />
     <Compile Include="Models\Entites\Serialization.cs" />
+    <Compile Include="Models\Entity\AceptacionBeca.cs" />
     <Compile Include="Models\Entity\Documento.cs" />
+    <Compile Include="Models\Entity\InfoAdmisionFinanciera.cs" />
     <Compile Include="Models\Entity\Periodo.cs" />
     <Compile Include="Models\Entity\Renovacion.cs" />
     <Compile Include="Models\Entity\DatosHistoricoBecas.cs" />
@@ -218,6 +223,7 @@
     <Compile Include="Models\Entity\Beca.cs" />
     <Compile Include="Models\Entity\Respuesta.cs" />
     <Compile Include="Models\Entity\Pregunta.cs" />
+    <Compile Include="Models\Services\AceptacionBecaService.cs" />
     <Compile Include="Models\Services\InformacionServices.cs" />
     <Compile Include="Models\Services\BecasServices.cs" />
     <Compile Include="Models\Services\PreguntasServices.cs" />
@@ -658,6 +664,7 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Content\Formato.pdf" />
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -758,6 +765,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\Form\Index.cshtml" />
+    <Content Include="Views\Becas\Step3.cshtml" />
+    <Content Include="Views\Home\NA.cshtml" />
     <None Include="Web References\AxServiceInterface\axservicesinterface.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -770,13 +779,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Index3.cshtml" />
+    <Content Include="Views\Home\AceptarBeca.cshtml" />
     <Content Include="Views\Home\DisplayDocument.cshtml" />
     <Content Include="Views\Form\Indexbk.cshtml" />
-    <Content Include="Views\Home\Index4.cshtml" />
     <Content Include="Views\Becas\Index.cshtml" />
     <None Include="Web References\AxServiceInterface\axservicesinterface.wsdl" />
     <Content Include="Web References\AxServiceInterface\Reference.map" />

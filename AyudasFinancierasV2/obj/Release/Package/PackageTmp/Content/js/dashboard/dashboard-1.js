@@ -1,13 +1,6 @@
 (function($) {
-    /* "use strict" */
-
-
  var dzChartlist = function(){
-	
 	var screenWidth = $(window).width();
-	
-	
-		
 	var activityBar = function(){
 		var activity = document.getElementById("activityLine");
 		var inputs = {
@@ -28,9 +21,7 @@
 					first: [20, 35, 70, 45, 40, 35, 30, 35, 10, 40, 60, 20]
 				}
 			];
-			
 			activity.height = 350;
-			
 			var config = {
 				type: "line",
 				data: {
@@ -63,7 +54,6 @@
 				options: {
 					responsive: true,
 					maintainAspectRatio: false,
-					
 					legend: {
 						display: false
 					},
@@ -84,7 +74,6 @@
 						}],
 						xAxes: [{
 							barPercentage: 0.3,
-							
 							gridLines: {
 								display: false,
 								zeroLineColor: "transparent"
@@ -114,10 +103,8 @@
 					}
 				}
 			};
-
 			var ctx = document.getElementById("activityLine").getContext("2d");
 			var myLine = new Chart(ctx, config);
-
 			var items = document.querySelectorAll("#user-activity .nav-tabs .nav-item");
 			items.forEach(function(item, index) {
 				item.addEventListener("click", function() {
@@ -127,10 +114,6 @@
 			});
 		}
 	}
-	
-	
-	
-	
 	var donutChart = function(){
 		var options = {
 			series: [25, 35, 45],
@@ -142,14 +125,12 @@
 				sparkline: {
 					enabled: true,
 				},
-				
 			},
 			plotOptions: {
 				pie: {
 					customScale: 1,
 					donut: {
 						size: '40%'
-						
 					}
 				}
 			},
@@ -173,12 +154,8 @@
         chart.render();
 	}
 	var ticketSoldChart = function(){
-			//#ticketSold
 		if(jQuery('#ticketSold').length > 0 ){
 		const ticketSold = document.getElementById("ticketSold").getContext('2d');
-		
-		// ticketSold.height = 100;
-
 		let barChartData = {
 			defaultFontFamily: 'Poppins',
 			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -219,9 +196,7 @@
 					'16'
 				]
 			}]
-
 		};
-
 		new Chart(ticketSold, {
 			type: 'bar',
 			data: barChartData,
@@ -279,21 +254,11 @@
 	}
 	var scheduleEvent = function(){
 		if(screenWidth < 1400 ){
-			/* jQuery('.schedule-event').on('click',function(){
-				jQuery('.event-sidebar').toggleClass('active');				
-			});
-			jQuery('.event-sidebar').removeClass('active');	  */				
 		}
 	}
-	
-	
-	/* Function ============ */
 		return {
 			init:function(){
 			},
-			
-			
-			
 			load:function(){
 				activityBar();
 				donutChart();
@@ -301,26 +266,17 @@
 				peityPrimary();
 				scheduleEvent();
 			},
-			
 			resize:function(){
 			}
 		}
-	
 	}();
-
 	jQuery(document).ready(function(){
 	});
-		
 	jQuery(window).on('load',function(){
 		setTimeout(function(){
 			dzChartlist.load();
 		}, 1000); 
-		
 	});
-
 	jQuery(window).on('resize',function(){
-		
-		
 	});     
-
 })(jQuery);
