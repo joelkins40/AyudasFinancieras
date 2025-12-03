@@ -939,7 +939,7 @@
             formData.append('matricula', '@Model.Matricula');
             formData.append('codigoBeca', '@ViewBag.CodigoBeca');
             formData.append('tipoDocumento', 'BECA_ACEPTADA');
-            formData.append('periodo', '@Model.Periodo');
+            formData.append('periodo', '@Model.Periodo.CODIGO');
 
             // Enviar PDF al servidor
             $.ajax({

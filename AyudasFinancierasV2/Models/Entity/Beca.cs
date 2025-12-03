@@ -18,5 +18,6 @@ namespace AyudasFinancierasV2.Models.Entity
         public string fecha { get; set; }
         public string pidm { get; set; }
         public string porcentaje { get; set; }
+        public Periodo periodo { get; set; }
     }
 }

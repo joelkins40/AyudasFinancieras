@@ -1050,7 +1050,7 @@ else
                 <div class="modal-header" style="background-color: #333333; color: white; border-radius: 25px 25px 0 0; border: none;">
                     <h5 class="modal-title" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: white;">
                         <i class="fa fa-graduation-cap" aria-hidden="true" style="color: #fff500; margin-right: 10px;"></i>
-                        Ofrecimientos de becas - @ViewBag.periodo.NOMBRE
+                        Ofrecimientos de becas
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
@@ -1070,7 +1070,9 @@ else
                                             <tr style="border-bottom: 2px solid #333;">
                                                 <th scope="col" style="color: #333; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px;">Tipo de beca</th>
                                                 <th scope="col" style="color: #333; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px;">%</th>
+                                                <th scope="col" style="color: #333; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px;">Periodo</th>
                                                 <th scope="col" style="color: #333; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px;">Fecha ofrecimiento</th>
+
                                                 <th scope="col" style="color: #333; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 16px;">Aceptación</th>
                                             </tr>
                                         </thead>
@@ -1308,6 +1310,7 @@ function getIconByDocumento(documento) {
                     var fila = '<tr style="border-bottom: 1px solid #dee2e6;">' +
                         '<td style="color: #333; font-family: \'Montserrat\', sans-serif; padding: 15px;">' + (beca.nombre || beca.descripcion || 'Beca Disponible') + '</td>' +
                         '<td style="color: #333; font-family: \'Montserrat\', sans-serif; padding: 15px;">' + (beca.porcentaje || '') + '</td>' +
+                        '<td style="color: #333; font-family: \'Montserrat\', sans-serif; padding: 15px;">' + (beca.periodo.NOMBRE || '') + '</td>' +
                         '<td style="color: #333; font-family: \'Montserrat\', sans-serif; padding: 15px;">' + (beca.fecha || '') + '</td>' +
                         '<td class="opciones-cell" style="color: #333; font-family: \'Montserrat\', sans-serif; padding: 15px;">' +
                             '<button type="button" class="btn btn-beca-action btn-aceptar" onclick="confirmarAceptarBeca(\'' + (beca.code || '') + '\', \'' + (beca.nombre || beca.descripcion || 'Beca Disponible') + '\', \'' + (beca.anio || '') + '\')" data-bs-toggle="tooltip" data-bs-placement="top" title="Aceptar">' +

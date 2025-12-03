@@ -180,6 +180,12 @@ namespace AyudasFinancierasV2.Models.Services
                                     nombre = (lector.IsDBNull(3) ? "" : lector.GetString(3)),
                                     porcentaje = (lector.IsDBNull(4) ? "" : lector.GetString(4)),
                                     fecha = (lector.IsDBNull(5) ? "" : lector.GetString(5)),
+                                    periodo = new Periodo()
+                                    {
+                                        CODIGO= (lector.IsDBNull(6) ? "" : lector.GetString(6)),
+                                        NOMBRE=(lector.IsDBNull(7) ? "" : lector.GetString(7)),
+                                    }
+                                
                                 });
                             }
                         }
@@ -723,7 +729,7 @@ namespace AyudasFinancierasV2.Models.Services
             newDocument.addField(5, false, "");
             newDocument.addField(6, false, "");
             newDocument.addField(7, false, "");
-            newDocument.addField(8, false, "");
+            newDocument.addField(8, false, documento.periodo);
             newDocument.addField(9, false, "");
             newDocument.addField(10, false, "");
 

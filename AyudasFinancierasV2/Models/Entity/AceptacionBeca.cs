@@ -12,7 +12,7 @@ namespace AyudasFinancierasV2.Models.Entity
         public string PorcentajeAyudaFinanciera { get; set; }
         public DateTime FechaOfrecimiento { get; set; }
         public string Programa { get; set; }
-        public string Periodo { get; set; }
+        public Periodo Periodo { get; set; }
         public string Campus { get; set; }
         public string Tiempo { get; set; }
         public string Talento { get; set; }

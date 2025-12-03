@@ -727,8 +727,7 @@
         }
         // Función para generar y guardar PDF del documento con paginación inteligente
         function generarYGuardarPDF() {
-            console.log('📄 Iniciando generación de PDF con paginación inteligente...');
-
+         
             // Ocultar temporalmente los botones de acción para que no aparezcan en el PDF
             $('.botones-accion').hide();
             
@@ -752,7 +751,6 @@
                 // Generar canvas desde el HTML (sin botones)
                 html2canvas(container, options)
                 .then(canvas => {
-                    console.log('✅ Canvas generado exitosamente para paginación');
 
                     // Mostrar mensaje de procesamiento ahora que ya se capturó el contenido
                     $('.botones-accion').show().html(`
@@ -783,15 +781,11 @@
                     const scale = contentWidth / (canvas.width / 2); // Dividir por 2 debido al scale del canvas
                     const scaledHeight = (canvas.height / 2) * scale; // Altura escalada
 
-                    console.log(`📊 Dimensiones PDF: ${pdfWidth}x${pdfHeight}mm, Contenido: ${contentWidth}x${contentHeight}mm`);
-                    console.log(`📊 Canvas: ${canvas.width}x${canvas.height}px, Escalado: ${contentWidth}x${scaledHeight.toFixed(2)}mm`);
-
+               
                     // Determinar si necesita múltiples páginas
                     if (scaledHeight <= contentHeight) {
-                        console.log('📄 Contenido cabe en una página con márgenes');
                         pdf.addImage(imgData, 'JPEG', margin, margin, contentWidth, scaledHeight);
                     } else {
-                        console.log('📄 Dividiendo en múltiples páginas con márgenes...');
                         
                         // Buscar el marcador invisible específico para el salto de página
                         const pageBreakMarker = container.querySelector('#page-break-marker');
@@ -804,22 +798,16 @@
                             const relativePosition = markerPosition - containerOffsetTop;
                             const markerPositionMM = (relativePosition / (canvas.height / 2)) * scaledHeight;
                             
-                            console.log(`🎯 Marcador de salto de página encontrado en posición: ${markerPositionMM.toFixed(2)}mm (offsetTop: ${markerPosition}px)`);
                             
                             // Usar la posición exacta del marcador con un pequeño margen de seguridad
                             if (markerPositionMM > 0 && markerPositionMM < contentHeight * 0.85) {
                                 optimalBreakPoint = markerPositionMM - 3; // Pequeño margen de seguridad
-                                console.log(`📍 Punto de corte exacto en: ${optimalBreakPoint.toFixed(2)}mm basado en marcador invisible`);
                             } else {
-                                console.log(`⚠️ Posición del marcador fuera del rango válido, usando 50% por defecto`);
                             }
                         } else {
                             console.log(`⚠️ Marcador de salto de página no encontrado, usando 50% por defecto`);
                         }
-                        
-                        console.log(`� División basada en marcador: ${optimalBreakPoint.toFixed(2)}mm de ${contentHeight.toFixed(2)}mm`);
-                        console.log(`� Salto de página preciso garantizado por marcador invisible`);
-
+                 
                         let currentY = 0;
                         let pageNumber = 0;
 
@@ -951,7 +939,7 @@
             formData.append('matricula', '@Model.Matricula');
             formData.append('codigoBeca', '@ViewBag.CodigoBeca');
             formData.append('tipoDocumento', 'BECA_ACEPTADA');
-            formData.append('periodo', '@Model.Periodo');
+            formData.append('periodo', '@Model.Periodo.CODIGO');
 
             // Enviar PDF al servidor
             $.ajax({

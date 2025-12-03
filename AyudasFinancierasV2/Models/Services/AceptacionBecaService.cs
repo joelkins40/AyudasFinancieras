@@ -108,59 +108,14 @@ namespace AyudasFinancierasV2.Models.Services
         }
         public InfoAdmisionFinanciera ObtenerInfoAdmisionFinanciera(int pidm, string codigoBeca, int codigoAno)
         {
-            try
-            {
+          
                 var infoAdmision = ObtenerInfoAdmisionFinancieraOracle(pidm, codigoBeca, codigoAno);
-                if (infoAdmision == null)
-                {
-                    System.Diagnostics.Debug.WriteLine("No se pudieron obtener datos de Oracle, usando datos dummy como fallback");
-                    infoAdmision = ObtenerDatosInfoAdmisionDummy(pidm, codigoBeca, codigoAno);
-                }
+               
                 return infoAdmision;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Error al obtener información de admisión financiera - PIDM: {pidm}, Código Beca: {codigoBeca}, Año: {codigoAno}. Error: {ex.Message}");
-                try
-                {
-                    return ObtenerDatosInfoAdmisionDummy(pidm, codigoBeca, codigoAno);
-                }
-                catch
-                {
-                    return null;
-                }
-            }
+            
+    
         }
-        private InfoAdmisionFinanciera ObtenerDatosInfoAdmisionDummy(int pidm, string codigoBeca, int codigoAno)
-        {
-            var info = new InfoAdmisionFinanciera
-            {
-                Nombre = "Enrique Cantú Guerrero",
-                Matricula = "000205524",
-                EscuelaProcedencia = "Preparatoria UDEM (UFU)",
-                NombreAyudaFinanciera = "Beca de Excelencia Académica",
-                Periodo = "202501", // Formato de período académico
-                PorcentajeBeca = "50%",
-                FechaOfrecimiento = new DateTime(2025, 3, 7),
-                Promedio = 95.5m,
-                PAA = 1300,
-                Programa = "IISE", // Ingeniería Industrial y de Sistemas
-                Campus = "UDEM",
-                Nivel = "BA" // Bachelor/Licenciatura
-            };
-            if (pidm != 950270)
-            {
-                info.Nombre = $"Estudiante {pidm}";
-                info.Matricula = $"00{pidm.ToString().Substring(Math.Max(0, pidm.ToString().Length - 6))}";
-                info.Programa = DeterminarPrograma(pidm);
-                info.Campus = DeterminarCampus(pidm);
-                info.Promedio = GenerarPromedioAleatorio(pidm);
-                info.PAA = GenerarPAAaleatorio(pidm);
-            }
-            info.NombreAyudaFinanciera = ObtenerNombreAyudaFinanciera(codigoBeca);
-            return info;
-        }
-        private string ObtenerNombreAyudaFinanciera(string codigoBeca)
+          private string ObtenerNombreAyudaFinanciera(string codigoBeca)
         {
             var ayudasFinancieras = new Dictionary<string, string>
             {
@@ -246,8 +201,11 @@ namespace AyudasFinancierasV2.Models.Services
                                         Matricula = reader["MATRICULA"]?.ToString(),
                                         EscuelaProcedencia = reader["ESCUELA_PROCEDENCIA"]?.ToString(),
                                         NombreAyudaFinanciera = reader["NOMBRE_AYUDA_FINANCIERA"]?.ToString(),
-                                        Periodo = reader["PERIODO"]?.ToString(),
-                                        PorcentajeBeca = reader["PORCENTAJE_BECA"]?.ToString(),
+                                        Periodo =new Periodo(){
+                                         CODIGO=   reader["PERIODO"]?.ToString(),
+                                         NOMBRE = reader["PERIODO_DESC"]?.ToString(),
+                                        },
+                                            PorcentajeBeca = reader["PORCENTAJE_BECA"]?.ToString(),
                                         FechaOfrecimiento = reader["FECHA_OFRECIMIENTO"] != DBNull.Value
                                             ? Convert.ToDateTime(reader["FECHA_OFRECIMIENTO"])
                                             : (DateTime?)null,
@@ -287,35 +245,9 @@ namespace AyudasFinancierasV2.Models.Services
         }
         public InfoAdmisionFinanciera ObtenerInfoAdmisionFinanciera(int pidm, string codigoBeca, int codigoAno, bool usarOracle)
         {
-            try
-            {
-                if (usarOracle)
-                {
-                    var infoAdmision = ObtenerInfoAdmisionFinancieraOracle(pidm, codigoBeca, codigoAno);
-                    if (infoAdmision == null)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Oracle falló, usando datos dummy como fallback");
-                        return ObtenerDatosInfoAdmisionDummy(pidm, codigoBeca, codigoAno);
-                    }
-                    return infoAdmision;
-                }
-                else
-                {
-                    return ObtenerDatosInfoAdmisionDummy(pidm, codigoBeca, codigoAno);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Error en ObtenerInfoAdmisionFinanciera - PIDM: {pidm}, Código Beca: {codigoBeca}, Año: {codigoAno}, Usar Oracle: {usarOracle}. Error: {ex.Message}");
-                try
-                {
-                    return ObtenerDatosInfoAdmisionDummy(pidm, codigoBeca, codigoAno);
-                }
-                catch
-                {
-                    return null;
-                }
-            }
+          
+             return  ObtenerInfoAdmisionFinancieraOracle(pidm, codigoBeca, codigoAno);
+            
         }
         public InfoAdmisionFinanciera ObtenerInfoAdmisionFinancieraPorMatricula(string matricula, string codigoBeca, int codigoAno, bool usarOracle)
         {

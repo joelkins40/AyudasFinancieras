@@ -62,6 +62,7 @@ namespace AyudasFinancierasV2.Controllers
             doc.nombre = documento;
              doc.pidm = pidm.ToString();
              doc.matricula = matricula;
+           
             return View(InformacionServices.DisplayFile(doc));
         }
         public ActionResult AceptarBeca(string codigo, int anio)
@@ -73,9 +74,9 @@ namespace AyudasFinancierasV2.Controllers
                     int pidm = InformacionServices.ObtenerPidm(User.Identity.Name);
                     var matricula = InformacionServices.ObtenerMatricula(pidm).Result;
                     var aceptacionBecaService = new AceptacionBecaService(); 
-                    ViewBag.PeriodoActivo = InformacionServices.getPeriodoActivo(matricula); 
-
                     InfoAdmisionFinanciera infoAdmision = aceptacionBecaService.ObtenerInfoAdmisionFinancieraOracle(pidm, codigo, anio);
+                    ViewBag.PeriodoActivo = infoAdmision.Periodo;
+
 
                     var datosAceptacion = aceptacionBecaService.ObtenerDatosAceptacionBeca(matricula, infoAdmision);
                     if (datosAceptacion == null)
